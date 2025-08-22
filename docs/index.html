@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conveyor Information – Conveyance</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=time.time()) }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="title">Conveyance</div>
+      <div class="subtitle">Conveyor information (live from MySQL)</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="card-head">
+        <div class="dot"></div>
+        <div class="card-title">Conveyor Information</div>
+      </div>
+
+      <div class="toolbar">
+        <div class="meta">Showing <strong>{{ row_count }}</strong> rows</div>
+        <label class="search">
+          <span>Filter:</span>
+          <input type="search" placeholder="Type to filter…" oninput="filterRows(this.value)">
+        </label>
+      </div>
+
+      <div style="overflow-x:auto">
+        <table id="equip-table">
+          <thead>
+            <tr>
+              {% for col in columns %}
+                <th data-key="{{ col.key }}" draggable="true" style="cursor:grab">
+                  {% if col.sortable %}
+                    <a draggable="false"
+                       href="/?sort={{ col.key }}&dir={{ 'desc' if (dir=='ASC' and sort==col.key) else 'asc' }}">
+                      {{ col.label }}
+                      {% if sort == col.key %}{{ '▲' if dir=='ASC' else '▼' }}{% endif %}
+                    </a>
+                  {% else %}
+                    {{ col.label }}
+                  {% endif %}
+                </th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in rows %}
+              <tr>
+                {% for col in columns %}
+                  <td>{{ row[col.key] if row[col.key] is not none else '' }}</td>
+                {% endfor %}
+              </tr>
+            {% else %}
+              <tr><td colspan="{{ columns|length }}">No rows found.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footer">Filter rows, click headers to sort, drag headers to reorder. Data: <code>conveyor_information</code>.</div>
+    </section>
+  </main>
+
+  <script>
+    // filter rows by text match
+    function filterRows(q){
+      q = (q || "").toLowerCase();
+      const rows = document.querySelectorAll('#equip-table tbody tr');
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+  </script>
+
+  <script>
+    // drag-to-reorder columns
+    (function(){
+      const table = document.getElementById('equip-table');
+      if (!table || !table.tHead || !table.tBodies.length) return;
+
+      const theadRow = table.tHead.rows[0];
+      const tbody = table.tBodies[0];
+      const STORAGE_KEY = 'conveyor_col_order_v1';
+
+      function moveColumn(fromIndex, toIndex){
+        if (fromIndex === toIndex) return;
+
+        const th = theadRow.cells[fromIndex];
+        if (toIndex < theadRow.cells.length) {
+          theadRow.insertBefore(th, theadRow.cells[toIndex]);
+        } else {
+          theadRow.appendChild(th);
+        }
+
+        for (const tr of tbody.rows) {
+          const td = tr.cells[fromIndex];
+          if (toIndex < tr.cells.length) {
+            tr.insertBefore(td, tr.cells[toIndex]);
+          } else {
+            tr.appendChild(td);
+          }
+        }
+      }
+
+      let dragStartIndex = null;
+
+      for (const th of theadRow.cells) {
+        th.addEventListener('dragstart', (e) => {
+          dragStartIndex = Array.prototype.indexOf.call(theadRow.cells, th);
+          e.dataTransfer.effectAllowed = 'move';
+          th.style.opacity = '0.5';
+        });
+        th.addEventListener('dragover', (e) => { e.preventDefault(); });
+        th.addEventListener('drop', (e) => {
+          e.preventDefault();
+          const dropIndex = Array.prototype.indexOf.call(theadRow.cells, th);
+          moveColumn(dragStartIndex, dropIndex);
+        });
+        th.addEventListener('dragend', () => { th.style.opacity = ''; saveOrder(); });
+      }
+
+      function currentOrderKeys(){
+        return Array.from(theadRow.cells).map(th => th.getAttribute('data-key'));
+      }
+      function saveOrder(){
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentOrderKeys()));
+      }
+      function applySavedOrder(){
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
+        const keys = JSON.parse(saved);
+        keys.forEach((key, targetIndex) => {
+          const currentIndex = Array.prototype.indexOf.call(
+            theadRow.cells,
+            theadRow.querySelector(`th[data-key="${key}"]`)
+          );
+          if (currentIndex !== -1 && currentIndex !== targetIndex) {
+            moveColumn(currentIndex, targetIndex);
+          }
+        });
+      }
+      applySavedOrder();
+    })();
+  </script>
+</body>
+</html>
