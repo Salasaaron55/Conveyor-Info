@@ -376,6 +376,22 @@
     "mcp": "MCP-62"
   },
   {
+    "section_alias": "450",
+    "conveyance_group": "UPack1",
+    "control_panel": "E5071",
+    "cp_location": "448.05",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "456",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5068",
+    "cp_location": "470.02",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
     "section_alias": "512.01",
     "conveyance_group": "UPack2",
     "control_panel": "E-5108",
