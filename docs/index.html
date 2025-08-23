@@ -30,6 +30,27 @@
     th[draggable="true"]{cursor:grab}
     .footer{padding:1rem 1.25rem;color:var(--muted);font-size:.9rem}
     .error{color:#b91c1c;background:#fee2e2;border:1px solid #fecaca;padding:.5rem .75rem;border-radius:.5rem;margin:1rem}
+    #backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  display: none; /* Hidden by default */
+}
+
+#backToTop:hover {
+  background-color: #1e40af; /* darker blue */
+}
+
   </style>
 </head>
 <body>
@@ -203,5 +224,22 @@
 
     loadData();
   </script>
+  <button id="backToTop" onclick="scrollToTop()">⬆ Back to Top</button>
+  <script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Show the button only when scrolling down
+window.onscroll = function() {
+  const btn = document.getElementById("backToTop");
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+</script>
+
 </body>
 </html>
