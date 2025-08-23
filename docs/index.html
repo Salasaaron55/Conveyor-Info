@@ -4,14 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Conveyor Information – Conveyance</title>
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=time.time()) }}">
+  <style>
+    :root { --bg:#f7f7fb; --card:#fff; --text:#222; --muted:#6b7280; --border:#e5e7eb; --accent:#2563eb; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text)}
+    header{padding:2.5rem 1.25rem 1rem}
+    .container{max-width:1000px;margin:0 auto}
+    .title{font-weight:800;font-size:clamp(1.5rem,2.4vw,2.25rem);letter-spacing:-.02em}
+    .subtitle{color:var(--muted);margin-top:.25rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.06);overflow:hidden}
+    .card-head{display:flex;gap:.75rem;align-items:center;padding:1rem 1.25rem;border-bottom:1px solid var(--border)}
+    .dot{width:.65rem;height:.65rem;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+    .card-title{font-weight:700}
+    .toolbar{padding:.75rem 1.25rem;display:flex;gap:.75rem;justify-content:space-between;background:linear-gradient(180deg, rgba(37,99,235,.05), rgba(37,99,235,0))}
+    .meta{font-size:.9rem;color:var(--muted)}
+    .search{display:flex;align-items:center;gap:.5rem}
+    .search input{border:1px solid var(--border);padding:.5rem .75rem;border-radius:10px;min-width:220px}
+    table{border-collapse:collapse;width:100%;font-size:.975rem}
+    thead th{text-align:left;padding:.875rem 1rem;background:#f9fafb;color:#374151;font-weight:700;position:sticky;top:0}
+    tbody td{padding:.75rem 1rem}
+    tbody tr:hover{background:#fafafa}
+    /* grid lines */
+    table, th, td { border: 1px solid var(--border); }
+    th a{ color: inherit; text-decoration: none; }
+    th[draggable="true"]{cursor:grab}
+    .footer{padding:1rem 1.25rem;color:var(--muted);font-size:.9rem}
+    .error{color:#b91c1c;background:#fee2e2;border:1px solid #fecaca;padding:.5rem .75rem;border-radius:.5rem;margin:1rem}
+  </style>
 </head>
 <body>
   <header>
     <div class="container">
       <div class="title">Conveyance</div>
-      <div class="subtitle">Conveyor information (live from MySQL)</div>
+      <div class="subtitle">Conveyor information (static from JSON)</div>
     </div>
   </header>
 
@@ -23,131 +48,160 @@
       </div>
 
       <div class="toolbar">
-        <div class="meta">Showing <strong>{{ row_count }}</strong> rows</div>
+        <div class="meta">Showing <strong id="row-count">0</strong> rows</div>
         <label class="search">
           <span>Filter:</span>
-          <input type="search" placeholder="Type to filter…" oninput="filterRows(this.value)">
+          <input id="filter-box" type="search" placeholder="Type to filter…">
         </label>
       </div>
+
+      <div id="err" class="error" style="display:none"></div>
 
       <div style="overflow-x:auto">
         <table id="equip-table">
           <thead>
-            <tr>
-              {% for col in columns %}
-                <th data-key="{{ col.key }}" draggable="true" style="cursor:grab">
-                  {% if col.sortable %}
-                    <a draggable="false"
-                       href="/?sort={{ col.key }}&dir={{ 'desc' if (dir=='ASC' and sort==col.key) else 'asc' }}">
-                      {{ col.label }}
-                      {% if sort == col.key %}{{ '▲' if dir=='ASC' else '▼' }}{% endif %}
-                    </a>
-                  {% else %}
-                    {{ col.label }}
-                  {% endif %}
-                </th>
-              {% endfor %}
+            <tr id="header-row">
+              <th data-key="section_alias"    draggable="true"><a href="#" onclick="sortBy('section_alias');return false;">Section Alias</a></th>
+              <th data-key="conveyance_group" draggable="true"><a href="#" onclick="sortBy('conveyance_group');return false;">Conveyance Group</a></th>
+              <th data-key="control_panel"    draggable="true"><a href="#" onclick="sortBy('control_panel');return false;">Control Panel</a></th>
+              <th data-key="cp_location"      draggable="true"><a href="#" onclick="sortBy('cp_location');return false;">CP Location</a></th>
+              <th data-key="incident_energy"  draggable="true"><a href="#" onclick="sortBy('incident_energy');return false;">Incident Energy</a></th>
+              <th data-key="mcp"              draggable="true"><a href="#" onclick="sortBy('mcp');return false;">MCP</a></th>
             </tr>
           </thead>
-          <tbody>
-            {% for row in rows %}
-              <tr>
-                {% for col in columns %}
-                  <td>{{ row[col.key] if row[col.key] is not none else '' }}</td>
-                {% endfor %}
-              </tr>
-            {% else %}
-              <tr><td colspan="{{ columns|length }}">No rows found.</td></tr>
-            {% endfor %}
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
 
-      <div class="footer">Filter rows, click headers to sort, drag headers to reorder. Data: <code>conveyor_information</code>.</div>
+      <div class="footer">Hosted on GitHub Pages • Data from <code>docs/data/conveyors.json</code></div>
     </section>
   </main>
 
   <script>
-    // filter rows by text match
-    function filterRows(q){
-      q = (q || "").toLowerCase();
-      const rows = document.querySelectorAll('#equip-table tbody tr');
-      rows.forEach(r => {
-        const text = r.innerText.toLowerCase();
-        r.style.display = text.includes(q) ? '' : 'none';
-      });
-    }
-  </script>
+    // ---- Data + render ----
+    let DATA = [];
+    let currentSortKey = 'section_alias';
+    let currentSortDir = 'asc';
 
-  <script>
-    // drag-to-reorder columns
+    async function loadData(){
+      try{
+        const res = await fetch('./data/conveyors.json', { cache: 'no-store' });
+        if(!res.ok) throw new Error('Failed to load data ('+res.status+')');
+        DATA = await res.json();
+        render();
+      }catch(err){
+        const el = document.getElementById('err');
+        el.textContent = 'Error: '+ err.message + '. Make sure docs/data/conveyors.json exists in the repository.';
+        el.style.display = '';
+      }
+    }
+
+    function render(){
+      const tbody = document.querySelector('#equip-table tbody');
+      const q = (document.getElementById('filter-box').value || '').toLowerCase();
+
+      // filter
+      const filtered = DATA.filter(r => JSON.stringify(r).toLowerCase().includes(q));
+
+      // sort
+      const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+      filtered.sort((a,b) => {
+        const A = (a[currentSortKey] ?? '').toString();
+        const B = (b[currentSortKey] ?? '').toString();
+        const cmp = collator.compare(A, B);
+        return currentSortDir === 'asc' ? cmp : -cmp;
+      });
+
+      // rows
+      tbody.innerHTML = '';
+      for(const r of filtered){
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.section_alias ?? ''}</td>
+          <td>${r.conveyance_group ?? ''}</td>
+          <td>${r.control_panel ?? ''}</td>
+          <td>${r.cp_location ?? ''}</td>
+          <td>${r.incident_energy ?? ''}</td>
+          <td>${r.mcp ?? ''}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+      document.getElementById('row-count').textContent = filtered.length;
+    }
+
+    // filter input
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('filter-box').addEventListener('input', render);
+    });
+
+    function sortBy(key){
+      if(currentSortKey === key){
+        currentSortDir = (currentSortDir === 'asc') ? 'desc' : 'asc';
+      }else{
+        currentSortKey = key;
+        currentSortDir = 'asc';
+      }
+      render();
+    }
+
+    // ---- Drag-to-reorder columns (persist in localStorage) ----
     (function(){
       const table = document.getElementById('equip-table');
-      if (!table || !table.tHead || !table.tBodies.length) return;
-
-      const theadRow = table.tHead.rows[0];
-      const tbody = table.tBodies[0];
-      const STORAGE_KEY = 'conveyor_col_order_v1';
+      const theadRow = document.getElementById('header-row');
+      const STORAGE_KEY = 'conveyor_col_order_pages_v1';
 
       function moveColumn(fromIndex, toIndex){
-        if (fromIndex === toIndex) return;
-
+        if(fromIndex === toIndex) return;
         const th = theadRow.cells[fromIndex];
-        if (toIndex < theadRow.cells.length) {
+        if(toIndex < theadRow.cells.length){
           theadRow.insertBefore(th, theadRow.cells[toIndex]);
-        } else {
+        }else{
           theadRow.appendChild(th);
         }
-
-        for (const tr of tbody.rows) {
+        for(const tr of table.tBodies[0].rows){
           const td = tr.cells[fromIndex];
-          if (toIndex < tr.cells.length) {
+          if(toIndex < tr.cells.length){
             tr.insertBefore(td, tr.cells[toIndex]);
-          } else {
+          }else{
             tr.appendChild(td);
           }
         }
       }
 
       let dragStartIndex = null;
-
-      for (const th of theadRow.cells) {
+      for(const th of theadRow.cells){
         th.addEventListener('dragstart', (e) => {
           dragStartIndex = Array.prototype.indexOf.call(theadRow.cells, th);
-          e.dataTransfer.effectAllowed = 'move';
           th.style.opacity = '0.5';
         });
-        th.addEventListener('dragover', (e) => { e.preventDefault(); });
+        th.addEventListener('dragover', (e) => e.preventDefault());
         th.addEventListener('drop', (e) => {
           e.preventDefault();
           const dropIndex = Array.prototype.indexOf.call(theadRow.cells, th);
           moveColumn(dragStartIndex, dropIndex);
+          saveOrder();
         });
-        th.addEventListener('dragend', () => { th.style.opacity = ''; saveOrder(); });
+        th.addEventListener('dragend', () => { th.style.opacity = ''; });
       }
 
-      function currentOrderKeys(){
-        return Array.from(theadRow.cells).map(th => th.getAttribute('data-key'));
-      }
-      function saveOrder(){
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentOrderKeys()));
-      }
-      function applySavedOrder(){
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (!saved) return;
+      function currentOrderKeys(){ return Array.from(theadRow.cells).map(th => th.getAttribute('data-key')); }
+      function saveOrder(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(currentOrderKeys())); }
+      (function applySavedOrder(){
+        const saved = localStorage.getItem(STORAGE_KEY); if(!saved) return;
         const keys = JSON.parse(saved);
         keys.forEach((key, targetIndex) => {
           const currentIndex = Array.prototype.indexOf.call(
             theadRow.cells,
             theadRow.querySelector(`th[data-key="${key}"]`)
           );
-          if (currentIndex !== -1 && currentIndex !== targetIndex) {
+          if(currentIndex !== -1 && currentIndex !== targetIndex){
             moveColumn(currentIndex, targetIndex);
           }
         });
-      }
-      applySavedOrder();
+      })();
     })();
+
+    loadData();
   </script>
 </body>
 </html>
