@@ -720,6 +720,22 @@
     "mcp": "MCP-62"
   },
   {
+    "section_alias": "452",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5059",
+    "cp_location": "452",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "453",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5060",
+    "cp_location": "452",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
     "section_alias": "454",
     "conveyance_group": "UPack1",
     "control_panel": "E-5063",
