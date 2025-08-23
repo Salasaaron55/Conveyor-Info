@@ -72,6 +72,38 @@
     "mcp": "MCP-71"
   },
   {
+    "section_alias": "402A",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5082",
+    "cp_location": "402A",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "402B",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5083",
+    "cp_location": "402B",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "402C",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5084",
+    "cp_location": "402C",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "402D",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5085",
+    "cp_location": "402D",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
     "section_alias": "408A.01",
     "conveyance_group": "UPack1",
     "control_panel": "E-5081",
@@ -544,10 +576,58 @@
     "mcp": "MCP-62"
   },
   {
+    "section_alias": "454",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5063",
+    "cp_location": "454",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
     "section_alias": "456",
     "conveyance_group": "UPack1",
     "control_panel": "E-5068",
     "cp_location": "470.02",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "460A",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5061",
+    "cp_location": "460A",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "460B",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5062",
+    "cp_location": "460B",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "460C",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5064",
+    "cp_location": "460C",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "460D",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5065",
+    "cp_location": "460D",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-62"
+  },
+  {
+    "section_alias": "460E",
+    "conveyance_group": "UPack1",
+    "control_panel": "E-5066",
+    "cp_location": "460E",
     "incident_energy": "0.11 cal/cm²",
     "mcp": "MCP-62"
   },
