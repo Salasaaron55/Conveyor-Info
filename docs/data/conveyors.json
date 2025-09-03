@@ -1,5 +1,109 @@
 [
   {
+    "section_alias": "1000",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5067",
+    "cp_location": "1000",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.01",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.02",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.03",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.04",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.05",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.06",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.07",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.08",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.09",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.10",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.11",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
+    "section_alias": "1012.12",
+    "conveyance_group": "Tail Sorter",
+    "control_panel": "E-5148",
+    "cp_location": "1012.07",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-71"
+  },
+  {
     "section_alias": "1012.13",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5147",
