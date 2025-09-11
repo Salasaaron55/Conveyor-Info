@@ -1248,14 +1248,6 @@
     "mcp": "MCP-62"
   },
   {
-    "section_alias": "408A",
-    "conveyance_group": "UPack1",
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": "MCP-62"
-  },
-  {
     "section_alias": "408A.01",
     "conveyance_group": "UPack1",
     "control_panel": "E-5081",
@@ -1288,14 +1280,6 @@
     "mcp": "MCP-62"
   },
   {
-    "section_alias": "408B",
-    "conveyance_group": "UPack1",
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": "MCP-62"
-  },
-  {
     "section_alias": "408B.01",
     "conveyance_group": "UPack1",
     "control_panel": "E-5079",
@@ -1318,14 +1302,6 @@
     "cp_location": "412.13",
     "incident_energy": "0.11 cal/cm²",
     "mcp": "MCP62"
-  },
-  {
-    "section_alias": "408C",
-    "conveyance_group": "UPack1",
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": "MCP-62"
   },
   {
     "section_alias": "408C.01",
@@ -2112,14 +2088,6 @@
     "mcp": "MCP-63"
   },
   {
-    "section_alias": "508A",
-    "conveyance_group": "UPack2",
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": "MCP-63"
-  },
-  {
     "section_alias": "508A.01",
     "conveyance_group": "UPack2",
     "control_panel": "E-5108",
@@ -2152,14 +2120,6 @@
     "mcp": "MCP-63"
   },
   {
-    "section_alias": "508B",
-    "conveyance_group": "UPack2",
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": "MCP-63"
-  },
-  {
     "section_alias": "508B.01",
     "conveyance_group": "UPack2",
     "control_panel": "E-5106",
@@ -2181,14 +2141,6 @@
     "control_panel": "E-5106",
     "cp_location": "512.14",
     "incident_energy": "0.13 cal/cm²",
-    "mcp": "MCP-63"
-  },
-  {
-    "section_alias": "508C",
-    "conveyance_group": "UPack2",
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
     "mcp": "MCP-63"
   },
   {
@@ -2685,14 +2637,6 @@
     "control_panel": "E-5105",
     "cp_location": "516.07",
     "incident_energy": "0.13 cal/cm²",
-    "mcp": "MCP-63"
-  },
-  {
-    "section_alias": "516.16",
-    "conveyance_group": "UPack2",
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
     "mcp": "MCP-63"
   },
   {
