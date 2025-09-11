@@ -3041,27 +3041,27 @@
   },
   {
     "section_alias": "608A.01",
-    "conveyance_group": null,
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": null
+    "conveyance_group": "UPack3",
+    "control_panel": "E-5127",
+    "cp_location": "648.11",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-64"
   },
   {
     "section_alias": "608B.01",
-    "conveyance_group": null,
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": null
+    "conveyance_group": "UPack3",
+    "control_panel": "E-5128",
+    "cp_location": "648.20",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-64"
   },
   {
     "section_alias": "608C.01",
-    "conveyance_group": null,
-    "control_panel": null,
-    "cp_location": null,
-    "incident_energy": "Unknown",
-    "mcp": null
+    "conveyance_group": "UPack3",
+    "control_panel": "E-5128",
+    "cp_location": "648.20",
+    "incident_energy": "0.11 cal/cm²",
+    "mcp": "MCP-64"
   },
   {
     "section_alias": "648.01",
