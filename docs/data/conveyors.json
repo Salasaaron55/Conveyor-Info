@@ -347,7 +347,7 @@
     "section_alias": "1024.11",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -355,7 +355,7 @@
     "section_alias": "1024.12",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -363,7 +363,7 @@
     "section_alias": "1024.13",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -371,7 +371,7 @@
     "section_alias": "1024.14",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -379,7 +379,7 @@
     "section_alias": "1024.15",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -387,7 +387,7 @@
     "section_alias": "1024.16",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -395,7 +395,7 @@
     "section_alias": "1024.17",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -403,7 +403,7 @@
     "section_alias": "1024.18",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -411,7 +411,7 @@
     "section_alias": "1024.19",
     "conveyance_group": "Tail Sorter",
     "control_panel": "E-5145",
-    "cp_location": "Unknown",
+    "cp_location": "1024.13",
     "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-71"
   },
@@ -1140,6 +1140,78 @@
     "conveyance_group": "Receiving",
     "control_panel": "E-5043",
     "cp_location": "226",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "300",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5042",
+    "cp_location": "300",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "302",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5039",
+    "cp_location": "302",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "304",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5036",
+    "cp_location": "304",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "305",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5032",
+    "cp_location": "305",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "306",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5031",
+    "cp_location": "306",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "308",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5050",
+    "cp_location": "308",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "310",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5051",
+    "cp_location": "310",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "312",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5052",
+    "cp_location": "312",
+    "incident_energy": "0.15 cal/cm²",
+    "mcp": "MCP-01"
+  },
+  {
+    "section_alias": "314",
+    "conveyance_group": "Trash Line",
+    "control_panel": "E-5053",
+    "cp_location": "314",
     "incident_energy": "0.15 cal/cm²",
     "mcp": "MCP-01"
   },
@@ -2048,6 +2120,38 @@
     "mcp": "MCP-63"
   },
   {
+    "section_alias": "508A.01",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5108",
+    "cp_location": "512.08",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508A.02",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5108",
+    "cp_location": "512.08",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508A.03",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5108",
+    "cp_location": "512.08",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508A.04",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5108",
+    "cp_location": "512.08",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
     "section_alias": "508B",
     "conveyance_group": "UPack2",
     "control_panel": null,
@@ -2056,11 +2160,59 @@
     "mcp": "MCP-63"
   },
   {
+    "section_alias": "508B.01",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5106",
+    "cp_location": "512.14",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508B.02",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5106",
+    "cp_location": "512.14",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508B.03",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5106",
+    "cp_location": "512.14",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
     "section_alias": "508C",
     "conveyance_group": "UPack2",
     "control_panel": null,
     "cp_location": null,
     "incident_energy": "Unknown",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508C.01",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5104",
+    "cp_location": "514.04",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508C.02",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5104",
+    "cp_location": "514.04",
+    "incident_energy": "0.13 cal/cm²",
+    "mcp": "MCP-63"
+  },
+  {
+    "section_alias": "508C.03",
+    "conveyance_group": "UPack2",
+    "control_panel": "E-5104",
+    "cp_location": "514.04",
+    "incident_energy": "0.13 cal/cm²",
     "mcp": "MCP-63"
   },
   {
@@ -2332,7 +2484,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2340,7 +2492,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2348,7 +2500,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2356,7 +2508,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2364,7 +2516,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2372,7 +2524,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2380,7 +2532,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2388,7 +2540,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2396,7 +2548,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2404,7 +2556,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
@@ -2412,7 +2564,7 @@
     "conveyance_group": "UPack2",
     "control_panel": "E-5021",
     "cp_location": "515.04",
-    "incident_energy": "Unknown",
+    "incident_energy": "0.02 cal/cm²",
     "mcp": "CC-103-2"
   },
   {
