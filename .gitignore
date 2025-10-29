@@ -1,0 +1,32 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+
+# Ignore SQLite databases (if you ever use them locally)
+*.sqlite3
+*.db
+
+# Ignore pipenv/poetry lock files if not needed
+Pipfile.lock
+poetry.lock

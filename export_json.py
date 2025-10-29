@@ -16,7 +16,7 @@ cur.execute("""
 rows = cur.fetchall()
 cur.close(); conn.close()
 
-os.makedirs("docs/data", exist_ok=True)   # Pages often uses /docs
+os.makedirs("docs/data", exist_ok=True)   # GitHub Pages uses /docs
 with open("docs/data/conveyors.json", "w", encoding="utf-8") as f:
     json.dump(rows, f, ensure_ascii=False, indent=2)
-print("Wrote docs/data/conveyors.json")
+print("✅ Wrote docs/data/conveyors.json")
