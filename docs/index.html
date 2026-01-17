@@ -300,9 +300,16 @@
               <input
                 id="filter-box"
                 type="search"
-                placeholder="Type to filter…"
+                placeholder='Type to filter ie "470.12" or  "UPack1"'
               />
             </label>
+
+            <a
+              class="btn"
+              href="https://github.com/Salasaaron55/Conveyor-Info/raw/refs/heads/main/Downloads/SAT4%20Conveyor%20Information%20Map%201.10.xlsm"
+            >
+              ⬇ Download Conveyor Map (Excel)
+            </a>
 
             <div class="controls">
               <button id="columns-btn" class="btn" type="button">
@@ -569,7 +576,10 @@
         }
       }
       function saveHiddenKeys(hiddenSet) {
-        localStorage.setItem(STORAGE_COL_VIS, JSON.stringify(Array.from(hiddenSet)));
+        localStorage.setItem(
+          STORAGE_COL_VIS,
+          JSON.stringify(Array.from(hiddenSet)),
+        );
       }
 
       function applyHiddenKeys(hiddenSet) {
@@ -827,7 +837,10 @@
         }
 
         function saveOrder() {
-          localStorage.setItem(STORAGE_COL_ORDER, JSON.stringify(currentOrderKeys()));
+          localStorage.setItem(
+            STORAGE_COL_ORDER,
+            JSON.stringify(currentOrderKeys()),
+          );
         }
         (function applySavedOrder() {
           const saved = localStorage.getItem(STORAGE_COL_ORDER);
