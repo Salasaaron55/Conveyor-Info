@@ -27,26 +27,3 @@ table, th, td {
 th, td {
   padding: .75rem 1rem;
 }
-
-/* --- Column toggles + table viewport (match index.html) --- */
-.toolbar{flex-wrap:wrap;align-items:center}
-.toolbar-right{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
-.controls{display:flex;align-items:center;gap:.75rem}
-.btn{border:1px solid var(--border);background:#fff;color:var(--text);padding:.45rem .7rem;border-radius:10px;cursor:pointer;font-weight:600}
-.btn:hover{border-color:#cbd5e1}
-.btn-ghost{background:transparent}
-.view{display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.9rem}
-.view select{border:1px solid var(--border);padding:.45rem .6rem;border-radius:10px;background:#fff}
-.columns-panel{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#fbfbfd;padding:.85rem 1.25rem}
-.columns-panel-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.75rem}
-.columns-title{font-weight:800}
-.columns-actions{display:flex;gap:.5rem;flex-wrap:wrap}
-.columns-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem 1rem}
-.col-item{display:flex;align-items:center;gap:.55rem;color:#111827;font-size:.95rem;user-select:none}
-.col-item input{width:16px;height:16px}
-.hscroll{height:14px;overflow-x:auto;overflow-y:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#fff}
-.hscroll-inner{height:1px}
-.table-viewport{overflow-x:auto}
-.table-viewport.fit-screen{max-height:calc(100vh - 320px);overflow:auto}
-.table-viewport.fit-screen thead th{top:0;z-index:2}
-.is-hidden{display:none!important}
