@@ -26,7 +26,7 @@ header {
   padding: 2.5rem 1.25rem 1rem;
 }
 .container {
-  max-width: 900px;
+  max-width: min(1600px, 95vw);
   margin: 0 auto;
 }
 .title {
@@ -65,9 +65,7 @@ header {
 .toolbar {
   padding: 0.75rem 1.25rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.75rem;
-  align-items: center;
+  gap: 0.75rem;
   justify-content: space-between;
   background: linear-gradient(
     180deg,
@@ -101,47 +99,63 @@ thead th {
   background: #f9fafb;
   color: #374151;
   font-weight: 700;
-  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
 }
 tbody td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border);
 }
 tbody tr:hover {
   background: #fafafa;
 }
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.55rem;
-  background: #eef2ff;
-  border: 1px solid #e0e7ff;
-  color: #4338ca;
-  font-weight: 600;
-  border-radius: 999px;
-  font-size: 0.825rem;
+/* grid lines */
+table,
+th,
+td {
+  border: 1px solid var(--border);
+}
+th a {
+  color: inherit;
+  text-decoration: none;
+}
+th[draggable="true"] {
+  cursor: grab;
 }
 .footer {
   padding: 1rem 1.25rem;
   color: var(--muted);
   font-size: 0.9rem;
 }
-/* Add grid lines between rows and columns */
-table,
-th,
-td {
-  border: 1px solid var(--border);
+.error {
+  color: #b91c1c;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
 }
 
-th,
-td {
-  padding: 0.75rem 1rem;
+#backToTop:hover {
+  background-color: #1e40af; /* darker blue */
 }
 
-/* --- Column toggles + table viewport (match index.html) --- */
+/* --- Column toggles + table viewport --- */
 .toolbar {
   flex-wrap: wrap;
   align-items: center;
@@ -159,7 +173,7 @@ td {
 }
 .btn {
   border: 1px solid var(--border);
-  background: #fff;
+  background: white;
   color: var(--text);
   padding: 0.45rem 0.7rem;
   border-radius: 10px;
@@ -183,8 +197,9 @@ td {
   border: 1px solid var(--border);
   padding: 0.45rem 0.6rem;
   border-radius: 10px;
-  background: #fff;
+  background: white;
 }
+
 .columns-panel {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -223,6 +238,7 @@ td {
   width: 16px;
   height: 16px;
 }
+
 .hscroll {
   height: 14px;
   overflow-x: auto;
@@ -234,6 +250,7 @@ td {
 .hscroll-inner {
   height: 1px;
 }
+
 .table-viewport {
   overflow-x: auto;
 }
@@ -241,35 +258,12 @@ td {
   max-height: calc(100vh - 320px);
   overflow: auto;
 }
+/* keep header sticky inside scroll container */
 .table-viewport.fit-screen thead th {
   top: 0;
   z-index: 2;
 }
+
 .is-hidden {
   display: none !important;
-}
-
-.chipbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0.75rem 0;
-  align-items: center;
-}
-.chip {
-  padding: 0.35rem 0.6rem;
-  border: 1px solid #cfcfcf;
-  border-radius: 999px;
-  background: #fff;
-  cursor: pointer;
-  user-select: none;
-  font-size: 0.9rem;
-}
-.chip.active {
-  background: #111;
-  color: #fff;
-  border-color: #111;
-}
-.chip.muted {
-  opacity: 0.8;
 }
