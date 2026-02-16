@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SAT4 Conveyor Map</title>
+    <link rel="stylesheet" href="./static/conveyor-map.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- LEFT: EXCEL-LIKE INFO PANEL -->
+      <aside class="sidebar" aria-label="Conveyor information">
+        <div class="sidebarTop">
+          <div class="brand">
+            <div class="brandTitle">Conveyor Information Map</div>
+            <div class="brandSub">
+              Click a conveyor on the map (or select one) to view details.
+            </div>
+          </div>
+
+          <div class="picker">
+            <label class="pickerLabel" for="search">Search (type)</label>
+            <input
+              id="search"
+              class="pickerInput"
+              type="search"
+              placeholder="Type: 1052, 648, UPack..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <div id="matchHint" class="matchHint" aria-live="polite"></div>
+          </div>
+
+          <div class="copyRow">
+            <button
+              id="copyAllBtn"
+              class="btn"
+              type="button"
+              title="Copy all shown fields"
+            >
+              Copy all
+            </button>
+            <button
+              id="centerBtn"
+              class="btn"
+              type="button"
+              title="Center map on selected conveyor"
+            >
+              Center on map
+            </button>
+          </div>
+        </div>
+
+        <section class="panel" aria-label="Quick Reference">
+          <div class="panelTitle">Quick Reference</div>
+          <table class="infoTable" role="table">
+            <tbody>
+              <tr>
+                <th scope="row">Shortened Alias</th>
+                <td
+                  data-field="shortened_alias"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Control Panel</th>
+                <td
+                  data-field="control_panel"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Incident Energy</th>
+                <td
+                  data-field="incident_energy"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">CP Location</th>
+                <td
+                  data-field="cp_location"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">MCP</th>
+                <td
+                  data-field="mcp"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Conveyance Group</th>
+                <td
+                  data-field="conveyance_group"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="panel" aria-label="APM Reference">
+          <div class="panelTitle">APM Reference</div>
+          <table class="infoTable" role="table">
+            <tbody>
+              <tr>
+                <th scope="row">Equipment ID</th>
+                <td
+                  data-field="position"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Description</th>
+                <td
+                  data-field="description"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Manufacturer</th>
+                <td
+                  data-field="manufacturer"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Model</th>
+                <td
+                  data-field="model"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Class</th>
+                <td
+                  data-field="class"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Amazon Alias</th>
+                <td
+                  data-field="amazon_alias"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Amazon Alias Description</th>
+                <td
+                  data-field="amazon_alias_description"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">Equipment Configuration</th>
+                <td
+                  data-field="equipment_configuration"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+              <tr>
+                <th scope="row">NA EAM Object Code</th>
+                <td
+                  data-field="na_eam_object_code"
+                  class="copyCell"
+                  title="Click to copy"
+                ></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <div class="footerNote">
+          Tip: Click any value cell to copy it. You can also press
+          <span class="kbd">Ctrl</span>+<span class="kbd">F</span> to search
+          within this page.
+        </div>
+      </aside>
+
+      <!-- RIGHT: MAP -->
+      <main class="mapWrap" aria-label="Conveyor map">
+        <div class="mapTop">
+          <div class="mapMeta"><span id="count">0</span> conveyors shown</div>
+          <div class="zoomRow" aria-label="Zoom controls">
+            <button id="zoomOutBtn" class="btn" type="button">−</button>
+            <button id="zoomResetBtn" class="btn" type="button">100%</button>
+            <button id="zoomInBtn" class="btn" type="button">+</button>
+          </div>
+        </div>
+
+        <div id="viewport" class="viewport" tabindex="0">
+          <div id="map" class="map" aria-label="Map canvas">
+            <!-- nodes injected by JS -->
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <script src="./static/conveyor-map.js" defer></script>
+  </body>
+</html>
