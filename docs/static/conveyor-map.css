@@ -238,7 +238,7 @@ body {
 }
 
 .map {
-  width: 3600px;
+  width: 8600px;
   height: 1200px;
   position: relative;
   transform-origin: top left;

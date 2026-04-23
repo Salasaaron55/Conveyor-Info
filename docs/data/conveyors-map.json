@@ -4479,10 +4479,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT400502A",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3600,
+    "y": 625,
     "w": 60,
-    "h": 25
+    "h": 175
   },
   {
     "section_alias": "502B",
@@ -4502,10 +4502,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT400502B",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3240,
+    "y": 650,
     "w": 60,
-    "h": 25
+    "h": 150
   },
   {
     "section_alias": "502C",
@@ -4525,10 +4525,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT400502C",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2880,
+    "y": 650,
     "w": 60,
-    "h": 25
+    "h": 150
   },
   {
     "section_alias": "502D",
@@ -4548,10 +4548,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT400502D",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2580,
+    "y": 650,
     "w": 60,
-    "h": 25
+    "h": 175
   },
   {
     "section_alias": "508A.01",
@@ -4571,8 +4571,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT400508A.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3240,
+    "y": 625,
     "w": 60,
     "h": 25
   },
@@ -4640,8 +4640,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT400508A.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3240,
+    "y": 600,
     "w": 60,
     "h": 25
   },
@@ -4709,8 +4709,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT400508A.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3240,
+    "y": 575,
     "w": 60,
     "h": 25
   },
@@ -4801,8 +4801,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000512.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3600,
+    "y": 600,
     "w": 60,
     "h": 25
   },
@@ -4824,8 +4824,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3600,
+    "y": 575,
     "w": 60,
     "h": 25
   },
@@ -4847,8 +4847,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3600,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -4870,8 +4870,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3540,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -4893,8 +4893,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3480,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -4916,8 +4916,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3420,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -4939,8 +4939,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3360,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -4962,8 +4962,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3300,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -4985,8 +4985,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.09",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3240,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5008,8 +5008,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.10",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3180,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5031,8 +5031,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.11",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3120,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5054,8 +5054,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.12",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3060,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5077,8 +5077,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.13",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3000,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5100,8 +5100,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.14",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2940,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5123,8 +5123,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.15",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2880,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5146,8 +5146,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.16",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2820,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5169,8 +5169,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.17",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2760,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5192,8 +5192,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.18",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2700,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5215,8 +5215,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.19",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2640,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5238,8 +5238,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000512.20",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2580,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5261,8 +5261,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2520,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5284,8 +5284,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000514.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2460,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5307,8 +5307,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5330,8 +5330,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 575,
     "w": 60,
     "h": 25
   },
@@ -5353,8 +5353,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 600,
     "w": 60,
     "h": 25
   },
@@ -5376,8 +5376,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 625,
     "w": 60,
     "h": 25
   },
@@ -5399,10 +5399,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 650,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "514.08",
@@ -5422,8 +5422,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 700,
     "w": 60,
     "h": 25
   },
@@ -5445,8 +5445,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.09",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 725,
     "w": 60,
     "h": 25
   },
@@ -5468,8 +5468,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.10",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 750,
     "w": 60,
     "h": 25
   },
@@ -5491,8 +5491,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.11",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 775,
     "w": 60,
     "h": 25
   },
@@ -5514,8 +5514,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.12",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2340,
+    "y": 775,
     "w": 60,
     "h": 25
   },
@@ -5537,8 +5537,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000514.13",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 775,
     "w": 60,
     "h": 25
   },
@@ -5560,8 +5560,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 750,
     "w": 60,
     "h": 25
   },
@@ -5583,8 +5583,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 725,
     "w": 60,
     "h": 25
   },
@@ -5606,8 +5606,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 700,
     "w": 60,
     "h": 25
   },
@@ -5629,8 +5629,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 675,
     "w": 60,
     "h": 25
   },
@@ -5652,8 +5652,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 650,
     "w": 60,
     "h": 25
   },
@@ -5675,9 +5675,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2250,
+    "y": 675,
+    "w": 30,
     "h": 25
   },
   {
@@ -5698,9 +5698,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2250,
+    "y": 650,
+    "w": 30,
     "h": 25
   },
   {
@@ -5721,8 +5721,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 625,
     "w": 60,
     "h": 25
   },
@@ -5744,8 +5744,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.09",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 600,
     "w": 60,
     "h": 25
   },
@@ -5767,8 +5767,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.10",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2220,
+    "y": 600,
     "w": 60,
     "h": 25
   },
@@ -5790,10 +5790,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000515.11",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2220,
+    "y": 550,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "516.01",
@@ -5813,8 +5813,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 575,
     "w": 60,
     "h": 25
   },
@@ -5836,8 +5836,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 550,
     "w": 60,
     "h": 25
   },
@@ -5859,8 +5859,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 525,
     "w": 60,
     "h": 25
   },
@@ -5882,8 +5882,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -5905,8 +5905,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000516.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2340,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -5928,8 +5928,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -5951,8 +5951,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2460,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -5974,8 +5974,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2520,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -5997,8 +5997,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.09",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2580,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6020,9 +6020,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.10",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2640,
+    "y": 500,
+    "w": 120,
     "h": 25
   },
   {
@@ -6043,9 +6043,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.11",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2760,
+    "y": 500,
+    "w": 120,
     "h": 25
   },
   {
@@ -6066,8 +6066,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.12",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2880,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6089,8 +6089,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.13",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2940,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6112,8 +6112,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.14",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3000,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6135,8 +6135,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000516.15",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3060,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6181,8 +6181,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000548.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3120,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6204,8 +6204,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000548.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3180,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6227,8 +6227,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000548.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3240,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6250,8 +6250,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000548.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3300,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6273,8 +6273,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000548.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3360,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6296,8 +6296,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000548.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3420,
+    "y": 500,
     "w": 60,
     "h": 25
   },
@@ -6319,9 +6319,9 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000550",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 3480,
+    "y": 500,
+    "w": 120,
     "h": 25
   },
   {
@@ -6342,10 +6342,10 @@
     "category": "CONV.BLTCRV",
     "na_eam_object_code": "30SAT4000552",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3600,
+    "y": 350,
     "w": 60,
-    "h": 25
+    "h": 175
   },
   {
     "section_alias": "553",
@@ -6365,8 +6365,8 @@
     "category": "CONV.VB",
     "na_eam_object_code": "30SAT4000553",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3540,
+    "y": 350,
     "w": 60,
     "h": 25
   },
@@ -6388,9 +6388,9 @@
     "category": "SRT.POPUP",
     "na_eam_object_code": "30SAT4000554",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 3000,
+    "y": 350,
+    "w": 540,
     "h": 25
   },
   {
@@ -6411,9 +6411,9 @@
     "category": "SRT.POPUP",
     "na_eam_object_code": "30SAT4000556",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2340,
+    "y": 350,
+    "w": 660,
     "h": 25
   },
   {
@@ -6436,8 +6436,17 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [3360,325],
+        [3480,325],
+        [3360, 300],
+        [3420, 300]
+        
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "560B",
@@ -6459,8 +6468,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 3120, 325],
+        [3240, 325],
+        [3120,300],
+        [3180,300]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "560C",
@@ -6482,8 +6499,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 2880, 325],
+        [3000, 325],
+        [2880,300],
+        [2940,300]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "560D",
@@ -6505,8 +6530,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 2580, 300],
+        [2640, 300],
+        [2580,325],
+        [2700,325]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "560E",
@@ -6528,8 +6561,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 2400, 300],
+        [2460, 300],
+        [2400,325],
+        [2520,325]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "564A",
@@ -6549,10 +6590,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400564A",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3360,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "564B",
@@ -6572,10 +6613,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400564B",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3120,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "564C",
@@ -6595,10 +6636,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400564C",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2880,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "564D",
@@ -6618,10 +6659,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400564D",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2580,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "570.01",
@@ -6641,8 +6682,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 350,
     "w": 60,
     "h": 25
   },
@@ -6664,10 +6705,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2220,
+    "y": 350,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "570.03",
@@ -6687,8 +6728,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2220,
+    "y": 400,
     "w": 60,
     "h": 25
   },
@@ -6710,10 +6751,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2220,
+    "y": 425,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "570.05",
@@ -6733,8 +6774,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000570.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -6756,9 +6797,9 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000570.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2340,
+    "y": 450,
+    "w": 120,
     "h": 25
   },
   {
@@ -6779,9 +6820,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2460,
+    "y": 450,
+    "w": 120,
     "h": 25
   },
   {
@@ -6802,9 +6843,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2580,
+    "y": 450,
+    "w": 120,
     "h": 25
   },
   {
@@ -6825,8 +6866,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.09",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2700,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -6848,9 +6889,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.10",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2760,
+    "y": 450,
+    "w": 120,
     "h": 25
   },
   {
@@ -6871,8 +6912,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.11",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2880,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -6894,8 +6935,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.12",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2940,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -6917,8 +6958,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.13",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3000,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -6940,8 +6981,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.14",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3060,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -6963,8 +7004,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000570.15",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3060,
+    "y": 475,
     "w": 60,
     "h": 25
   },
@@ -6986,10 +7027,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1320,
+    "y": 525,
     "w": 60,
-    "h": 25
+    "h": 275
   },
   {
     "section_alias": "602B",
@@ -7009,10 +7050,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1560,
+    "y": 525,
     "w": 60,
-    "h": 25
+    "h": 275
   },
   {
     "section_alias": "602C",
@@ -7032,10 +7073,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1740,
+    "y": 525,
     "w": 60,
-    "h": 25
+    "h": 275
   },
   {
     "section_alias": "608A.01",
@@ -7055,10 +7096,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1320,
+    "y": 475,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "608B.01",
@@ -7078,10 +7119,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1560,
+    "y": 475,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "608C.01",
@@ -7101,10 +7142,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "",
     "serial_number": "",
-    "x": 1200,
-    "y": 120,
+    "x": 1740,
+    "y": 475,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "610A",
@@ -7193,8 +7234,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 960,
+    "y": 350,
     "w": 60,
     "h": 25
   },
@@ -7216,10 +7257,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 900,
+    "y": 350,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "648.03",
@@ -7239,8 +7280,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 900,
+    "y": 400,
     "w": 60,
     "h": 25
   },
@@ -7262,10 +7303,10 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 900,
+    "y": 425,
     "w": 60,
-    "h": 25
+    "h": 50
   },
   {
     "section_alias": "648.05",
@@ -7285,8 +7326,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 960,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7308,8 +7349,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1020,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7331,8 +7372,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1080,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7354,8 +7395,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1140,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7377,8 +7418,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.09",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1200,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7400,8 +7441,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.10",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1260,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7423,8 +7464,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.11",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1320,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7446,8 +7487,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000648.12",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1380,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7469,8 +7510,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.13",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1440,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7492,8 +7533,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.14",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1500,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7515,8 +7556,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.15",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1560,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7538,8 +7579,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000648.16",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1620,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7561,8 +7602,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.17",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1680,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7584,8 +7625,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.18",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1740,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7607,8 +7648,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4000648.19",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1800,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7630,8 +7671,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000648.20",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1860,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7653,8 +7694,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000648.21",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1920,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7676,8 +7717,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4000650",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1980,
+    "y": 450,
     "w": 60,
     "h": 25
   },
@@ -7699,10 +7740,10 @@
     "category": "CONV.BLTCRV",
     "na_eam_object_code": "30SAT4000652",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2040,
+    "y": 350,
     "w": 60,
-    "h": 25
+    "h": 125
   },
   {
     "section_alias": "653",
@@ -7722,8 +7763,8 @@
     "category": "CONV.VB",
     "na_eam_object_code": "30SAT4000653",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1980,
+    "y": 350,
     "w": 60,
     "h": 25
   },
@@ -7745,9 +7786,9 @@
     "category": "SRT.POPUP",
     "na_eam_object_code": "30SAT4000654",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 1500,
+    "y": 350,
+    "w": 480,
     "h": 25
   },
   {
@@ -7768,9 +7809,9 @@
     "category": "SRT.POPUP",
     "na_eam_object_code": "30SAT4000656",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 1020,
+    "y": 350,
+    "w": 480,
     "h": 25
   },
   {
@@ -7793,8 +7834,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 1800, 300],
+        [1860, 300],
+        [1800,325],
+        [1920,325]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "660B",
@@ -7816,8 +7865,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 1620, 300],
+        [1680, 300],
+        [1620,325],
+        [1740,325]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "660C",
@@ -7839,8 +7896,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 1440, 300],
+        [1500, 300],
+        [1440,325],
+        [1560,325]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "660D",
@@ -7862,8 +7927,16 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 1260, 300],
+        [1320, 300],
+        [1260,325],
+        [1380,325]
+        
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "661",
@@ -7885,8 +7958,15 @@
     "serial_number": "",
     "x": null,
     "y": null,
-    "w": 60,
-    "h": 25
+    "w": null,
+    "h": null,
+    "points": [
+        [ 1080, 300],
+        [ 1140, 300 ],
+        [1080, 325],
+        [1200,325]
+      ],
+      "thickness": 25
   },
   {
     "section_alias": "664A",
@@ -7906,10 +7986,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400664A",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1800,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "664B",
@@ -7929,10 +8009,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400664B",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1620,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "664C",
@@ -7952,10 +8032,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400664C",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1440,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "664D",
@@ -7975,10 +8055,10 @@
     "category": "CONV.RG",
     "na_eam_object_code": "30SAT400664D",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 1260,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "1000",
@@ -7998,10 +8078,10 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4001000",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3960,
+    "y": 200,
     "w": 60,
-    "h": 25
+    "h": 100
   },
   {
     "section_alias": "1012.01",
@@ -8021,8 +8101,8 @@
     "category": "",
     "na_eam_object_code": "",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3960,
+    "y": 175,
     "w": 60,
     "h": 25
   },
@@ -8044,8 +8124,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3960,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8067,8 +8147,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3900,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8090,8 +8170,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3840,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8113,8 +8193,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3780,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8136,8 +8216,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3720,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8159,8 +8239,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3660,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8182,9 +8262,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 3540,
+    "y": 150,
+    "w": 120,
     "h": 25
   },
   {
@@ -8205,9 +8285,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.09",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 3420,
+    "y": 150,
+    "w": 120,
     "h": 25
   },
   {
@@ -8228,9 +8308,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.10",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 3300,
+    "y": 150,
+    "w": 120,
     "h": 25
   },
   {
@@ -8251,8 +8331,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.11",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3240,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8274,8 +8354,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.12",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3180,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8297,8 +8377,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.13",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3120,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8320,8 +8400,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.14",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3060,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8343,8 +8423,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.15",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 3000,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8366,8 +8446,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.16",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2940,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8389,8 +8469,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.17",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2880,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8412,9 +8492,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.18",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2760,
+    "y": 150,
+    "w": 120,
     "h": 25
   },
   {
@@ -8435,8 +8515,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.19",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2700,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8458,9 +8538,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.20",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2580,
+    "y": 150,
+    "w": 120,
     "h": 25
   },
   {
@@ -8481,9 +8561,9 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.21",
     "serial_number": "",
-    "x": null,
-    "y": null,
-    "w": 60,
+    "x": 2460,
+    "y": 150,
+    "w": 120,
     "h": 25
   },
   {
@@ -8504,8 +8584,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.22",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8527,8 +8607,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.23",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2340,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8550,8 +8630,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001012.24",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 150,
     "w": 60,
     "h": 25
   },
@@ -8573,8 +8653,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001020.01",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 275,
     "w": 60,
     "h": 25
   },
@@ -8596,8 +8676,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001020.02",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 250,
     "w": 60,
     "h": 25
   },
@@ -8619,8 +8699,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001020.03",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 225,
     "w": 60,
     "h": 25
   },
@@ -8642,8 +8722,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001020.04",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 200,
     "w": 60,
     "h": 25
   },
@@ -8665,8 +8745,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001020.05",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2400,
+    "y": 175,
     "w": 60,
     "h": 25
   },
@@ -8688,8 +8768,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4001020.06",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2340,
+    "y": 175,
     "w": 60,
     "h": 25
   },
@@ -8711,8 +8791,8 @@
     "category": "CONV.BT",
     "na_eam_object_code": "30SAT4001020.07",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2280,
+    "y": 175,
     "w": 60,
     "h": 25
   },
@@ -8734,8 +8814,8 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001020.08",
     "serial_number": "",
-    "x": null,
-    "y": null,
+    "x": 2220,
+    "y": 175,
     "w": 60,
     "h": 25
   },
@@ -8757,7 +8837,7 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001024.01",
     "serial_number": "",
-    "x": 2160,
+    "x": 2220,
     "y": 150,
     "w": 60,
     "h": 25
@@ -8780,7 +8860,7 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001024.02",
     "serial_number": "",
-    "x": 2100,
+    "x": 2160,
     "y": 150,
     "w": 60,
     "h": 25
@@ -8803,7 +8883,7 @@
     "category": "CONV.RA",
     "na_eam_object_code": "30SAT4001024.03",
     "serial_number": "",
-    "x": 2040,
+    "x": 2100,
     "y": 150,
     "w": 60,
     "h": 25
@@ -8828,7 +8908,7 @@
     "serial_number": "",
     "x": 1980,
     "y": 150,
-    "w": 60,
+    "w": 120,
     "h": 25
   },
   {
@@ -10557,154 +10637,154 @@
   },
   {
     "section_alias": "DD255",
-    "x": 420,
+    "x": 720,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD254",
-    "x": 420,
+    "x": 960,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD253",
-    "x": 420,
+    "x": 1080,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD252",
-    "x": 420,
+    "x": 1200,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD251",
-    "x": 420,
+    "x": 1260,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD250",
-    "x": 420,
+    "x": 1320,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD249",
-    "x": 420,
+    "x": 1380,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD248",
-    "x": 420,
+    "x": 1560,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD247",
-    "x": 420,
+    "x": 1620,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD246",
-    "x": 420,
+    "x": 1680,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD245",
-    "x": 420,
+    "x": 1740,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD244",
-    "x": 420,
+    "x": 1860,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD243",
-    "x": 420,
+    "x": 1920,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD242",
-    "x": 420,
+    "x": 2100,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD241",
-    "x": 420,
+    "x": 2220,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD240",
-    "x": 420,
+    "x": 2340,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD239",
-    "x": 420,
+    "x": 2460,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD238",
-    "x": 420,
+    "x": 2640,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD237",
-    "x": 420,
+    "x": 2760,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD236",
-    "x": 420,
+    "x": 2940,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD235",
-    "x": 420,
+    "x": 3000,
     "y": 0,
     "w": 60,
     "h": 25
   },
   {
     "section_alias": "DD234",
-    "x": 420,
+    "x": 3060,
     "y": 0,
     "w": 60,
     "h": 25
