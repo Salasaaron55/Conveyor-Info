@@ -189,9 +189,9 @@
         </section>
 
         <div class="footerNote">
-          Tip: Click any value cell to copy it. You can also press
-          <span class="kbd">Ctrl</span>+<span class="kbd">F</span> to search
-          within this page.
+          Tip: Click a value cell to copy it &middot; Drag the map to pan &middot;
+          <span class="kbd">Ctrl</span>+scroll to zoom &middot;
+          <span class="kbd">Ctrl</span>+click a conveyor to copy its alias
         </div>
       </aside>
 
@@ -212,6 +212,22 @@
           </div>
         </div>
       </main>
+    </div>
+
+    <div id="legend" class="floatPanel" aria-label="Conveyor type legend">
+      <div id="legendHeader" class="floatPanelHeader">
+        <span class="floatPanelLabel">Legend</span>
+        <button id="legendToggle" class="floatPanelToggle" type="button" title="Minimize">−</button>
+      </div>
+      <div id="legendBody" class="legendBody"></div>
+    </div>
+
+    <div id="minimap" class="floatPanel" aria-label="Map overview">
+      <div id="minimapHeader" class="floatPanelHeader">
+        <span class="floatPanelLabel">Overview</span>
+        <button id="minimapToggle" class="floatPanelToggle" type="button" title="Minimize">−</button>
+      </div>
+      <canvas id="minimapCanvas" class="minimapCanvas" width="260" height="80"></canvas>
     </div>
 
     <div
