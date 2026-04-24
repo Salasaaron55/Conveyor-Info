@@ -1,5 +1,5 @@
-// SAT4 Conveyor Map (non-editable)
-// Renders conveyors from conveyors-map.json using x/y/w/h pixel coords.
+// SAT4 Conveyor Map
+// Renders conveyors from conveyors-map.json using SVG for clean turns.
 
 let rows = [];
 let selectedId = null;
@@ -9,6 +9,7 @@ const MAP_W = 8600;
 const MAP_H = 1200;
 const MINI_W = 260;
 const MINI_H = 80;
+const NS = 'http://www.w3.org/2000/svg';
 
 // Conveyor type color palette.
 // Add "conveyor_type" to a record in conveyors-map.json to assign a color.
@@ -159,90 +160,192 @@ function getBounds(r){
   return { x, y, w, h };
 }
 
-function buildSegments(r){
+// ── SVG Rendering ─────────────────────────────────────────────────────────────
+
+let svgEl = null;
+
+function makeSvgEl(tag, attrs = {}){
+  const el = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, String(v));
+  return el;
+}
+
+function initSvg(){
+  svgEl = makeSvgEl('svg', {
+    width: MAP_W, height: MAP_H,
+    style: 'position:absolute;top:0;left:0',
+  });
+
+  // Dot pattern for blank conveyors
+  const defs = makeSvgEl('defs');
+  const pat = makeSvgEl('pattern', {
+    id: 'blankDots', x: 0, y: 0, width: 8, height: 8,
+    patternUnits: 'userSpaceOnUse',
+  });
+  pat.appendChild(makeSvgEl('circle', { cx: 1, cy: 1, r: 1, fill: 'rgba(0,0,0,0.35)' }));
+  defs.appendChild(pat);
+  svgEl.appendChild(defs);
+
+  els.map.appendChild(svgEl);
+}
+
+function ptStr(pts){
+  return pts.map(p => `${p.x},${p.y}`).join(' ');
+}
+
+function renderConveyor(r){
+  const isBlank = r.blank === true;
+  const id = isBlank ? null : idOf(r);
+  if (!isBlank && !id) return null;
+
+  const tc = isBlank ? null : getTypeColor(r);
+  const bgColor     = tc?.bg     || UNASSIGNED.bg;
+  const borderColor = tc?.border || UNASSIGNED.border;
+  const textColor   = tc?.text   || UNASSIGNED.text;
+
+  const g = makeSvgEl('g');
+  g.classList.add('conveyor');
+  if (isBlank){
+    g.classList.add('blank');
+    g.setAttribute('aria-hidden', 'true');
+  } else {
+    g.dataset.id = id;
+  }
+
   const pts = getPathPoints(r);
-  if (!pts) return null;
-  const t = thicknessOf(r);
-  const segs = [];
-  for (let i = 0; i < pts.length - 1; i++){
-    const a = pts[i], b = pts[i+1];
-    const dx = b.x - a.x, dy = b.y - a.y;
-    if (dx !== 0 && dy !== 0) continue;
-    if (dx === 0 && dy === 0) continue;
-    if (dx !== 0){
-      segs.push({ x: Math.min(a.x, b.x), y: a.y, w: Math.abs(dx), h: t });
+
+  if (pts){
+    // Path-based conveyor: two stacked polylines eliminate corner seams.
+    // The border polyline is 1px wider on each side; the fill polyline sits on top.
+    const t = thicknessOf(r);
+    const pStr = ptStr(pts);
+
+    if (isBlank){
+      g.appendChild(makeSvgEl('polyline', {
+        points: pStr, fill: 'none',
+        stroke: '#888', 'stroke-width': t + 2,
+        'stroke-linecap': 'square', 'stroke-linejoin': 'miter',
+        'stroke-dasharray': '4 4',
+      }));
+      g.appendChild(makeSvgEl('polyline', {
+        points: pStr, fill: 'none',
+        stroke: '#c9c9c9', 'stroke-width': t,
+        'stroke-linecap': 'square', 'stroke-linejoin': 'miter',
+      }));
     } else {
-      segs.push({ x: a.x, y: Math.min(a.y, b.y), w: t, h: Math.abs(dy) });
+      // Yellow selection halo — hidden until .selected is applied
+      const hl = makeSvgEl('polyline', {
+        points: pStr, fill: 'none',
+        stroke: '#facc15', 'stroke-width': t + 6,
+        'stroke-linecap': 'square', 'stroke-linejoin': 'miter',
+      });
+      hl.classList.add('conveyor-hl');
+
+      const border = makeSvgEl('polyline', {
+        points: pStr, fill: 'none',
+        stroke: borderColor, 'stroke-width': t + 2,
+        'stroke-linecap': 'square', 'stroke-linejoin': 'miter',
+      });
+      border.classList.add('conveyor-border');
+
+      const fill = makeSvgEl('polyline', {
+        points: pStr, fill: 'none',
+        stroke: bgColor, 'stroke-width': t,
+        'stroke-linecap': 'square', 'stroke-linejoin': 'miter',
+      });
+      fill.classList.add('conveyor-fill');
+
+      // Label at midpoint of first segment
+      const p0 = pts[0], p1 = pts[1];
+      const lbl = makeSvgEl('text', {
+        x: (p0.x + p1.x) / 2, y: (p0.y + p1.y) / 2,
+        'text-anchor': 'middle', 'dominant-baseline': 'middle',
+        fill: textColor, 'font-size': 11, 'font-weight': 600,
+        'font-family': 'system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif',
+        'pointer-events': 'none',
+      });
+      lbl.textContent = id;
+      lbl.classList.add('conveyor-label');
+
+      g.appendChild(hl);
+      g.appendChild(border);
+      g.appendChild(fill);
+      g.appendChild(lbl);
+    }
+  } else {
+    // Rect-based conveyor
+    const b = getBounds(r);
+    if (!b) return null;
+
+    if (isBlank){
+      g.appendChild(makeSvgEl('rect', {
+        x: b.x, y: b.y, width: b.w, height: b.h,
+        fill: '#c9c9c9',
+      }));
+      g.appendChild(makeSvgEl('rect', {
+        x: b.x, y: b.y, width: b.w, height: b.h,
+        fill: 'url(#blankDots)',
+        stroke: '#888', 'stroke-width': 1,
+        'stroke-dasharray': '4 2',
+      }));
+    } else {
+      const hl = makeSvgEl('rect', {
+        x: b.x - 2, y: b.y - 2, width: b.w + 4, height: b.h + 4,
+        fill: 'none', stroke: '#facc15', 'stroke-width': 3,
+      });
+      hl.classList.add('conveyor-hl');
+
+      const rect = makeSvgEl('rect', {
+        x: b.x, y: b.y, width: b.w, height: b.h,
+        fill: bgColor, stroke: borderColor, 'stroke-width': 1,
+      });
+      rect.classList.add('conveyor-border');
+
+      const lbl = makeSvgEl('text', {
+        x: b.x + b.w / 2, y: b.y + b.h / 2,
+        'text-anchor': 'middle', 'dominant-baseline': 'middle',
+        fill: textColor, 'font-size': 11, 'font-weight': 600,
+        'font-family': 'system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif',
+        'pointer-events': 'none',
+      });
+      lbl.textContent = id;
+      lbl.classList.add('conveyor-label');
+
+      g.appendChild(hl);
+      g.appendChild(rect);
+      g.appendChild(lbl);
     }
   }
-  return segs.length ? segs : null;
-}
 
-// ── Render ────────────────────────────────────────────────────────────────────
-
-function applyNodeColor(node, r){
-  const tc = getTypeColor(r);
-  if (!tc) return;
-  node.style.background  = tc.bg;
-  node.style.borderColor = tc.border;
-  node.style.color       = tc.text;
-}
-
-function makeNode(isBlank, id, r, seg){
-  const node = document.createElement('div');
-  node.className = isBlank ? 'node blank' : 'node';
-  if (!isBlank){ node.dataset.id = id; applyNodeColor(node, r); }
-  node.style.left   = `${seg.x}px`;
-  node.style.top    = `${seg.y}px`;
-  node.style.width  = `${seg.w}px`;
-  node.style.height = `${seg.h}px`;
-  return node;
+  return g;
 }
 
 function render(){
-  [...els.map.querySelectorAll('.node')].forEach(n => n.remove());
+  [...svgEl.querySelectorAll('.conveyor')].forEach(el => el.remove());
 
   const drawable = rows.filter(r => getBounds(r) !== null);
   els.count.textContent = String(drawable.filter(r => !r.blank).length);
 
   for (const r of drawable){
-    const isBlank = r.blank === true;
-    const id = isBlank ? null : idOf(r);
-    if (!isBlank && !id) continue;
-
-    const segs = buildSegments(r);
-    if (segs){
-      segs.forEach((seg, i) => {
-        const node = makeNode(isBlank, id, r, seg);
-        if (!isBlank){
-          node.dataset.segment = String(i);
-          if (i === 0) node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
-          node.addEventListener('click', () => select(id, { center: false }));
-        } else {
-          node.setAttribute('aria-hidden', 'true');
-        }
-        els.map.appendChild(node);
+    const g = renderConveyor(r);
+    if (!g) continue;
+    if (!r.blank){
+      const id = idOf(r);
+      g.addEventListener('click', (e) => {
+        if (e.ctrlKey || e.metaKey) return;
+        select(id, { center: false });
       });
-      continue;
     }
-
-    const b = getBounds(r);
-    const node = makeNode(isBlank, id, r, b);
-    if (!isBlank){
-      node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
-      node.addEventListener('click', () => select(id, { center: false }));
-    } else {
-      node.setAttribute('aria-hidden', 'true');
-    }
-    els.map.appendChild(node);
+    svgEl.appendChild(g);
   }
 
   highlightSelected();
 }
 
 function highlightSelected(){
-  for (const n of els.map.querySelectorAll('.node'))
-    n.classList.toggle('selected', n.dataset.id === selectedId);
+  if (!svgEl) return;
+  for (const g of svgEl.querySelectorAll('.conveyor'))
+    g.classList.toggle('selected', g.dataset.id === selectedId);
 }
 
 // ── Selection & info panel ────────────────────────────────────────────────────
@@ -301,9 +404,10 @@ function setMatchHint(q){
 }
 
 function applyDim(hits){
+  if (!svgEl) return;
   const active = new Set(hits);
-  for (const node of els.map.querySelectorAll('.node:not(.blank)')){
-    node.classList.toggle('dimmed', active.size > 0 && !active.has(node.dataset.id));
+  for (const g of svgEl.querySelectorAll('.conveyor:not(.blank)')){
+    g.classList.toggle('dimmed', active.size > 0 && !active.has(g.dataset.id));
   }
 }
 
@@ -367,6 +471,7 @@ function drawMinimap(){
 // ── Legend ────────────────────────────────────────────────────────────────────
 
 function buildLegend(){
+  if (!els.legendBody) return;
   els.legendBody.innerHTML = '';
   const entries = [['unassigned', UNASSIGNED], ...Object.entries(CONVEYOR_TYPES)];
   for (const [, tc] of entries){
@@ -384,6 +489,7 @@ function buildLegend(){
 let panelDragState = null;
 
 function makeDraggable(el, handle){
+  if (!el || !handle) return;
   handle.addEventListener('mousedown', (e) => {
     if (e.target.closest('.floatPanelToggle')) return;
     const rect = el.getBoundingClientRect();
@@ -460,7 +566,7 @@ function wireFloatPanels(){
 let dragState = null;
 
 els.viewport.addEventListener('mousedown', (e) => {
-  if (e.target.closest('.node')) return;
+  if (e.target.closest('.conveyor')) return;
   dragState = {
     startX: e.clientX, startY: e.clientY,
     scrollLeft: els.viewport.scrollLeft, scrollTop: els.viewport.scrollTop,
@@ -470,7 +576,6 @@ els.viewport.addEventListener('mousedown', (e) => {
 });
 
 window.addEventListener('mousemove', (e) => {
-  // Float panel drag takes priority
   if (panelDragState){
     const { el, startX, startY, origLeft, origTop } = panelDragState;
     clampPanel(el, origLeft + (e.clientX - startX), origTop + (e.clientY - startY));
@@ -596,9 +701,9 @@ els.copyAllBtn.addEventListener('click', async () => {
 });
 
 els.map.addEventListener('click', async (e) => {
-  const node = e.target.closest?.('.node');
-  if (!node || !(e.ctrlKey || e.metaKey)) return;
-  const id = node.dataset.id;
+  const g = e.target.closest?.('.conveyor');
+  if (!g || !(e.ctrlKey || e.metaKey)) return;
+  const id = g.dataset.id;
   if (!id) return;
   const r = getRow(id);
   await copyText(r ? shortOf(r) : id);
@@ -609,7 +714,8 @@ els.viewport.addEventListener('scroll', drawMinimap);
 
 // ── Load ──────────────────────────────────────────────────────────────────────
 
-// Panel init runs immediately — separate from data load so errors don't kill the UI
+// Panel + SVG init runs immediately — separate from data load so errors don't kill the UI
+initSvg();
 buildLegend();
 wireFloatPanels();
 initPanelPositions();
