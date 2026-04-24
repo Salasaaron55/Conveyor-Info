@@ -13,11 +13,12 @@ const MINI_H = 80;
 // Conveyor type color palette.
 // Add "conveyor_type" to a record in conveyors-map.json to assign a color.
 const CONVEYOR_TYPES = {
-  ground_level: { bg: '#1a3a2a', border: '#34d399', text: '#d1fae5', label: 'Ground Level' },
-  elevated:     { bg: '#1e3a6e', border: '#60a5fa', text: '#dbeafe', label: 'Elevated'     },
-  incline:      { bg: '#78350f', border: '#fbbf24', text: '#fef3c7', label: 'Incline'      },
-  decline:      { bg: '#7f1d1d', border: '#f87171', text: '#fee2e2', label: 'Decline'      },
-  flex:         { bg: '#3b1f6e', border: '#a78bfa', text: '#ede9fe', label: 'Flex'         },
+  ground_level: { bg: '#374151', border: '#9ca3af', text: '#f9fafb', label: 'Ground Level' },
+  elevated:     { bg: '#7c2d12', border: '#fb923c', text: '#ffedd5', label: 'Elevated'     },
+  incline:      { bg: '#14532d', border: '#4ade80', text: '#dcfce7', label: 'Incline'      },
+  decline:      { bg: '#1e3a5f', border: '#60a5fa', text: '#dbeafe', label: 'Decline'      },
+  flex:         { bg: '#7f1d1d', border: '#f87171', text: '#fee2e2', label: 'Flex'         },
+  dock_door:    { bg: '#4a1d96', border: '#c084fc', text: '#f3e8ff', label: 'Dock Door'    },
 };
 const UNASSIGNED = { bg: '#374151', border: '#4b5563', text: '#f9fafb', label: 'Unassigned' };
 
@@ -91,6 +92,28 @@ async function copyText(text){
   }
 }
 
+// ── Persistence ───────────────────────────────────────────────────────────────
+
+const STORAGE_KEY = 'conveyor-map-state';
+
+function saveState(){
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      scrollLeft: els.viewport.scrollLeft,
+      scrollTop:  els.viewport.scrollTop,
+      zoom,
+      legendPos:        els.legend  ? { left: els.legend.style.left,  top: els.legend.style.top  } : null,
+      minimapPos:       els.minimap ? { left: els.minimap.style.left, top: els.minimap.style.top } : null,
+      legendMinimized,
+      minimapMinimized,
+    }));
+  } catch {}
+}
+
+function loadSavedState(){
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch { return null; }
+}
+
 // ── Zoom ──────────────────────────────────────────────────────────────────────
 
 function setZoom(newZoom, keepCenter = true){
@@ -111,6 +134,7 @@ function setZoom(newZoom, keepCenter = true){
     vp.scrollTop  = ry * zoom - vp.clientHeight / 2;
   }
   drawMinimap();
+  saveState();
 }
 
 // ── Map geometry ──────────────────────────────────────────────────────────────
@@ -368,7 +392,7 @@ function drawMinimap(){
 
 function buildLegend(){
   els.legendBody.innerHTML = '';
-  const entries = [['unassigned', UNASSIGNED], ...Object.entries(CONVEYOR_TYPES)];
+  const entries = Object.entries(CONVEYOR_TYPES);
   for (const [, tc] of entries){
     const item = document.createElement('div');
     item.className = 'legendItem';
@@ -407,17 +431,36 @@ function clampPanel(el, left, top){
 
 function initPanelPositions(){
   if (!els.legend || !els.minimap) return;
-  const gap = 16, sidebarW = 350, topBarH = 720;  //legend positioning
+  const saved = loadSavedState();
+  const gap = 16, sidebarW = 350, topBarH = 720;
 
-  Object.assign(els.legend.style, {
-    left: (sidebarW + gap) + 'px', top: (topBarH + gap) + 'px',
-    right: 'auto', bottom: 'auto',
-  });
-  Object.assign(els.minimap.style, {
-    left:  (window.innerWidth  - MINI_W - gap - 1100)  + 'px',  //minimap positioning horizontal
-    top:   (window.innerHeight - MINI_H - 32 - gap) + 'px',  //mimnimap positioning vertical
-    right: 'auto', bottom: 'auto',
-  });
+  if (saved?.legendPos?.left){
+    Object.assign(els.legend.style, { left: saved.legendPos.left, top: saved.legendPos.top, right: 'auto', bottom: 'auto' });
+  } else {
+    Object.assign(els.legend.style, { left: (sidebarW + gap) + 'px', top: (topBarH + gap) + 'px', right: 'auto', bottom: 'auto' });
+  }
+
+  if (saved?.minimapPos?.left){
+    Object.assign(els.minimap.style, { left: saved.minimapPos.left, top: saved.minimapPos.top, right: 'auto', bottom: 'auto' });
+  } else {
+    Object.assign(els.minimap.style, {
+      left:  (window.innerWidth  - MINI_W - gap - 1100)  + 'px',
+      top:   (window.innerHeight - MINI_H - 32 - gap) + 'px',
+      right: 'auto', bottom: 'auto',
+    });
+  }
+
+  if (saved?.legendMinimized){
+    legendMinimized = true;
+    els.legend.classList.add('minimized');
+    if (els.legendToggle){ els.legendToggle.textContent = '+'; els.legendToggle.title = 'Expand'; }
+  }
+
+  if (saved?.minimapMinimized){
+    minimapMinimized = true;
+    els.minimap.classList.add('minimized');
+    if (els.minimapToggle){ els.minimapToggle.textContent = '+'; els.minimapToggle.title = 'Expand'; }
+  }
 }
 
 function wireFloatPanels(){
@@ -442,6 +485,7 @@ function wireFloatPanels(){
       els.minimapToggle.textContent = minimapMinimized ? '+' : '−';
       els.minimapToggle.title = minimapMinimized ? 'Expand' : 'Minimize';
       if (!minimapMinimized) drawMinimap();
+      saveState();
     });
   }
 
@@ -451,6 +495,7 @@ function wireFloatPanels(){
       els.legend.classList.toggle('minimized', legendMinimized);
       els.legendToggle.textContent = legendMinimized ? '+' : '−';
       els.legendToggle.title = legendMinimized ? 'Expand' : 'Minimize';
+      saveState();
     });
   }
 }
@@ -489,7 +534,7 @@ window.addEventListener('mousemove', (e) => {
 });
 
 window.addEventListener('mouseup', () => {
-  panelDragState = null;
+  if (panelDragState){ panelDragState = null; saveState(); }
   if (dragState){ els.viewport.classList.remove('dragging'); dragState = null; }
 });
 
@@ -605,7 +650,7 @@ els.map.addEventListener('click', async (e) => {
   showToast('Copied Shortened Alias');
 });
 
-els.viewport.addEventListener('scroll', drawMinimap);
+els.viewport.addEventListener('scroll', () => { drawMinimap(); saveState(); });
 
 // ── Load ──────────────────────────────────────────────────────────────────────
 
@@ -622,13 +667,16 @@ async function load(){
 
   render();
   wireCopyCells();
-  setZoom(1, false);
+
+  const saved = loadSavedState();
+  setZoom(saved?.zoom ?? 1, false);
+  if (saved){
+    els.viewport.scrollLeft = saved.scrollLeft ?? 0;
+    els.viewport.scrollTop  = saved.scrollTop  ?? 0;
+  }
 
   selectedId = rows[0] ? idOf(rows[0]) : null;
-  if (selectedId){
-    select(selectedId, { center: false });
-    els.search.value = shortOf(getRow(selectedId));
-  }
+  if (selectedId) select(selectedId, { center: !saved });
 
   drawMinimap();
 }
