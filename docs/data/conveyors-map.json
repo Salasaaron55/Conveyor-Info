@@ -20,8 +20,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.01",
@@ -44,8 +43,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.02",
@@ -68,8 +66,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.03",
@@ -92,8 +89,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.04",
@@ -116,8 +112,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.05",
@@ -140,8 +135,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.06",
@@ -164,8 +158,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.07",
@@ -188,8 +181,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.08",
@@ -212,8 +204,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.09",
@@ -236,8 +227,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.10",
@@ -260,8 +250,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.11",
@@ -284,8 +273,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.12",
@@ -308,8 +296,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.13",
@@ -332,8 +319,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.14",
@@ -356,8 +342,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.15",
@@ -380,8 +365,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.16",
@@ -404,8 +388,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.17",
@@ -428,8 +411,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.18",
@@ -452,8 +434,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.19",
@@ -476,8 +457,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.20",
@@ -500,8 +480,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.21",
@@ -524,8 +503,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.22",
@@ -548,8 +526,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.23",
@@ -572,8 +549,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.24",
@@ -596,8 +572,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.25",
@@ -620,8 +595,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.26",
@@ -644,8 +618,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.27",
@@ -668,8 +641,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.28",
@@ -692,8 +664,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.29",
@@ -716,8 +687,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.30",
@@ -740,8 +710,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.31",
@@ -764,8 +733,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.32",
@@ -788,8 +756,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "204.33",
@@ -812,8 +779,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "205",
@@ -836,8 +802,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "206",
@@ -860,8 +825,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "207",
@@ -884,8 +848,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "208",
@@ -908,8 +871,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "209.01",
@@ -932,8 +894,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "209.02",
@@ -956,8 +917,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "210",
@@ -980,8 +940,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "211.01",
@@ -1004,8 +963,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "211.02",
@@ -1028,8 +986,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "211.03",
@@ -1052,8 +1009,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.01",
@@ -1076,8 +1032,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.02",
@@ -1100,8 +1055,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.03",
@@ -1124,8 +1078,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.04",
@@ -1148,8 +1101,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.05",
@@ -1172,8 +1124,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.06",
@@ -1196,8 +1147,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.07",
@@ -1220,8 +1170,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.08",
@@ -1244,8 +1193,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.09",
@@ -1268,8 +1216,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.10",
@@ -1292,8 +1239,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.11",
@@ -1316,8 +1262,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.12",
@@ -1340,8 +1285,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "212.13",
@@ -1364,8 +1308,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "214",
@@ -1388,8 +1331,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "216",
@@ -1412,8 +1354,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "218",
@@ -1436,8 +1377,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "220",
@@ -1460,8 +1400,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "222.01",
@@ -1484,8 +1423,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "222.02",
@@ -1508,8 +1446,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "222.03",
@@ -1532,8 +1469,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "222.04",
@@ -1556,8 +1492,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "222.05",
@@ -1580,8 +1515,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "224",
@@ -1604,8 +1538,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "226A",
@@ -1628,8 +1561,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "226B",
@@ -1652,8 +1584,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "226C",
@@ -1676,8 +1607,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "226",
@@ -1700,8 +1630,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "228A",
@@ -1724,8 +1653,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "228B",
@@ -1748,8 +1676,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "228C",
@@ -1772,8 +1699,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "228",
@@ -1796,8 +1722,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "300",
@@ -1820,8 +1745,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "302",
@@ -1844,8 +1768,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "304",
@@ -1868,8 +1791,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "305",
@@ -1892,8 +1814,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "306",
@@ -1916,8 +1837,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "308",
@@ -1940,8 +1860,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "310",
@@ -1964,8 +1883,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "312",
@@ -1988,8 +1906,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "314",
@@ -2012,8 +1929,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "402A",
@@ -2036,8 +1952,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "402B",
@@ -2060,8 +1975,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "402C",
@@ -2084,8 +1998,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "402D",
@@ -2108,8 +2021,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408A.01",
@@ -2132,8 +2044,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408B.01",
@@ -2156,8 +2067,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408C.01",
@@ -2180,8 +2090,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408C.02",
@@ -2204,8 +2113,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408B.02",
@@ -2228,8 +2136,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408A.02",
@@ -2252,8 +2159,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408C.03",
@@ -2276,8 +2182,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408A.03",
@@ -2300,8 +2205,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408B.03",
@@ -2324,8 +2228,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "408A.04",
@@ -2348,8 +2251,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.01",
@@ -2372,8 +2274,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.02",
@@ -2396,8 +2297,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.03",
@@ -2420,8 +2320,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.04",
@@ -2444,8 +2343,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.05",
@@ -2468,8 +2366,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.06",
@@ -2492,8 +2389,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.07",
@@ -2516,8 +2412,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.08",
@@ -2540,8 +2435,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.09",
@@ -2564,8 +2458,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.10",
@@ -2588,8 +2481,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.11",
@@ -2612,8 +2504,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.12",
@@ -2636,8 +2527,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.13",
@@ -2660,8 +2550,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.14",
@@ -2684,8 +2573,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.15",
@@ -2708,8 +2596,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.16",
@@ -2732,8 +2619,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.17",
@@ -2756,8 +2642,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.18",
@@ -2780,8 +2665,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.19",
@@ -2804,8 +2688,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "412.20",
@@ -2828,8 +2711,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.01",
@@ -2852,8 +2734,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.02",
@@ -2876,8 +2757,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.03",
@@ -2900,8 +2780,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.04",
@@ -2924,8 +2803,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.05",
@@ -2948,8 +2826,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.06",
@@ -2972,8 +2849,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.07",
@@ -2996,8 +2872,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.08",
@@ -3020,8 +2895,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.09",
@@ -3044,8 +2918,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.10",
@@ -3068,8 +2941,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.11",
@@ -3092,8 +2964,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.12",
@@ -3116,8 +2987,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "414.13",
@@ -3140,8 +3010,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.01",
@@ -3164,8 +3033,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.02",
@@ -3188,8 +3056,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.03",
@@ -3212,8 +3079,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.04",
@@ -3236,8 +3102,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.05",
@@ -3260,8 +3125,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.06",
@@ -3284,8 +3148,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.07",
@@ -3308,8 +3171,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.08",
@@ -3332,8 +3194,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.09",
@@ -3356,8 +3217,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.10",
@@ -3380,8 +3240,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "415.11",
@@ -3404,8 +3263,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.01",
@@ -3428,8 +3286,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.02",
@@ -3452,8 +3309,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.03",
@@ -3476,8 +3332,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.04",
@@ -3500,8 +3355,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.05",
@@ -3524,8 +3378,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.06",
@@ -3548,8 +3401,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.07",
@@ -3572,8 +3424,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.08",
@@ -3596,8 +3447,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.09",
@@ -3620,8 +3470,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.10",
@@ -3644,8 +3493,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.11",
@@ -3668,8 +3516,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.12",
@@ -3692,8 +3539,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.13",
@@ -3716,8 +3562,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.14",
@@ -3740,8 +3585,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.15",
@@ -3764,8 +3608,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "416.16",
@@ -3788,8 +3631,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "418.01",
@@ -3812,8 +3654,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "448.01",
@@ -3836,8 +3677,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "448.02",
@@ -3860,8 +3700,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "448.03",
@@ -3884,8 +3723,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "448.04",
@@ -3908,8 +3746,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "448.05",
@@ -3932,8 +3769,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "448.06",
@@ -3956,8 +3792,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "450",
@@ -3980,8 +3815,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "452",
@@ -4004,8 +3838,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "453",
@@ -4028,8 +3861,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "454",
@@ -4052,8 +3884,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "456",
@@ -4076,8 +3907,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "460A",
@@ -4100,8 +3930,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "460B",
@@ -4124,8 +3953,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "460C",
@@ -4148,8 +3976,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "460D",
@@ -4172,8 +3999,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "460E",
@@ -4196,8 +4022,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "464A",
@@ -4220,8 +4045,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "464B",
@@ -4244,8 +4068,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "464C",
@@ -4268,8 +4091,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "464D",
@@ -4292,8 +4114,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.01",
@@ -4316,8 +4137,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.02",
@@ -4340,8 +4160,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.03",
@@ -4364,8 +4183,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.04",
@@ -4388,8 +4206,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.05",
@@ -4412,8 +4229,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.06",
@@ -4436,8 +4252,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.07",
@@ -4460,8 +4275,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.08",
@@ -4484,8 +4298,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.09",
@@ -4508,8 +4321,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.10",
@@ -4532,8 +4344,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.11",
@@ -4556,8 +4367,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.12",
@@ -4580,8 +4390,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.13",
@@ -4604,8 +4413,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.14",
@@ -4628,8 +4436,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "470.15",
@@ -4652,8 +4459,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "502A",
@@ -4676,8 +4482,7 @@
     "x": 3600,
     "y": 625,
     "w": 60,
-    "h": 175,
-    "conveyor_type": "ground_level"
+    "h": 175
   },
   {
     "section_alias": "502B",
@@ -4700,8 +4505,7 @@
     "x": 3240,
     "y": 650,
     "w": 60,
-    "h": 150,
-    "conveyor_type": "ground_level"
+    "h": 150
   },
   {
     "section_alias": "502C",
@@ -4724,8 +4528,7 @@
     "x": 2880,
     "y": 650,
     "w": 60,
-    "h": 150,
-    "conveyor_type": "ground_level"
+    "h": 150
   },
   {
     "section_alias": "502D",
@@ -4748,8 +4551,7 @@
     "x": 2580,
     "y": 650,
     "w": 60,
-    "h": 175,
-    "conveyor_type": "ground_level"
+    "h": 175
   },
   {
     "section_alias": "508A.01",
@@ -4772,8 +4574,7 @@
     "x": 3240,
     "y": 625,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508B.01",
@@ -4796,8 +4597,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508C.01",
@@ -4820,8 +4620,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508A.02",
@@ -4844,8 +4643,7 @@
     "x": 3240,
     "y": 600,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508B.02",
@@ -4868,8 +4666,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508C.02",
@@ -4892,8 +4689,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508A.03",
@@ -4916,8 +4712,7 @@
     "x": 3240,
     "y": 575,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508B.03",
@@ -4940,8 +4735,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508C.03",
@@ -4964,8 +4758,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "508A.04",
@@ -4988,8 +4781,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.01",
@@ -5012,8 +4804,7 @@
     "x": 3600,
     "y": 600,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.02",
@@ -5036,8 +4827,7 @@
     "x": 3600,
     "y": 575,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.03",
@@ -5060,8 +4850,7 @@
     "x": 3600,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.04",
@@ -5084,8 +4873,7 @@
     "x": 3540,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.05",
@@ -5108,8 +4896,7 @@
     "x": 3480,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.06",
@@ -5132,8 +4919,7 @@
     "x": 3420,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.07",
@@ -5156,8 +4942,7 @@
     "x": 3360,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.08",
@@ -5180,8 +4965,7 @@
     "x": 3300,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.09",
@@ -5204,8 +4988,7 @@
     "x": 3240,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.10",
@@ -5228,8 +5011,7 @@
     "x": 3180,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.11",
@@ -5252,8 +5034,7 @@
     "x": 3120,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.12",
@@ -5276,8 +5057,7 @@
     "x": 3060,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.13",
@@ -5300,8 +5080,7 @@
     "x": 3000,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.14",
@@ -5324,8 +5103,7 @@
     "x": 2940,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.15",
@@ -5348,8 +5126,7 @@
     "x": 2880,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.16",
@@ -5372,8 +5149,7 @@
     "x": 2820,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.17",
@@ -5396,8 +5172,7 @@
     "x": 2760,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.18",
@@ -5420,8 +5195,7 @@
     "x": 2700,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.19",
@@ -5444,8 +5218,7 @@
     "x": 2640,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "512.20",
@@ -5468,8 +5241,7 @@
     "x": 2580,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.01",
@@ -5492,8 +5264,7 @@
     "x": 2520,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.02",
@@ -5516,8 +5287,7 @@
     "x": 2460,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.03",
@@ -5540,8 +5310,7 @@
     "x": 2400,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.04",
@@ -5564,8 +5333,7 @@
     "x": 2400,
     "y": 575,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.05",
@@ -5588,8 +5356,7 @@
     "x": 2400,
     "y": 600,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.06",
@@ -5612,8 +5379,7 @@
     "x": 2400,
     "y": 625,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.07",
@@ -5636,8 +5402,7 @@
     "x": 2400,
     "y": 650,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "514.08",
@@ -5660,8 +5425,7 @@
     "x": 2400,
     "y": 700,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.09",
@@ -5684,8 +5448,7 @@
     "x": 2400,
     "y": 725,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.10",
@@ -5708,8 +5471,7 @@
     "x": 2400,
     "y": 750,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.11",
@@ -5732,8 +5494,7 @@
     "x": 2400,
     "y": 775,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.12",
@@ -5756,8 +5517,7 @@
     "x": 2340,
     "y": 775,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "514.13",
@@ -5780,8 +5540,7 @@
     "x": 2280,
     "y": 775,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.01",
@@ -5804,8 +5563,7 @@
     "x": 2280,
     "y": 750,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.02",
@@ -5828,8 +5586,7 @@
     "x": 2280,
     "y": 725,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.03",
@@ -5852,8 +5609,7 @@
     "x": 2280,
     "y": 700,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.04",
@@ -5876,8 +5632,7 @@
     "x": 2280,
     "y": 675,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.05",
@@ -5900,8 +5655,7 @@
     "x": 2280,
     "y": 650,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.06",
@@ -5924,8 +5678,7 @@
     "x": 2250,
     "y": 675,
     "w": 30,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.07",
@@ -5948,8 +5701,7 @@
     "x": 2250,
     "y": 650,
     "w": 30,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.08",
@@ -5972,8 +5724,7 @@
     "x": 2280,
     "y": 625,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.09",
@@ -5996,8 +5747,7 @@
     "x": 2280,
     "y": 600,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.10",
@@ -6020,8 +5770,7 @@
     "x": 2220,
     "y": 600,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "515.11",
@@ -6044,8 +5793,7 @@
     "x": 2220,
     "y": 550,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "516.01",
@@ -6068,8 +5816,7 @@
     "x": 2280,
     "y": 575,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.02",
@@ -6092,8 +5839,7 @@
     "x": 2280,
     "y": 550,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.03",
@@ -6116,8 +5862,7 @@
     "x": 2280,
     "y": 525,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.04",
@@ -6140,8 +5885,7 @@
     "x": 2280,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.05",
@@ -6164,8 +5908,7 @@
     "x": 2340,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.06",
@@ -6188,8 +5931,7 @@
     "x": 2400,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.07",
@@ -6212,8 +5954,7 @@
     "x": 2460,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.08",
@@ -6236,8 +5977,7 @@
     "x": 2520,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.09",
@@ -6260,8 +6000,7 @@
     "x": 2580,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.10",
@@ -6284,8 +6023,7 @@
     "x": 2640,
     "y": 500,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.11",
@@ -6308,8 +6046,7 @@
     "x": 2760,
     "y": 500,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.12",
@@ -6332,8 +6069,7 @@
     "x": 2880,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.13",
@@ -6356,8 +6092,7 @@
     "x": 2940,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.14",
@@ -6380,8 +6115,7 @@
     "x": 3000,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "516.15",
@@ -6404,8 +6138,7 @@
     "x": 3060,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "518.01",
@@ -6428,8 +6161,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "548.01",
@@ -6452,8 +6184,7 @@
     "x": 3120,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "548.02",
@@ -6476,8 +6207,7 @@
     "x": 3180,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "548.03",
@@ -6500,8 +6230,7 @@
     "x": 3240,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "548.04",
@@ -6524,8 +6253,7 @@
     "x": 3300,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "548.05",
@@ -6548,8 +6276,7 @@
     "x": 3360,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "548.06",
@@ -6572,8 +6299,7 @@
     "x": 3420,
     "y": 500,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "550",
@@ -6596,8 +6322,7 @@
     "x": 3480,
     "y": 500,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "552",
@@ -6620,8 +6345,7 @@
     "x": 3600,
     "y": 350,
     "w": 60,
-    "h": 175,
-    "conveyor_type": "ground_level"
+    "h": 175
   },
   {
     "section_alias": "553",
@@ -6644,8 +6368,7 @@
     "x": 3540,
     "y": 350,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "554",
@@ -6668,8 +6391,7 @@
     "x": 3000,
     "y": 350,
     "w": 540,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "556",
@@ -6692,8 +6414,7 @@
     "x": 2340,
     "y": 350,
     "w": 660,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "560A",
@@ -6718,25 +6439,14 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        3360,
-        325
+        [3360,325],
+        [3480,325],
+        [3360, 300],
+        [3420, 300]
+        
+        
       ],
-      [
-        3480,
-        325
-      ],
-      [
-        3360,
-        300
-      ],
-      [
-        3420,
-        300
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "560B",
@@ -6761,25 +6471,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        3120,
-        325
+        [ 3120, 325],
+        [3240, 325],
+        [3120,300],
+        [3180,300]
+        
       ],
-      [
-        3240,
-        325
-      ],
-      [
-        3120,
-        300
-      ],
-      [
-        3180,
-        300
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "560C",
@@ -6804,25 +6502,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        2880,
-        325
+        [ 2880, 325],
+        [3000, 325],
+        [2880,300],
+        [2940,300]
+        
       ],
-      [
-        3000,
-        325
-      ],
-      [
-        2880,
-        300
-      ],
-      [
-        2940,
-        300
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "560D",
@@ -6847,25 +6533,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        2580,
-        300
+        [ 2580, 300],
+        [2640, 300],
+        [2580,325],
+        [2700,325]
+        
       ],
-      [
-        2640,
-        300
-      ],
-      [
-        2580,
-        325
-      ],
-      [
-        2700,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "560E",
@@ -6890,25 +6564,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        2400,
-        300
+        [ 2400, 300],
+        [2460, 300],
+        [2400,325],
+        [2520,325]
+        
       ],
-      [
-        2460,
-        300
-      ],
-      [
-        2400,
-        325
-      ],
-      [
-        2520,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "564A",
@@ -6931,8 +6593,7 @@
     "x": 3360,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "564B",
@@ -6955,8 +6616,7 @@
     "x": 3120,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "564C",
@@ -6979,8 +6639,7 @@
     "x": 2880,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "564D",
@@ -7003,8 +6662,7 @@
     "x": 2580,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "570.01",
@@ -7027,8 +6685,7 @@
     "x": 2280,
     "y": 350,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.02",
@@ -7051,8 +6708,7 @@
     "x": 2220,
     "y": 350,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "570.03",
@@ -7075,8 +6731,7 @@
     "x": 2220,
     "y": 400,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.04",
@@ -7099,8 +6754,7 @@
     "x": 2220,
     "y": 425,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "570.05",
@@ -7123,8 +6777,7 @@
     "x": 2280,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.06",
@@ -7147,8 +6800,7 @@
     "x": 2340,
     "y": 450,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.07",
@@ -7171,8 +6823,7 @@
     "x": 2460,
     "y": 450,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.08",
@@ -7195,8 +6846,7 @@
     "x": 2580,
     "y": 450,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.09",
@@ -7219,8 +6869,7 @@
     "x": 2700,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.10",
@@ -7243,8 +6892,7 @@
     "x": 2760,
     "y": 450,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.11",
@@ -7267,8 +6915,7 @@
     "x": 2880,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.12",
@@ -7291,8 +6938,7 @@
     "x": 2940,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.13",
@@ -7315,8 +6961,7 @@
     "x": 3000,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.14",
@@ -7339,8 +6984,7 @@
     "x": 3060,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "570.15",
@@ -7363,8 +7007,7 @@
     "x": 3060,
     "y": 475,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "602A",
@@ -7387,8 +7030,7 @@
     "x": 1320,
     "y": 525,
     "w": 60,
-    "h": 275,
-    "conveyor_type": "ground_level"
+    "h": 275
   },
   {
     "section_alias": "602B",
@@ -7411,8 +7053,7 @@
     "x": 1560,
     "y": 525,
     "w": 60,
-    "h": 275,
-    "conveyor_type": "ground_level"
+    "h": 275
   },
   {
     "section_alias": "602C",
@@ -7435,8 +7076,7 @@
     "x": 1740,
     "y": 525,
     "w": 60,
-    "h": 275,
-    "conveyor_type": "ground_level"
+    "h": 275
   },
   {
     "section_alias": "608A.01",
@@ -7459,8 +7099,7 @@
     "x": 1320,
     "y": 475,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "608B.01",
@@ -7483,8 +7122,7 @@
     "x": 1560,
     "y": 475,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "608C.01",
@@ -7507,8 +7145,7 @@
     "x": 1740,
     "y": 475,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "610A",
@@ -7531,8 +7168,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "610B",
@@ -7555,8 +7191,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "610C",
@@ -7579,8 +7214,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.01",
@@ -7603,8 +7237,7 @@
     "x": 960,
     "y": 350,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.02",
@@ -7627,8 +7260,7 @@
     "x": 900,
     "y": 350,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "648.03",
@@ -7651,8 +7283,7 @@
     "x": 900,
     "y": 400,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.04",
@@ -7675,8 +7306,7 @@
     "x": 900,
     "y": 425,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "648.05",
@@ -7699,8 +7329,7 @@
     "x": 960,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.06",
@@ -7723,8 +7352,7 @@
     "x": 1020,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.07",
@@ -7747,8 +7375,7 @@
     "x": 1080,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.08",
@@ -7771,8 +7398,7 @@
     "x": 1140,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.09",
@@ -7795,8 +7421,7 @@
     "x": 1200,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.10",
@@ -7819,8 +7444,7 @@
     "x": 1260,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.11",
@@ -7843,8 +7467,7 @@
     "x": 1320,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.12",
@@ -7867,8 +7490,7 @@
     "x": 1380,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.13",
@@ -7891,8 +7513,7 @@
     "x": 1440,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.14",
@@ -7915,8 +7536,7 @@
     "x": 1500,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.15",
@@ -7939,8 +7559,7 @@
     "x": 1560,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.16",
@@ -7963,8 +7582,7 @@
     "x": 1620,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.17",
@@ -7987,8 +7605,7 @@
     "x": 1680,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.18",
@@ -8011,8 +7628,7 @@
     "x": 1740,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.19",
@@ -8035,8 +7651,7 @@
     "x": 1800,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.20",
@@ -8059,8 +7674,7 @@
     "x": 1860,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "648.21",
@@ -8083,8 +7697,7 @@
     "x": 1920,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "650",
@@ -8107,8 +7720,7 @@
     "x": 1980,
     "y": 450,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "652",
@@ -8131,8 +7743,7 @@
     "x": 2040,
     "y": 350,
     "w": 60,
-    "h": 125,
-    "conveyor_type": "ground_level"
+    "h": 125
   },
   {
     "section_alias": "653",
@@ -8155,8 +7766,7 @@
     "x": 1980,
     "y": 350,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "654",
@@ -8179,8 +7789,7 @@
     "x": 1500,
     "y": 350,
     "w": 480,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "656",
@@ -8203,8 +7812,7 @@
     "x": 1020,
     "y": 350,
     "w": 480,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "660A",
@@ -8229,25 +7837,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        1800,
-        300
+        [ 1800, 300],
+        [1860, 300],
+        [1800,325],
+        [1920,325]
+        
       ],
-      [
-        1860,
-        300
-      ],
-      [
-        1800,
-        325
-      ],
-      [
-        1920,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "660B",
@@ -8272,25 +7868,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        1620,
-        300
+        [ 1620, 300],
+        [1680, 300],
+        [1620,325],
+        [1740,325]
+        
       ],
-      [
-        1680,
-        300
-      ],
-      [
-        1620,
-        325
-      ],
-      [
-        1740,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "660C",
@@ -8315,25 +7899,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        1440,
-        300
+        [ 1440, 300],
+        [1500, 300],
+        [1440,325],
+        [1560,325]
+        
       ],
-      [
-        1500,
-        300
-      ],
-      [
-        1440,
-        325
-      ],
-      [
-        1560,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "660D",
@@ -8358,25 +7930,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        1260,
-        300
+        [ 1260, 300],
+        [1320, 300],
+        [1260,325],
+        [1380,325]
+        
       ],
-      [
-        1320,
-        300
-      ],
-      [
-        1260,
-        325
-      ],
-      [
-        1380,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "661",
@@ -8401,25 +7961,12 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        1080,
-        300
+        [ 1080, 300],
+        [ 1140, 300 ],
+        [1080, 325],
+        [1200,325]
       ],
-      [
-        1140,
-        300
-      ],
-      [
-        1080,
-        325
-      ],
-      [
-        1200,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "664A",
@@ -8442,8 +7989,7 @@
     "x": 1800,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "664B",
@@ -8466,8 +8012,7 @@
     "x": 1620,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "664C",
@@ -8490,8 +8035,7 @@
     "x": 1440,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "664D",
@@ -8514,8 +8058,7 @@
     "x": 1260,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "1000",
@@ -8538,8 +8081,7 @@
     "x": 3960,
     "y": 200,
     "w": 60,
-    "h": 100,
-    "conveyor_type": "ground_level"
+    "h": 100
   },
   {
     "section_alias": "1012.01",
@@ -8562,8 +8104,7 @@
     "x": 3960,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.02",
@@ -8586,8 +8127,7 @@
     "x": 3960,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.03",
@@ -8610,8 +8150,7 @@
     "x": 3900,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.04",
@@ -8634,8 +8173,7 @@
     "x": 3840,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.05",
@@ -8658,8 +8196,7 @@
     "x": 3780,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.06",
@@ -8682,8 +8219,7 @@
     "x": 3720,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.07",
@@ -8706,8 +8242,7 @@
     "x": 3660,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.08",
@@ -8730,8 +8265,7 @@
     "x": 3540,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.09",
@@ -8754,8 +8288,7 @@
     "x": 3420,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.10",
@@ -8778,8 +8311,7 @@
     "x": 3300,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.11",
@@ -8802,8 +8334,7 @@
     "x": 3240,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.12",
@@ -8826,8 +8357,7 @@
     "x": 3180,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.13",
@@ -8850,8 +8380,7 @@
     "x": 3120,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.14",
@@ -8874,8 +8403,7 @@
     "x": 3060,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.15",
@@ -8898,8 +8426,7 @@
     "x": 3000,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.16",
@@ -8922,8 +8449,7 @@
     "x": 2940,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.17",
@@ -8946,8 +8472,7 @@
     "x": 2880,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.18",
@@ -8970,8 +8495,7 @@
     "x": 2760,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.19",
@@ -8994,8 +8518,7 @@
     "x": 2700,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.20",
@@ -9018,8 +8541,7 @@
     "x": 2580,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.21",
@@ -9042,8 +8564,7 @@
     "x": 2460,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.22",
@@ -9066,8 +8587,7 @@
     "x": 2400,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.23",
@@ -9090,8 +8610,7 @@
     "x": 2340,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1012.24",
@@ -9114,8 +8633,7 @@
     "x": 2280,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.01",
@@ -9138,8 +8656,7 @@
     "x": 2400,
     "y": 275,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.02",
@@ -9162,8 +8679,7 @@
     "x": 2400,
     "y": 250,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.03",
@@ -9186,8 +8702,7 @@
     "x": 2400,
     "y": 225,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.04",
@@ -9210,8 +8725,7 @@
     "x": 2400,
     "y": 200,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.05",
@@ -9234,8 +8748,7 @@
     "x": 2400,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.06",
@@ -9258,8 +8771,7 @@
     "x": 2340,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.07",
@@ -9282,8 +8794,7 @@
     "x": 2280,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1020.08",
@@ -9306,8 +8817,7 @@
     "x": 2220,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.01",
@@ -9330,8 +8840,7 @@
     "x": 2220,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.02",
@@ -9354,8 +8863,7 @@
     "x": 2160,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.03",
@@ -9378,8 +8886,7 @@
     "x": 2100,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.04",
@@ -9402,8 +8909,7 @@
     "x": 1980,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.05",
@@ -9426,8 +8932,7 @@
     "x": 1920,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.06",
@@ -9450,8 +8955,7 @@
     "x": 1860,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.07",
@@ -9474,8 +8978,7 @@
     "x": 1800,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.08",
@@ -9498,8 +9001,7 @@
     "x": 1740,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.09",
@@ -9522,8 +9024,7 @@
     "x": 1680,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.10",
@@ -9546,8 +9047,7 @@
     "x": 1620,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.11",
@@ -9570,8 +9070,7 @@
     "x": 1560,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.12",
@@ -9594,8 +9093,7 @@
     "x": 1500,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.13",
@@ -9618,8 +9116,7 @@
     "x": 1440,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.14",
@@ -9642,8 +9139,7 @@
     "x": 1380,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.15",
@@ -9666,8 +9162,7 @@
     "x": 1320,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.16",
@@ -9690,8 +9185,7 @@
     "x": 1260,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.17",
@@ -9714,8 +9208,7 @@
     "x": 1140,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.18",
@@ -9738,8 +9231,7 @@
     "x": 1020,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1024.19",
@@ -9762,8 +9254,7 @@
     "x": 960,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.01",
@@ -9786,8 +9277,7 @@
     "x": 1080,
     "y": 275,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.02",
@@ -9810,8 +9300,7 @@
     "x": 1080,
     "y": 250,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.03",
@@ -9834,8 +9323,7 @@
     "x": 1080,
     "y": 225,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.04",
@@ -9858,8 +9346,7 @@
     "x": 1080,
     "y": 200,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.05",
@@ -9882,8 +9369,7 @@
     "x": 1080,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.06",
@@ -9906,8 +9392,7 @@
     "x": 1020,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.07",
@@ -9930,8 +9415,7 @@
     "x": 960,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1030.08",
@@ -9954,8 +9438,7 @@
     "x": 900,
     "y": 175,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1034.01",
@@ -9978,8 +9461,7 @@
     "x": 900,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1034.02",
@@ -10002,8 +9484,7 @@
     "x": 840,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1034.03",
@@ -10026,8 +9507,7 @@
     "x": 780,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1034.04",
@@ -10050,8 +9530,7 @@
     "x": 720,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1034.05",
@@ -10074,8 +9553,7 @@
     "x": 660,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1034.06",
@@ -10098,8 +9576,7 @@
     "x": 600,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1036.01",
@@ -10122,8 +9599,7 @@
     "x": 540,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1036.02",
@@ -10146,8 +9622,7 @@
     "x": 480,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1036.03",
@@ -10170,8 +9645,7 @@
     "x": 420,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1036.04",
@@ -10194,8 +9668,7 @@
     "x": 360,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1036.05",
@@ -10218,8 +9691,7 @@
     "x": 300,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1036.06",
@@ -10242,8 +9714,7 @@
     "x": 240,
     "y": 150,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1050",
@@ -10266,8 +9737,7 @@
     "x": 120,
     "y": 150,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1052",
@@ -10291,26 +9761,13 @@
     "y": null,
     "w": null,
     "h": null,
-    "points": [
-      [
-        0,
-        150
-      ],
-      [
-        120,
-        150
-      ],
-      [
-        0,
-        175
-      ],
-      [
-        60,
-        175
-      ]
+    "points":[
+      [0,150],
+      [120,150],
+      [0,175],
+      [60,175]
     ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+    "thickness": 25
   },
   {
     "section_alias": "1056",
@@ -10333,8 +9790,7 @@
     "x": 0,
     "y": 200,
     "w": 60,
-    "h": 75,
-    "conveyor_type": "ground_level"
+    "h": 75
   },
   {
     "section_alias": "1058",
@@ -10357,8 +9813,7 @@
     "x": 0,
     "y": 275,
     "w": 60,
-    "h": 400,
-    "conveyor_type": "ground_level"
+    "h": 400
   },
   {
     "section_alias": "1060A",
@@ -10383,25 +9838,13 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        60,
-        300
+        [60,300],
+        [180,300],
+        [60, 275],
+        [120, 275]
+        
       ],
-      [
-        180,
-        300
-      ],
-      [
-        60,
-        275
-      ],
-      [
-        120,
-        275
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "1060B",
@@ -10425,26 +9868,13 @@
     "y": null,
     "w": null,
     "h": null,
-    "points": [
-      [
-        60,
-        400
-      ],
-      [
-        180,
-        400
-      ],
-      [
-        60,
-        375
-      ],
-      [
-        120,
-        375
-      ]
+    "points":[
+      [60,400],
+      [180,400],
+      [60,375],
+      [120,375]
     ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+    "thickness": 25
   },
   {
     "section_alias": "1060C",
@@ -10468,26 +9898,13 @@
     "y": null,
     "w": null,
     "h": null,
-    "points": [
-      [
-        60,
-        500
-      ],
-      [
-        180,
-        500
-      ],
-      [
-        60,
-        475
-      ],
-      [
-        120,
-        475
-      ]
+    "points":[
+      [60,500],
+      [180,500],
+      [60,475],
+      [120,475]
     ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+    "thickness": 25
   },
   {
     "section_alias": "1060D",
@@ -10511,26 +9928,13 @@
     "y": null,
     "w": null,
     "h": null,
-    "points": [
-      [
-        60,
-        600
-      ],
-      [
-        180,
-        600
-      ],
-      [
-        60,
-        575
-      ],
-      [
-        120,
-        575
-      ]
+    "points":[
+      [60,600],
+      [180,600],
+      [60,575],
+      [120,575]
     ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+    "thickness": 25
   },
   {
     "section_alias": "1064A",
@@ -10553,8 +9957,7 @@
     "x": 180,
     "y": 300,
     "w": 540,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1064B",
@@ -10577,8 +9980,7 @@
     "x": 180,
     "y": 400,
     "w": 540,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1064C",
@@ -10601,8 +10003,7 @@
     "x": 180,
     "y": 500,
     "w": 540,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1064D",
@@ -10625,8 +10026,7 @@
     "x": 180,
     "y": 600,
     "w": 540,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1066A",
@@ -10649,8 +10049,7 @@
     "x": 720,
     "y": 300,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1066B",
@@ -10673,8 +10072,7 @@
     "x": 720,
     "y": 400,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1066C",
@@ -10697,8 +10095,7 @@
     "x": 720,
     "y": 500,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1066D",
@@ -10721,8 +10118,7 @@
     "x": 720,
     "y": 600,
     "w": 120,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "1068",
@@ -10746,26 +10142,13 @@
     "y": null,
     "w": null,
     "h": null,
-    "points": [
-      [
-        0,
-        700
-      ],
-      [
-        120,
-        700
-      ],
-      [
-        0,
-        675
-      ],
-      [
-        60,
-        675
-      ]
+    "points":[
+      [0,700],
+      [120,700],
+      [0,675],
+      [60,675]
     ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+    "thickness": 25
   },
   {
     "section_alias": "1070",
@@ -10788,8 +10171,7 @@
     "x": 120,
     "y": 700,
     "w": 600,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3040.01",
@@ -10812,8 +10194,7 @@
     "x": 720,
     "y": 75,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "3040.02",
@@ -10836,8 +10217,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3040.03",
@@ -10860,8 +10240,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3040.04",
@@ -10884,8 +10263,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3040.05",
@@ -10910,21 +10288,11 @@
     "w": null,
     "h": null,
     "points": [
-      [
-        540,
-        250
+        [ 540, 250],
+        [ 840, 250 ],
+        [ 840, 325 ]
       ],
-      [
-        840,
-        250
-      ],
-      [
-        840,
-        325
-      ]
-    ],
-    "thickness": 25,
-    "conveyor_type": "ground_level"
+      "thickness": 25
   },
   {
     "section_alias": "3040.06",
@@ -10947,8 +10315,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.01",
@@ -10971,8 +10338,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.02",
@@ -10995,8 +10361,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.03",
@@ -11019,8 +10384,7 @@
     "x": 120,
     "y": 75,
     "w": 60,
-    "h": 50,
-    "conveyor_type": "ground_level"
+    "h": 50
   },
   {
     "section_alias": "3060.04",
@@ -11043,8 +10407,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.05",
@@ -11067,8 +10430,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.06",
@@ -11091,8 +10453,7 @@
     "x": 120,
     "y": 125,
     "w": 420,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.07",
@@ -11115,8 +10476,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.08",
@@ -11139,8 +10499,7 @@
     "x": 540,
     "y": 175,
     "w": 60,
-    "h": 75,
-    "conveyor_type": "ground_level"
+    "h": 75
   },
   {
     "section_alias": "3060.09",
@@ -11163,8 +10522,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.10",
@@ -11187,8 +10545,7 @@
     "x": 600,
     "y": 125,
     "w": 180,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.11",
@@ -11211,8 +10568,7 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "3060.12",
@@ -11235,495 +10591,433 @@
     "x": null,
     "y": null,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "Ball Table",
     "x": 540,
     "y": 125,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD260",
     "x": 120,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD259",
     "x": 240,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD258",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD257",
     "x": 540,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD256",
     "x": 660,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD255",
     "x": 720,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD254",
     "x": 960,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD253",
     "x": 1080,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD252",
     "x": 1200,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD251",
     "x": 1260,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD250",
     "x": 1320,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD249",
     "x": 1380,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD248",
     "x": 1560,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD247",
     "x": 1620,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD246",
     "x": 1680,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD245",
     "x": 1740,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD244",
     "x": 1860,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD243",
     "x": 1920,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD242",
     "x": 2100,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD241",
     "x": 2220,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD240",
     "x": 2340,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD239",
     "x": 2460,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD238",
     "x": 2640,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD237",
     "x": 2760,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD236",
     "x": 2940,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD235",
     "x": 3000,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD234",
     "x": 3060,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD233",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD232",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD231",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD230",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD229",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
-  {
+{
     "section_alias": "DD228",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD227",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD226",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD225",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD224",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD223",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD222",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD221",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD220",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD219",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD218",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD217",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD216",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD215",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD214",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD213",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD212",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD211",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD210",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD209",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD208",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD207",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD206",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD205",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD204",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD203",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD202",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   },
   {
     "section_alias": "DD201",
     "x": 420,
     "y": 0,
     "w": 60,
-    "h": 25,
-    "conveyor_type": "ground_level"
+    "h": 25
   }
 ]

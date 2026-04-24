@@ -1,19 +1,12 @@
 // SAT4 Conveyor Map (non-editable)
-<<<<<<< HEAD
-// Renders conveyors from conveyors.json using x/y/w/h pixel coords.
-// Excel-like info panel mirrors the user's spreadsheet menu.
-=======
 // Renders conveyors from conveyors-map.json using x/y/w/h pixel coords.
->>>>>>> parent of ab9be9c (poly lines)
 
 let rows = [];
 let selectedId = null;
 let zoom = 1;
 
-const MAP_W = 2000;
+const MAP_W = 8600;
 const MAP_H = 1200;
-<<<<<<< HEAD
-=======
 const MINI_W = 260;
 const MINI_H = 80;
 
@@ -32,30 +25,33 @@ function getTypeColor(r) {
   if (!r || r.blank) return null;
   return CONVEYOR_TYPES[r.conveyor_type] || UNASSIGNED;
 }
->>>>>>> parent of ab9be9c (poly lines)
 
 const els = {
-  search: document.getElementById("search"),
-  matchHint: document.getElementById("matchHint"),
-  copyAllBtn: document.getElementById("copyAllBtn"),
-  centerBtn: document.getElementById("centerBtn"),
-  zoomOutBtn: document.getElementById("zoomOutBtn"),
-  zoomResetBtn: document.getElementById("zoomResetBtn"),
-  zoomInBtn: document.getElementById("zoomInBtn"),
-  viewport: document.getElementById("viewport"),
-  map: document.getElementById("map"),
-  count: document.getElementById("count"),
-  toast: document.getElementById("toast"),
+  search:         document.getElementById("search"),
+  matchHint:      document.getElementById("matchHint"),
+  copyAllBtn:     document.getElementById("copyAllBtn"),
+  centerBtn:      document.getElementById("centerBtn"),
+  zoomOutBtn:     document.getElementById("zoomOutBtn"),
+  zoomResetBtn:   document.getElementById("zoomResetBtn"),
+  zoomInBtn:      document.getElementById("zoomInBtn"),
+  viewport:       document.getElementById("viewport"),
+  map:            document.getElementById("map"),
+  count:          document.getElementById("count"),
+  toast:          document.getElementById("toast"),
+  minimap:        document.getElementById("minimap"),
+  minimapHeader:  document.getElementById("minimapHeader"),
+  minimapToggle:  document.getElementById("minimapToggle"),
+  minimapCanvas:  document.getElementById("minimapCanvas"),
+  legend:         document.getElementById("legend"),
+  legendHeader:   document.getElementById("legendHeader"),
+  legendToggle:   document.getElementById("legendToggle"),
+  legendBody:     document.getElementById("legendBody"),
 };
 
-function idOf(r){
-  return String(r?.section_alias ?? "").trim();
-}
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
-function shortOf(r){
-  const s = String(r?.shortened_alias ?? "").trim();
-  return s || idOf(r);
-}
+function idOf(r)    { return String(r?.section_alias ?? "").trim(); }
+function shortOf(r) { const s = String(r?.shortened_alias ?? "").trim(); return s || idOf(r); }
 
 function numOrNull(v){
   if (v === undefined || v === null || v === "") return null;
@@ -65,11 +61,8 @@ function numOrNull(v){
 
 function escapeHtml(s){
   return String(s)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
 }
 
 function sortIds(a,b){
@@ -80,7 +73,7 @@ function showToast(msg){
   els.toast.textContent = msg;
   els.toast.classList.add("show");
   window.clearTimeout(showToast._t);
-  showToast._t = window.setTimeout(()=> els.toast.classList.remove("show"), 1200);
+  showToast._t = window.setTimeout(() => els.toast.classList.remove("show"), 1200);
 }
 
 async function copyText(text){
@@ -90,61 +83,50 @@ async function copyText(text){
     await navigator.clipboard.writeText(t);
     return true;
   }catch{
-    // fallback
     const ta = document.createElement("textarea");
-    ta.value = t;
-    ta.style.position = "fixed";
-    ta.style.left = "-9999px";
-    document.body.appendChild(ta);
-    ta.select();
+    ta.value = t; ta.style.position = "fixed"; ta.style.left = "-9999px";
+    document.body.appendChild(ta); ta.select();
     try{ document.execCommand("copy"); }catch{}
-    ta.remove();
-    return true;
+    ta.remove(); return true;
   }
 }
+
+// ── Zoom ──────────────────────────────────────────────────────────────────────
 
 function setZoom(newZoom, keepCenter = true){
   const z = Math.max(0.5, Math.min(2.5, newZoom));
   if (z === zoom) return;
 
-  // keep viewport center stable when zooming
   const vp = els.viewport;
-  const cx = vp.scrollLeft + vp.clientWidth / 2;
-  const cy = vp.scrollTop + vp.clientHeight / 2;
-  const rx = cx / zoom;
-  const ry = cy / zoom;
+  const cx = vp.scrollLeft + vp.clientWidth  / 2;
+  const cy = vp.scrollTop  + vp.clientHeight / 2;
+  const rx = cx / zoom, ry = cy / zoom;
 
   zoom = z;
   els.map.style.transform = `scale(${zoom})`;
-  els.zoomResetBtn.textContent = `${Math.round(zoom*100)}%`;
+  els.zoomResetBtn.textContent = `${Math.round(zoom * 100)}%`;
 
   if (keepCenter){
-    vp.scrollLeft = rx * zoom - vp.clientWidth / 2;
+    vp.scrollLeft = rx * zoom - vp.clientWidth  / 2;
     vp.scrollTop  = ry * zoom - vp.clientHeight / 2;
   }
+  drawMinimap();
 }
 
-function clearNodes(){
-  [...els.map.querySelectorAll('.node')].forEach(n => n.remove());
-}
+// ── Map geometry ──────────────────────────────────────────────────────────────
 
 function getPathPoints(r){
-  // Supports either:
-  //  - points: [[x,y], ...]
-  //  - path: [{x,y}, ...]
   const pts = [];
   if (Array.isArray(r?.points)){
     for (const p of r.points){
       if (!Array.isArray(p) || p.length < 2) continue;
-      const x = numOrNull(p[0]);
-      const y = numOrNull(p[1]);
+      const x = numOrNull(p[0]), y = numOrNull(p[1]);
       if (x === null || y === null) continue;
       pts.push({ x, y });
     }
   } else if (Array.isArray(r?.path)){
     for (const p of r.path){
-      const x = numOrNull(p?.x);
-      const y = numOrNull(p?.y);
+      const x = numOrNull(p?.x), y = numOrNull(p?.y);
       if (x === null || y === null) continue;
       pts.push({ x, y });
     }
@@ -153,7 +135,6 @@ function getPathPoints(r){
 }
 
 function thicknessOf(r){
-  // thickness falls back to height (h). If none, default 18.
   const t = numOrNull(r?.thickness);
   if (t !== null && t > 0) return t;
   const h = numOrNull(r?.h);
@@ -162,66 +143,23 @@ function thicknessOf(r){
 }
 
 function getBounds(r){
-  // Returns {x,y,w,h} in map coords for centering.
   const pts = getPathPoints(r);
   if (pts){
     const t = thicknessOf(r);
     let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
     for (const p of pts){
-      minX = Math.min(minX, p.x);
-      minY = Math.min(minY, p.y);
-      maxX = Math.max(maxX, p.x);
-      maxY = Math.max(maxY, p.y);
+      minX = Math.min(minX, p.x); minY = Math.min(minY, p.y);
+      maxX = Math.max(maxX, p.x); maxY = Math.max(maxY, p.y);
     }
-    // Expand by thickness so the bbox reflects the drawn stroke.
     return { x: minX, y: minY, w: (maxX - minX) + t, h: (maxY - minY) + t };
   }
-
-  const x = numOrNull(r.x);
-  const y = numOrNull(r.y);
-  const w = numOrNull(r.w);
-  const h = numOrNull(r.h);
+  const x = numOrNull(r.x), y = numOrNull(r.y), w = numOrNull(r.w), h = numOrNull(r.h);
   if (x === null || y === null || w === null || h === null) return null;
   if (w <= 0 || h <= 0) return null;
   return { x, y, w, h };
 }
 
 function buildSegments(r){
-<<<<<<< HEAD
-  // Returns array of rect segments: [{x,y,w,h,isTurn:boolean}]
-  const pts = getPathPoints(r);
-  if (!pts) return null;
-
-  const t = thicknessOf(r);
-  const segs = [];
-  for (let i = 0; i < pts.length - 1; i++){
-    const a = pts[i];
-    const b = pts[i+1];
-
-    const dx = b.x - a.x;
-    const dy = b.y - a.y;
-    // Only axis-aligned segments are supported.
-    if (dx !== 0 && dy !== 0) continue;
-    if (dx === 0 && dy === 0) continue;
-
-    if (dx !== 0){
-      const x = Math.min(a.x, b.x);
-      const y = a.y;
-      const w = Math.abs(dx);
-      segs.push({ x, y, w, h: t });
-    } else {
-      const x = a.x;
-      const y = Math.min(a.y, b.y);
-      const h = Math.abs(dy);
-      segs.push({ x, y, w: t, h });
-    }
-  }
-  return segs.length ? segs : null;
-}
-
-function render(){
-  clearNodes();
-=======
   const pts = getPathPoints(r);
   if (!pts) return null;
   const t = thicknessOf(r);
@@ -263,57 +201,10 @@ function makeNode(isBlank, id, r, seg){
 
 function render(){
   [...els.map.querySelectorAll('.node')].forEach(n => n.remove());
->>>>>>> parent of ab9be9c (poly lines)
 
-  // A conveyor is drawable if it has either:
-  //  - valid x/y/w/h
-  //  - or a path via points/path
   const drawable = rows.filter(r => getBounds(r) !== null);
+  els.count.textContent = String(drawable.filter(r => !r.blank).length);
 
-<<<<<<< HEAD
-els.count.textContent = String(drawable.filter(r => !r.blank).length);
-
-for (const r of drawable){
-  const isBlank = r.blank === true;
-
-  // Only require an id for non-blank conveyors
-  const id = isBlank ? null : idOf(r);
-  if (!isBlank && !id) continue;
-
-  const segs = buildSegments(r);
-  if (segs){
-    // Render turned conveyor as multiple rectangles.
-    segs.forEach((seg, i) => {
-      const node = document.createElement('div');
-      node.className = isBlank ? 'node blank' : 'node';
-
-      if (!isBlank){
-        node.dataset.id = id;
-        node.dataset.segment = String(i);
-      }
-
-      node.style.left = `${seg.x}px`;
-      node.style.top = `${seg.y}px`;
-      node.style.width = `${seg.w}px`;
-      node.style.height = `${seg.h}px`;
-
-      if (!isBlank){
-        // Only label the first segment to avoid clutter.
-        if (i === 0){
-          node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
-        } else {
-          node.innerHTML = '';
-        }
-        node.addEventListener('click', () => select(id, { center:false }));
-      } else {
-        node.innerHTML = '';
-        node.setAttribute('aria-hidden', 'true');
-      }
-
-      els.map.appendChild(node);
-    });
-    continue;
-=======
   for (const r of drawable){
     const isBlank = r.blank === true;
     const id = isBlank ? null : idOf(r);
@@ -344,90 +235,51 @@ for (const r of drawable){
       node.setAttribute('aria-hidden', 'true');
     }
     els.map.appendChild(node);
->>>>>>> parent of ab9be9c (poly lines)
   }
-
-  // Fallback: single rectangle conveyor.
-  const node = document.createElement('div');
-  node.className = isBlank ? 'node blank' : 'node';
-
-  if (!isBlank) {
-    node.dataset.id = id;
-  }
-
-  node.style.left = `${Number(r.x)}px`;
-  node.style.top = `${Number(r.y)}px`;
-  node.style.width = `${Number(r.w)}px`;
-  node.style.height = `${Number(r.h)}px`;
-
-  if (!isBlank) {
-    node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
-    node.addEventListener('click', () => select(id, { center:false }));
-  } else {
-    node.innerHTML = ""; // no label
-    node.setAttribute('aria-hidden', 'true');
-  }
-
-  els.map.appendChild(node);
-}
 
   highlightSelected();
 }
 
 function highlightSelected(){
-<<<<<<< HEAD
-  for (const n of els.map.querySelectorAll('.node')){
-    n.classList.toggle('selected', n.dataset.id === selectedId);
-  }
-=======
   for (const n of els.map.querySelectorAll('.node'))
     n.classList.toggle('selected', n.dataset.id === selectedId);
->>>>>>> parent of ab9be9c (poly lines)
 }
 
+// ── Selection & info panel ────────────────────────────────────────────────────
+
 function fillCells(r){
-  const cells = document.querySelectorAll('[data-field]');
-  for (const c of cells){
+  for (const c of document.querySelectorAll('[data-field]')){
     const key = c.getAttribute('data-field');
     let v = r ? (r[key] ?? '') : '';
-    // Friendly fallbacks so the menu is never blank for key fields
     if (key === 'shortened_alias' && (!v || String(v).trim() === '')) v = r ? idOf(r) : '';
     c.textContent = String(v ?? '');
     c.tabIndex = 0;
   }
 }
 
-function getRow(id){
-  return rows.find(r => idOf(r) === id) || null;
-}
+function getRow(id){ return rows.find(r => idOf(r) === id) || null; }
 
 function select(id, { center = true } = {}){
   selectedId = id;
-  const r = getRow(id);
-  fillCells(r);
+  fillCells(getRow(id));
   highlightSelected();
   if (center) centerOnSelected();
+  drawMinimap();
 }
 
 function centerOnSelected(){
   const r = getRow(selectedId);
   if (!r) return;
-
   const b = getBounds(r);
   if (!b) return;
-  const { x, y, w, h } = b;
-
-  // px -> scroll coords, then scale
-  const cx = (x + w/2) * zoom;
-  const cy = (y + h/2) * zoom;
   const vp = els.viewport;
-  vp.scrollLeft = cx - vp.clientWidth / 2;
-  vp.scrollTop  = cy - vp.clientHeight / 2;
+  vp.scrollLeft = (b.x + b.w / 2) * zoom - vp.clientWidth  / 2;
+  vp.scrollTop  = (b.y + b.h / 2) * zoom - vp.clientHeight / 2;
 }
 
-function normalize(str){
-  return String(str ?? '').trim().toLowerCase();
-}
+// ── Search ────────────────────────────────────────────────────────────────────
+
+function normalize(str){ return String(str ?? '').trim().toLowerCase(); }
 
 function searchMatches(q){
   const needle = normalize(q);
@@ -443,16 +295,11 @@ function searchMatches(q){
 }
 
 function setMatchHint(q){
+  if (!q){ els.matchHint.textContent = ''; return; }
   const hits = searchMatches(q);
-  if (!q){
-    els.matchHint.textContent = '';
-    return;
-  }
   els.matchHint.textContent = hits.length ? `Matches: ${hits.length}  (Enter to select)` : 'No matches';
 }
 
-<<<<<<< HEAD
-=======
 function applyDim(hits){
   const active = new Set(hits);
   for (const node of els.map.querySelectorAll('.node:not(.blank)')){
@@ -462,67 +309,63 @@ function applyDim(hits){
 
 // ── Copy cells ────────────────────────────────────────────────────────────────
 
->>>>>>> parent of ab9be9c (poly lines)
 function wireCopyCells(){
   for (const td of document.querySelectorAll('.copyCell')){
     td.addEventListener('click', async () => {
       const value = td.textContent.trim();
-      if (!value){
-        showToast('Nothing to copy');
-        return;
-      }
-      const ok = await copyText(value);
-      if (ok){
+      if (!value){ showToast('Nothing to copy'); return; }
+      if (await copyText(value)){
         const label = td.parentElement?.querySelector('th')?.textContent?.trim() || 'Copied';
         showToast(`Copied ${label}`);
       }
     });
-
-    // keyboard
     td.addEventListener('keydown', async (e) => {
-      if (e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        td.click();
-      }
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); td.click(); }
     });
   }
 }
 
 function buildCopyAllText(){
-  const lines = [];
-  for (const tr of document.querySelectorAll('.infoTable tr')){
-    const th = tr.querySelector('th');
-    const td = tr.querySelector('td');
-    if (!th || !td) continue;
-    const label = th.textContent.trim();
-    const value = td.textContent.trim();
-    lines.push(`${label}:\t${value}`);
-  }
-  return lines.join('\n');
+  return [...document.querySelectorAll('.infoTable tr')]
+    .map(tr => {
+      const th = tr.querySelector('th'), td = tr.querySelector('td');
+      return (th && td) ? `${th.textContent.trim()}:\t${td.textContent.trim()}` : null;
+    })
+    .filter(Boolean).join('\n');
 }
 
-async function load(){
-  const res = await fetch('./data/conveyors-map.json', { cache:'no-store' });
-  rows = await res.json();
+// ── Minimap ───────────────────────────────────────────────────────────────────
 
-<<<<<<< HEAD
-  // stable ordering
-  rows.sort((a,b) => sortIds(idOf(a), idOf(b)));
-  render();
-  wireCopyCells();
-  setZoom(1, false);
+let minimapMinimized = false;
+let legendMinimized  = false;
 
-  selectedId = rows[0] ? idOf(rows[0]) : null;
-  if (selectedId) {
-    select(selectedId, { center:false });
-    els.search.value = shortOf(getRow(selectedId));
+function drawMinimap(){
+  if (!els.minimapCanvas || minimapMinimized) return;
+  const ctx = els.minimapCanvas.getContext('2d');
+  ctx.clearRect(0, 0, MINI_W, MINI_H);
+
+  const sx = MINI_W / MAP_W, sy = MINI_H / MAP_H;
+
+  for (const r of rows){
+    const b = getBounds(r);
+    if (!b) continue;
+    const isSelected = !r.blank && idOf(r) === selectedId;
+    const tc = getTypeColor(r);
+    ctx.fillStyle = r.blank ? '#2a3a4a' : (isSelected ? '#facc15' : (tc?.bg || UNASSIGNED.bg));
+    ctx.fillRect(b.x * sx, b.y * sy, Math.max(1, b.w * sx), Math.max(1, b.h * sy));
   }
+
+  const vp = els.viewport;
+  const vx = (vp.scrollLeft / zoom) * sx, vy = (vp.scrollTop  / zoom) * sy;
+  const vw = (vp.clientWidth  / zoom) * sx, vh = (vp.clientHeight / zoom) * sy;
+  ctx.strokeStyle = 'rgba(255, 60, 60, 0.9)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(Math.max(0, vx), Math.max(0, vy),
+    Math.min(MINI_W - Math.max(0, vx), vw), Math.min(MINI_H - Math.max(0, vy), vh));
 }
 
-// Events
-let activeHits = [];
-let activeIndex = 0;
-=======
+// ── Legend ────────────────────────────────────────────────────────────────────
+
 function buildLegend(){
   els.legendBody.innerHTML = '';
   const entries = [['unassigned', UNASSIGNED], ...Object.entries(CONVEYOR_TYPES)];
@@ -701,7 +544,6 @@ els.viewport.addEventListener('touchend', () => { touchState = null; });
 // ── Search events ─────────────────────────────────────────────────────────────
 
 let activeHits = [], activeIndex = 0;
->>>>>>> parent of ab9be9c (poly lines)
 
 function updateHits(){
   activeHits = searchMatches(els.search.value);
@@ -711,79 +553,58 @@ function updateHits(){
 
 els.search.addEventListener('input', () => {
   updateHits();
-
-  // If the user types an exact alias, jump immediately.
+  applyDim(activeHits);
   const q = normalize(els.search.value);
-  if (!q) return;
+  if (!q){ applyDim([]); return; }
   const exact = rows.find(r => normalize(shortOf(r)) === q || normalize(idOf(r)) === q);
-  if (exact) select(idOf(exact), { center:false });
+  if (exact) select(idOf(exact), { center: true });
 });
 
 els.search.addEventListener('keydown', (e) => {
   if (e.key === 'Enter'){
     updateHits();
     if (activeHits.length){
-      select(activeHits[Math.min(activeIndex, activeHits.length-1)], { center:false });
+      select(activeHits[Math.min(activeIndex, activeHits.length - 1)], { center: true });
       showToast('Selected');
-    }else{
-      showToast('No matches');
-    }
+    } else { showToast('No matches'); }
   }
   if (e.key === 'ArrowDown'){
     if (!activeHits.length) updateHits();
-    if (activeHits.length){
-      e.preventDefault();
+    if (activeHits.length){ e.preventDefault();
       activeIndex = Math.min(activeIndex + 1, activeHits.length - 1);
-      select(activeHits[activeIndex], { center:false });
-    }
+      select(activeHits[activeIndex], { center: true }); }
   }
   if (e.key === 'ArrowUp'){
     if (!activeHits.length) updateHits();
-    if (activeHits.length){
-      e.preventDefault();
+    if (activeHits.length){ e.preventDefault();
       activeIndex = Math.max(activeIndex - 1, 0);
-      select(activeHits[activeIndex], { center:false });
-    }
+      select(activeHits[activeIndex], { center: true }); }
   }
   if (e.key === 'Escape'){
-    els.search.value = '';
-    els.matchHint.textContent = '';
-    activeHits = [];
-    activeIndex = 0;
+    els.search.value = ''; els.matchHint.textContent = '';
+    activeHits = []; activeIndex = 0; applyDim([]);
   }
 });
 
 els.centerBtn.addEventListener('click', () => centerOnSelected());
-
 els.zoomOutBtn.addEventListener('click', () => setZoom(zoom - 0.1));
-els.zoomInBtn.addEventListener('click', () => setZoom(zoom + 0.1));
+els.zoomInBtn.addEventListener('click',  () => setZoom(zoom + 0.1));
 els.zoomResetBtn.addEventListener('click', () => setZoom(1));
 
 els.copyAllBtn.addEventListener('click', async () => {
-  const t = buildCopyAllText();
-  const ok = await copyText(t);
-  if (ok) showToast('Copied all fields');
+  if (await copyText(buildCopyAllText())) showToast('Copied all fields');
 });
 
-// ctrl/cmd + click a conveyor to also copy the section alias quickly
 els.map.addEventListener('click', async (e) => {
   const node = e.target.closest?.('.node');
-<<<<<<< HEAD
-  if (!node) return;
-  if (!(e.ctrlKey || e.metaKey)) return;
-=======
   if (!node || !(e.ctrlKey || e.metaKey)) return;
->>>>>>> parent of ab9be9c (poly lines)
   const id = node.dataset.id;
   if (!id) return;
   const r = getRow(id);
-  const v = r ? shortOf(r) : id;
-  await copyText(v);
+  await copyText(r ? shortOf(r) : id);
   showToast('Copied Shortened Alias');
 });
 
-<<<<<<< HEAD
-=======
 els.viewport.addEventListener('scroll', drawMinimap);
 
 // ── Load ──────────────────────────────────────────────────────────────────────
@@ -811,9 +632,8 @@ async function load(){
 
   drawMinimap();
 }
->>>>>>> parent of ab9be9c (poly lines)
 
 load().catch(err => {
   console.error(err);
-  showToast('Failed to load conveyors.json');
+  showToast('Failed to load map data — check console');
 });
