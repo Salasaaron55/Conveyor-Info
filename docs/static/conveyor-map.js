@@ -407,15 +407,15 @@ function clampPanel(el, left, top){
 
 function initPanelPositions(){
   if (!els.legend || !els.minimap) return;
-  const gap = 16, sidebarW = 340, topBarH = 40;
+  const gap = 16, sidebarW = 350, topBarH = 720;  //legend positioning
 
   Object.assign(els.legend.style, {
     left: (sidebarW + gap) + 'px', top: (topBarH + gap) + 'px',
     right: 'auto', bottom: 'auto',
   });
   Object.assign(els.minimap.style, {
-    left:  (window.innerWidth  - MINI_W - gap - 4)  + 'px',
-    top:   (window.innerHeight - MINI_H - 32 - gap) + 'px',
+    left:  (window.innerWidth  - MINI_W - gap - 1100)  + 'px',  //minimap positioning horizontal
+    top:   (window.innerHeight - MINI_H - 32 - gap) + 'px',  //mimnimap positioning vertical
     right: 'auto', bottom: 'auto',
   });
 }
