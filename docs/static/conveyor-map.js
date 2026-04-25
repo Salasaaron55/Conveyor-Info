@@ -1,4 +1,4 @@
-// SAT4 Conveyor Map (non-editable)
+// SAT4 Conveyor Map
 // Renders conveyors from conveyors-map.json using x/y/w/h pixel coords.
 
 let rows = [];
@@ -10,8 +10,6 @@ const MAP_H = 1200;
 const MINI_W = 260;
 const MINI_H = 80;
 
-// Conveyor type color palette.
-// Add "conveyor_type" to a record in conveyors-map.json to assign a color.
 const CONVEYOR_TYPES = {
   ground_level: { bg: '#374151', border: '#9ca3af', text: '#f9fafb', label: 'Ground Level' },
   elevated:     { bg: '#7c2d12', border: '#fb923c', text: '#ffedd5', label: 'Elevated'     },
@@ -22,101 +20,118 @@ const CONVEYOR_TYPES = {
 };
 const UNASSIGNED = { bg: '#374151', border: '#4b5563', text: '#f9fafb', label: 'Unassigned' };
 
+const DEFAULT_TYPE_COLORS = Object.fromEntries(
+  Object.entries(CONVEYOR_TYPES).map(([k, v]) => [k, { bg: v.bg, border: v.border, text: v.text }])
+);
+
 function getTypeColor(r) {
   if (!r || r.blank) return null;
   return CONVEYOR_TYPES[r.conveyor_type] || UNASSIGNED;
 }
 
 const els = {
-  search:         document.getElementById("search"),
-  matchHint:      document.getElementById("matchHint"),
-  copyAllBtn:     document.getElementById("copyAllBtn"),
-  centerBtn:      document.getElementById("centerBtn"),
-  zoomOutBtn:     document.getElementById("zoomOutBtn"),
-  zoomResetBtn:   document.getElementById("zoomResetBtn"),
-  zoomInBtn:      document.getElementById("zoomInBtn"),
-  viewport:       document.getElementById("viewport"),
-  map:            document.getElementById("map"),
-  count:          document.getElementById("count"),
-  toast:          document.getElementById("toast"),
-  minimap:        document.getElementById("minimap"),
-  minimapHeader:  document.getElementById("minimapHeader"),
-  minimapToggle:  document.getElementById("minimapToggle"),
-  minimapCanvas:  document.getElementById("minimapCanvas"),
-  legend:         document.getElementById("legend"),
-  legendHeader:   document.getElementById("legendHeader"),
-  legendToggle:   document.getElementById("legendToggle"),
-  legendBody:     document.getElementById("legendBody"),
+  search:             document.getElementById('search'),
+  matchHint:          document.getElementById('matchHint'),
+  copyAllBtn:         document.getElementById('copyAllBtn'),
+  centerBtn:          document.getElementById('centerBtn'),
+  zoomOutBtn:         document.getElementById('zoomOutBtn'),
+  zoomResetBtn:       document.getElementById('zoomResetBtn'),
+  zoomInBtn:          document.getElementById('zoomInBtn'),
+  viewport:           document.getElementById('viewport'),
+  map:                document.getElementById('map'),
+  count:              document.getElementById('count'),
+  toast:              document.getElementById('toast'),
+  minimap:            document.getElementById('minimap'),
+  minimapHeader:      document.getElementById('minimapHeader'),
+  minimapToggle:      document.getElementById('minimapToggle'),
+  minimapCanvas:      document.getElementById('minimapCanvas'),
+  legend:             document.getElementById('legend'),
+  legendHeader:       document.getElementById('legendHeader'),
+  legendToggle:       document.getElementById('legendToggle'),
+  legendBody:         document.getElementById('legendBody'),
+  noteTextarea:       document.getElementById('noteTextarea'),
+  notesConveyorLabel: document.getElementById('notesConveyorLabel'),
+  notesSavedHint:     document.getElementById('notesSavedHint'),
+  saveNoteBtn:        document.getElementById('saveNoteBtn'),
+  exportNotesBtn:     document.getElementById('exportNotesBtn'),
+  importNotesInput:   document.getElementById('importNotesInput'),
+  themeSelect:        document.getElementById('themeSelect'),
+  colorSettings:      document.getElementById('colorSettings'),
+  showLegendChk:      document.getElementById('showLegendChk'),
+  showMinimapChk:     document.getElementById('showMinimapChk'),
+  resetSettingsBtn:   document.getElementById('resetSettingsBtn'),
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function idOf(r)    { return String(r?.section_alias ?? "").trim(); }
-function shortOf(r) { const s = String(r?.shortened_alias ?? "").trim(); return s || idOf(r); }
+function idOf(r)    { return String(r?.section_alias ?? '').trim(); }
+function shortOf(r) { const s = String(r?.shortened_alias ?? '').trim(); return s || idOf(r); }
 
-function numOrNull(v){
-  if (v === undefined || v === null || v === "") return null;
+function numOrNull(v) {
+  if (v === undefined || v === null || v === '') return null;
   const n = Number(v);
   return Number.isFinite(n) ? n : null;
 }
 
-function escapeHtml(s){
+function escapeHtml(s) {
   return String(s)
-    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+    .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 }
 
-function sortIds(a,b){
-  return a.localeCompare(b, undefined, { numeric:true, sensitivity:"base" });
+function sortIds(a, b) {
+  return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
 }
 
-function showToast(msg){
+function showToast(msg) {
   els.toast.textContent = msg;
-  els.toast.classList.add("show");
+  els.toast.classList.add('show');
   window.clearTimeout(showToast._t);
-  showToast._t = window.setTimeout(() => els.toast.classList.remove("show"), 1200);
+  showToast._t = window.setTimeout(() => els.toast.classList.remove('show'), 1200);
 }
 
-async function copyText(text){
-  const t = String(text ?? "");
+async function copyText(text) {
+  const t = String(text ?? '');
   if (!t) return false;
-  try{
+  try {
     await navigator.clipboard.writeText(t);
     return true;
-  }catch{
-    const ta = document.createElement("textarea");
-    ta.value = t; ta.style.position = "fixed"; ta.style.left = "-9999px";
+  } catch {
+    const ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.left = '-9999px';
     document.body.appendChild(ta); ta.select();
-    try{ document.execCommand("copy"); }catch{}
+    try { document.execCommand('copy'); } catch {}
     ta.remove(); return true;
   }
 }
 
 // ── Persistence ───────────────────────────────────────────────────────────────
 
-const STORAGE_KEY = 'conveyor-map-state';
+const STORAGE_KEY  = 'conveyor-map-state';
+const NOTES_KEY    = 'conveyor-notes';
+const SETTINGS_KEY = 'conveyor-map-settings';
 
-function saveState(){
+function saveState() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       scrollLeft: els.viewport.scrollLeft,
       scrollTop:  els.viewport.scrollTop,
       zoom,
-      legendPos:        els.legend  ? { left: els.legend.style.left,  top: els.legend.style.top  } : null,
-      minimapPos:       els.minimap ? { left: els.minimap.style.left, top: els.minimap.style.top } : null,
+      legendPos:       els.legend  ? { left: els.legend.style.left,  top: els.legend.style.top  } : null,
+      minimapPos:      els.minimap ? { left: els.minimap.style.left, top: els.minimap.style.top } : null,
       legendMinimized,
       minimapMinimized,
     }));
   } catch {}
 }
 
-function loadSavedState(){
+function loadSavedState() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch { return null; }
 }
 
 // ── Zoom ──────────────────────────────────────────────────────────────────────
 
-function setZoom(newZoom, keepCenter = true){
+function setZoom(newZoom, keepCenter = true) {
   const z = Math.max(0.5, Math.min(2.5, newZoom));
   if (z === zoom) return;
 
@@ -129,7 +144,7 @@ function setZoom(newZoom, keepCenter = true){
   els.map.style.transform = `scale(${zoom})`;
   els.zoomResetBtn.textContent = `${Math.round(zoom * 100)}%`;
 
-  if (keepCenter){
+  if (keepCenter) {
     vp.scrollLeft = rx * zoom - vp.clientWidth  / 2;
     vp.scrollTop  = ry * zoom - vp.clientHeight / 2;
   }
@@ -139,17 +154,17 @@ function setZoom(newZoom, keepCenter = true){
 
 // ── Map geometry ──────────────────────────────────────────────────────────────
 
-function getPathPoints(r){
+function getPathPoints(r) {
   const pts = [];
-  if (Array.isArray(r?.points)){
-    for (const p of r.points){
+  if (Array.isArray(r?.points)) {
+    for (const p of r.points) {
       if (!Array.isArray(p) || p.length < 2) continue;
       const x = numOrNull(p[0]), y = numOrNull(p[1]);
       if (x === null || y === null) continue;
       pts.push({ x, y });
     }
-  } else if (Array.isArray(r?.path)){
-    for (const p of r.path){
+  } else if (Array.isArray(r?.path)) {
+    for (const p of r.path) {
       const x = numOrNull(p?.x), y = numOrNull(p?.y);
       if (x === null || y === null) continue;
       pts.push({ x, y });
@@ -158,7 +173,7 @@ function getPathPoints(r){
   return pts.length >= 2 ? pts : null;
 }
 
-function thicknessOf(r){
+function thicknessOf(r) {
   const t = numOrNull(r?.thickness);
   if (t !== null && t > 0) return t;
   const h = numOrNull(r?.h);
@@ -166,12 +181,12 @@ function thicknessOf(r){
   return 18;
 }
 
-function getBounds(r){
+function getBounds(r) {
   const pts = getPathPoints(r);
-  if (pts){
+  if (pts) {
     const t = thicknessOf(r);
     let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-    for (const p of pts){
+    for (const p of pts) {
       minX = Math.min(minX, p.x); minY = Math.min(minY, p.y);
       maxX = Math.max(maxX, p.x); maxY = Math.max(maxY, p.y);
     }
@@ -183,17 +198,17 @@ function getBounds(r){
   return { x, y, w, h };
 }
 
-function buildSegments(r){
+function buildSegments(r) {
   const pts = getPathPoints(r);
   if (!pts) return null;
   const t = thicknessOf(r);
   const segs = [];
-  for (let i = 0; i < pts.length - 1; i++){
-    const a = pts[i], b = pts[i+1];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[i], b = pts[i + 1];
     const dx = b.x - a.x, dy = b.y - a.y;
     if (dx !== 0 && dy !== 0) continue;
     if (dx === 0 && dy === 0) continue;
-    if (dx !== 0){
+    if (dx !== 0) {
       segs.push({ x: Math.min(a.x, b.x), y: a.y, w: Math.abs(dx), h: t });
     } else {
       segs.push({ x: a.x, y: Math.min(a.y, b.y), w: t, h: Math.abs(dy) });
@@ -204,7 +219,7 @@ function buildSegments(r){
 
 // ── Render ────────────────────────────────────────────────────────────────────
 
-function applyNodeColor(node, r){
+function applyNodeColor(node, r) {
   const tc = getTypeColor(r);
   if (!tc) return;
   node.style.background  = tc.bg;
@@ -212,10 +227,10 @@ function applyNodeColor(node, r){
   node.style.color       = tc.text;
 }
 
-function makeNode(isBlank, id, r, seg){
+function makeNode(isBlank, id, r, seg) {
   const node = document.createElement('div');
   node.className = isBlank ? 'node blank' : 'node';
-  if (!isBlank){ node.dataset.id = id; applyNodeColor(node, r); }
+  if (!isBlank) { node.dataset.id = id; applyNodeColor(node, r); }
   node.style.left   = `${seg.x}px`;
   node.style.top    = `${seg.y}px`;
   node.style.width  = `${seg.w}px`;
@@ -223,22 +238,22 @@ function makeNode(isBlank, id, r, seg){
   return node;
 }
 
-function render(){
+function render() {
   [...els.map.querySelectorAll('.node')].forEach(n => n.remove());
 
   const drawable = rows.filter(r => getBounds(r) !== null);
   els.count.textContent = String(drawable.filter(r => !r.blank).length);
 
-  for (const r of drawable){
+  for (const r of drawable) {
     const isBlank = r.blank === true;
     const id = isBlank ? null : idOf(r);
     if (!isBlank && !id) continue;
 
     const segs = buildSegments(r);
-    if (segs){
+    if (segs) {
       segs.forEach((seg, i) => {
         const node = makeNode(isBlank, id, r, seg);
-        if (!isBlank){
+        if (!isBlank) {
           node.dataset.segment = String(i);
           if (i === 0) node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
           node.addEventListener('click', () => select(id, { center: false }));
@@ -252,7 +267,7 @@ function render(){
 
     const b = getBounds(r);
     const node = makeNode(isBlank, id, r, b);
-    if (!isBlank){
+    if (!isBlank) {
       node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
       node.addEventListener('click', () => select(id, { center: false }));
     } else {
@@ -264,15 +279,15 @@ function render(){
   highlightSelected();
 }
 
-function highlightSelected(){
+function highlightSelected() {
   for (const n of els.map.querySelectorAll('.node'))
     n.classList.toggle('selected', n.dataset.id === selectedId);
 }
 
 // ── Selection & info panel ────────────────────────────────────────────────────
 
-function fillCells(r){
-  for (const c of document.querySelectorAll('[data-field]')){
+function fillCells(r) {
+  for (const c of document.querySelectorAll('[data-field]')) {
     const key = c.getAttribute('data-field');
     let v = r ? (r[key] ?? '') : '';
     if (key === 'shortened_alias' && (!v || String(v).trim() === '')) v = r ? idOf(r) : '';
@@ -281,17 +296,18 @@ function fillCells(r){
   }
 }
 
-function getRow(id){ return rows.find(r => idOf(r) === id) || null; }
+function getRow(id) { return rows.find(r => idOf(r) === id) || null; }
 
-function select(id, { center = true } = {}){
+function select(id, { center = true } = {}) {
   selectedId = id;
   fillCells(getRow(id));
   highlightSelected();
   if (center) centerOnSelected();
   drawMinimap();
+  updateNotesPanel();
 }
 
-function centerOnSelected(){
+function centerOnSelected() {
   const r = getRow(selectedId);
   if (!r) return;
   const b = getBounds(r);
@@ -303,13 +319,13 @@ function centerOnSelected(){
 
 // ── Search ────────────────────────────────────────────────────────────────────
 
-function normalize(str){ return String(str ?? '').trim().toLowerCase(); }
+function normalize(str) { return String(str ?? '').trim().toLowerCase(); }
 
-function searchMatches(q){
+function searchMatches(q) {
   const needle = normalize(q);
   if (!needle) return [];
   const hits = [];
-  for (const r of rows){
+  for (const r of rows) {
     const id = idOf(r);
     if (!id) continue;
     const hay = `${normalize(shortOf(r))} ${normalize(id)} ${normalize(r.amazon_alias ?? '')}`;
@@ -318,38 +334,37 @@ function searchMatches(q){
   return hits.sort(sortIds);
 }
 
-function setMatchHint(q){
-  if (!q){ els.matchHint.textContent = ''; return; }
+function setMatchHint(q) {
+  if (!q) { els.matchHint.textContent = ''; return; }
   const hits = searchMatches(q);
   els.matchHint.textContent = hits.length ? `Matches: ${hits.length}  (Enter to select)` : 'No matches';
 }
 
-function applyDim(hits){
+function applyDim(hits) {
   const active = new Set(hits);
-  for (const node of els.map.querySelectorAll('.node:not(.blank)')){
+  for (const node of els.map.querySelectorAll('.node:not(.blank)'))
     node.classList.toggle('dimmed', active.size > 0 && !active.has(node.dataset.id));
-  }
 }
 
 // ── Copy cells ────────────────────────────────────────────────────────────────
 
-function wireCopyCells(){
-  for (const td of document.querySelectorAll('.copyCell')){
+function wireCopyCells() {
+  for (const td of document.querySelectorAll('.copyCell')) {
     td.addEventListener('click', async () => {
       const value = td.textContent.trim();
-      if (!value){ showToast('Nothing to copy'); return; }
-      if (await copyText(value)){
+      if (!value) { showToast('Nothing to copy'); return; }
+      if (await copyText(value)) {
         const label = td.parentElement?.querySelector('th')?.textContent?.trim() || 'Copied';
         showToast(`Copied ${label}`);
       }
     });
     td.addEventListener('keydown', async (e) => {
-      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); td.click(); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); td.click(); }
     });
   }
 }
 
-function buildCopyAllText(){
+function buildCopyAllText() {
   return [...document.querySelectorAll('.infoTable tr')]
     .map(tr => {
       const th = tr.querySelector('th'), td = tr.querySelector('td');
@@ -363,14 +378,14 @@ function buildCopyAllText(){
 let minimapMinimized = false;
 let legendMinimized  = false;
 
-function drawMinimap(){
-  if (!els.minimapCanvas || minimapMinimized) return;
+function drawMinimap() {
+  if (!els.minimapCanvas || minimapMinimized || els.minimap?.hidden) return;
   const ctx = els.minimapCanvas.getContext('2d');
   ctx.clearRect(0, 0, MINI_W, MINI_H);
 
   const sx = MINI_W / MAP_W, sy = MINI_H / MAP_H;
 
-  for (const r of rows){
+  for (const r of rows) {
     const b = getBounds(r);
     if (!b) continue;
     const isSelected = !r.blank && idOf(r) === selectedId;
@@ -390,10 +405,9 @@ function drawMinimap(){
 
 // ── Legend ────────────────────────────────────────────────────────────────────
 
-function buildLegend(){
+function buildLegend() {
   els.legendBody.innerHTML = '';
-  const entries = Object.entries(CONVEYOR_TYPES);
-  for (const [, tc] of entries){
+  for (const [, tc] of Object.entries(CONVEYOR_TYPES)) {
     const item = document.createElement('div');
     item.className = 'legendItem';
     item.innerHTML =
@@ -407,7 +421,7 @@ function buildLegend(){
 
 let panelDragState = null;
 
-function makeDraggable(el, handle){
+function makeDraggable(el, handle) {
   handle.addEventListener('mousedown', (e) => {
     if (e.target.closest('.floatPanelToggle')) return;
     const rect = el.getBoundingClientRect();
@@ -422,63 +436,76 @@ function makeDraggable(el, handle){
   });
 }
 
-function clampPanel(el, left, top){
+function clampPanel(el, left, top) {
   const maxLeft = window.innerWidth  - el.offsetWidth;
   const maxTop  = window.innerHeight - el.offsetHeight;
   el.style.left = Math.max(0, Math.min(maxLeft, left)) + 'px';
   el.style.top  = Math.max(0, Math.min(maxTop,  top))  + 'px';
 }
 
-function initPanelPositions(){
+function initPanelPositions() {
   if (!els.legend || !els.minimap) return;
   const saved = loadSavedState();
   const gap = 16, sidebarW = 350, topBarH = 720;
 
-  if (saved?.legendPos?.left){
+  if (saved?.legendPos?.left) {
     Object.assign(els.legend.style, { left: saved.legendPos.left, top: saved.legendPos.top, right: 'auto', bottom: 'auto' });
   } else {
     Object.assign(els.legend.style, { left: (sidebarW + gap) + 'px', top: (topBarH + gap) + 'px', right: 'auto', bottom: 'auto' });
   }
 
-  if (saved?.minimapPos?.left){
+  if (saved?.minimapPos?.left) {
     Object.assign(els.minimap.style, { left: saved.minimapPos.left, top: saved.minimapPos.top, right: 'auto', bottom: 'auto' });
   } else {
     Object.assign(els.minimap.style, {
-      left:  (window.innerWidth  - MINI_W - gap - 1100)  + 'px',
-      top:   (window.innerHeight - MINI_H - 32 - gap) + 'px',
+      left:  (window.innerWidth  - MINI_W - gap - 1100) + 'px',
+      top:   (window.innerHeight - MINI_H - 32  - gap)  + 'px',
       right: 'auto', bottom: 'auto',
     });
   }
 
-  if (saved?.legendMinimized){
+  if (saved?.legendMinimized) {
     legendMinimized = true;
     els.legend.classList.add('minimized');
-    if (els.legendToggle){ els.legendToggle.textContent = '+'; els.legendToggle.title = 'Expand'; }
+    if (els.legendToggle) { els.legendToggle.textContent = '+'; els.legendToggle.title = 'Expand'; }
   }
 
-  if (saved?.minimapMinimized){
+  if (saved?.minimapMinimized) {
     minimapMinimized = true;
     els.minimap.classList.add('minimized');
-    if (els.minimapToggle){ els.minimapToggle.textContent = '+'; els.minimapToggle.title = 'Expand'; }
+    if (els.minimapToggle) { els.minimapToggle.textContent = '+'; els.minimapToggle.title = 'Expand'; }
   }
 }
 
-function wireFloatPanels(){
+// ── Minimap drag-to-scroll ────────────────────────────────────────────────────
+
+let minimapDragActive = false;
+
+function scrollToMinimapPoint(clientX, clientY) {
+  const rect = els.minimapCanvas.getBoundingClientRect();
+  const mx = ((clientX - rect.left) / MINI_W) * MAP_W;
+  const my = ((clientY - rect.top)  / MINI_H) * MAP_H;
+  const vp = els.viewport;
+  vp.scrollLeft = mx * zoom - vp.clientWidth  / 2;
+  vp.scrollTop  = my * zoom - vp.clientHeight / 2;
+  drawMinimap();
+}
+
+function wireFloatPanels() {
   if (els.minimapHeader) makeDraggable(els.minimap, els.minimapHeader);
   if (els.legendHeader)  makeDraggable(els.legend,  els.legendHeader);
 
-  if (els.minimapCanvas){
-    els.minimapCanvas.addEventListener('click', (e) => {
-      const rect = els.minimapCanvas.getBoundingClientRect();
-      const mx = ((e.clientX - rect.left) / MINI_W) * MAP_W;
-      const my = ((e.clientY - rect.top)  / MINI_H) * MAP_H;
-      const vp = els.viewport;
-      vp.scrollLeft = mx * zoom - vp.clientWidth  / 2;
-      vp.scrollTop  = my * zoom - vp.clientHeight / 2;
+  if (els.minimapCanvas) {
+    els.minimapCanvas.addEventListener('mousedown', (e) => {
+      if (panelDragState) return;
+      minimapDragActive = true;
+      scrollToMinimapPoint(e.clientX, e.clientY);
+      e.preventDefault();
+      e.stopPropagation();
     });
   }
 
-  if (els.minimapToggle){
+  if (els.minimapToggle) {
     els.minimapToggle.addEventListener('click', () => {
       minimapMinimized = !minimapMinimized;
       els.minimap.classList.toggle('minimized', minimapMinimized);
@@ -489,7 +516,7 @@ function wireFloatPanels(){
     });
   }
 
-  if (els.legendToggle){
+  if (els.legendToggle) {
     els.legendToggle.addEventListener('click', () => {
       legendMinimized = !legendMinimized;
       els.legend.classList.toggle('minimized', legendMinimized);
@@ -515,27 +542,31 @@ els.viewport.addEventListener('mousedown', (e) => {
 });
 
 window.addEventListener('mousemove', (e) => {
-  // Float panel drag takes priority
-  if (panelDragState){
+  if (minimapDragActive) {
+    scrollToMinimapPoint(e.clientX, e.clientY);
+    return;
+  }
+  if (panelDragState) {
     const { el, startX, startY, origLeft, origTop } = panelDragState;
     clampPanel(el, origLeft + (e.clientX - startX), origTop + (e.clientY - startY));
     return;
   }
   if (!dragState) return;
   const dx = e.clientX - dragState.startX, dy = e.clientY - dragState.startY;
-  if (!dragState.moved && Math.hypot(dx, dy) > 4){
+  if (!dragState.moved && Math.hypot(dx, dy) > 4) {
     dragState.moved = true;
     els.viewport.classList.add('dragging');
   }
-  if (dragState.moved){
+  if (dragState.moved) {
     els.viewport.scrollLeft = dragState.scrollLeft - dx;
     els.viewport.scrollTop  = dragState.scrollTop  - dy;
   }
 });
 
 window.addEventListener('mouseup', () => {
-  if (panelDragState){ panelDragState = null; saveState(); }
-  if (dragState){ els.viewport.classList.remove('dragging'); dragState = null; }
+  if (minimapDragActive) { minimapDragActive = false; saveState(); }
+  if (panelDragState) { panelDragState = null; saveState(); }
+  if (dragState) { els.viewport.classList.remove('dragging'); dragState = null; }
 });
 
 // ── Ctrl+scroll zoom ──────────────────────────────────────────────────────────
@@ -557,11 +588,11 @@ els.viewport.addEventListener('wheel', (e) => {
 let touchState = null;
 
 els.viewport.addEventListener('touchstart', (e) => {
-  if (e.touches.length === 1){
+  if (e.touches.length === 1) {
     touchState = { type: 'pan',
       startX: e.touches[0].clientX, startY: e.touches[0].clientY,
       scrollLeft: els.viewport.scrollLeft, scrollTop: els.viewport.scrollTop };
-  } else if (e.touches.length === 2){
+  } else if (e.touches.length === 2) {
     touchState = { type: 'pinch',
       startDist: Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
                             e.touches[0].clientY - e.touches[1].clientY),
@@ -573,10 +604,10 @@ els.viewport.addEventListener('touchstart', (e) => {
 els.viewport.addEventListener('touchmove', (e) => {
   if (!touchState) return;
   e.preventDefault();
-  if (touchState.type === 'pan' && e.touches.length === 1){
+  if (touchState.type === 'pan' && e.touches.length === 1) {
     els.viewport.scrollLeft = touchState.scrollLeft - (e.touches[0].clientX - touchState.startX);
     els.viewport.scrollTop  = touchState.scrollTop  - (e.touches[0].clientY - touchState.startY);
-  } else if (touchState.type === 'pinch' && e.touches.length === 2){
+  } else if (touchState.type === 'pinch' && e.touches.length === 2) {
     const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
                             e.touches[0].clientY - e.touches[1].clientY);
     setZoom(touchState.startZoom * (dist / touchState.startDist), true);
@@ -590,7 +621,7 @@ els.viewport.addEventListener('touchend', () => { touchState = null; });
 
 let activeHits = [], activeIndex = 0;
 
-function updateHits(){
+function updateHits() {
   activeHits = searchMatches(els.search.value);
   activeIndex = 0;
   setMatchHint(els.search.value);
@@ -600,40 +631,40 @@ els.search.addEventListener('input', () => {
   updateHits();
   applyDim(activeHits);
   const q = normalize(els.search.value);
-  if (!q){ applyDim([]); return; }
+  if (!q) { applyDim([]); return; }
   const exact = rows.find(r => normalize(shortOf(r)) === q || normalize(idOf(r)) === q);
   if (exact) select(idOf(exact), { center: true });
 });
 
 els.search.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter'){
+  if (e.key === 'Enter') {
     updateHits();
-    if (activeHits.length){
+    if (activeHits.length) {
       select(activeHits[Math.min(activeIndex, activeHits.length - 1)], { center: true });
       showToast('Selected');
     } else { showToast('No matches'); }
   }
-  if (e.key === 'ArrowDown'){
+  if (e.key === 'ArrowDown') {
     if (!activeHits.length) updateHits();
-    if (activeHits.length){ e.preventDefault();
+    if (activeHits.length) { e.preventDefault();
       activeIndex = Math.min(activeIndex + 1, activeHits.length - 1);
       select(activeHits[activeIndex], { center: true }); }
   }
-  if (e.key === 'ArrowUp'){
+  if (e.key === 'ArrowUp') {
     if (!activeHits.length) updateHits();
-    if (activeHits.length){ e.preventDefault();
+    if (activeHits.length) { e.preventDefault();
       activeIndex = Math.max(activeIndex - 1, 0);
       select(activeHits[activeIndex], { center: true }); }
   }
-  if (e.key === 'Escape'){
+  if (e.key === 'Escape') {
     els.search.value = ''; els.matchHint.textContent = '';
     activeHits = []; activeIndex = 0; applyDim([]);
   }
 });
 
 els.centerBtn.addEventListener('click', () => centerOnSelected());
-els.zoomOutBtn.addEventListener('click', () => setZoom(zoom - 0.1));
-els.zoomInBtn.addEventListener('click',  () => setZoom(zoom + 0.1));
+els.zoomOutBtn.addEventListener('click',  () => setZoom(zoom - 0.1));
+els.zoomInBtn.addEventListener('click',   () => setZoom(zoom + 0.1));
 els.zoomResetBtn.addEventListener('click', () => setZoom(1));
 
 els.copyAllBtn.addEventListener('click', async () => {
@@ -652,14 +683,219 @@ els.map.addEventListener('click', async (e) => {
 
 els.viewport.addEventListener('scroll', () => { drawMinimap(); saveState(); });
 
+// ── Tab system ────────────────────────────────────────────────────────────────
+
+const TABS = ['info', 'notes', 'settings', 'help'];
+
+function switchTab(name) {
+  for (const t of TABS) {
+    const btn   = document.querySelector(`.tabBtn[data-tab="${t}"]`);
+    const panel = document.getElementById(`tab-${t}`);
+    const active = t === name;
+    if (btn)   { btn.classList.toggle('active', active); btn.setAttribute('aria-selected', String(active)); }
+    if (panel) panel.hidden = !active;
+  }
+  if (name === 'notes') updateNotesPanel();
+}
+
+document.querySelectorAll('.tabBtn').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+// ── Notes ─────────────────────────────────────────────────────────────────────
+
+function allNotes() {
+  try { return JSON.parse(localStorage.getItem(NOTES_KEY) || '{}'); } catch { return {}; }
+}
+
+function updateNotesPanel() {
+  if (!els.noteTextarea) return;
+  if (selectedId) {
+    const r = getRow(selectedId);
+    els.notesConveyorLabel.textContent = `Notes: ${r ? shortOf(r) : selectedId}`;
+    els.noteTextarea.value = allNotes()[selectedId] || '';
+    els.noteTextarea.disabled = false;
+  } else {
+    els.notesConveyorLabel.textContent = 'No conveyor selected';
+    els.noteTextarea.value = '';
+    els.noteTextarea.disabled = true;
+  }
+  if (els.notesSavedHint) els.notesSavedHint.textContent = '';
+}
+
+if (els.saveNoteBtn) {
+  els.saveNoteBtn.addEventListener('click', () => {
+    if (!selectedId) return;
+    const notes = allNotes();
+    const text = els.noteTextarea.value;
+    if (text.trim()) { notes[selectedId] = text; } else { delete notes[selectedId]; }
+    localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+    if (els.notesSavedHint) {
+      els.notesSavedHint.textContent = 'Saved!';
+      setTimeout(() => { if (els.notesSavedHint) els.notesSavedHint.textContent = ''; }, 1500);
+    }
+  });
+}
+
+if (els.exportNotesBtn) {
+  els.exportNotesBtn.addEventListener('click', () => {
+    const notes = allNotes();
+    const blob = new Blob([JSON.stringify(notes, null, 2)], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = 'conveyor-notes.json';
+    a.click(); URL.revokeObjectURL(url);
+  });
+}
+
+if (els.importNotesInput) {
+  els.importNotesInput.addEventListener('change', (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const imported = JSON.parse(ev.target.result);
+        if (typeof imported !== 'object' || Array.isArray(imported)) throw new Error('Invalid format');
+        const merged = { ...allNotes(), ...imported };
+        localStorage.setItem(NOTES_KEY, JSON.stringify(merged));
+        updateNotesPanel();
+        showToast(`Imported ${Object.keys(imported).length} notes`);
+      } catch {
+        showToast('Import failed: invalid JSON');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+}
+
+// ── Settings ──────────────────────────────────────────────────────────────────
+
+function loadUserSettings() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || 'null'); } catch { return null; }
+}
+
+function saveUserSettings() {
+  try {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify({
+      theme:      document.documentElement.dataset.theme || 'dark',
+      colors:     Object.fromEntries(Object.entries(CONVEYOR_TYPES).map(([k, v]) => [k, { bg: v.bg, border: v.border, text: v.text }])),
+      showLegend: !els.legend?.hidden,
+      showMinimap: !els.minimap?.hidden,
+    }));
+  } catch {}
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  if (els.themeSelect) els.themeSelect.value = theme;
+}
+
+function applyUserSettings(s) {
+  if (!s) return;
+  if (s.theme) applyTheme(s.theme);
+  if (s.colors) {
+    for (const [key, c] of Object.entries(s.colors)) {
+      if (CONVEYOR_TYPES[key]) Object.assign(CONVEYOR_TYPES[key], c);
+    }
+  }
+  if (s.showLegend  === false && els.legend)  els.legend.hidden  = true;
+  if (s.showMinimap === false && els.minimap) els.minimap.hidden = true;
+}
+
+function syncSettingsUI() {
+  if (els.showLegendChk)  els.showLegendChk.checked  = !els.legend?.hidden;
+  if (els.showMinimapChk) els.showMinimapChk.checked = !els.minimap?.hidden;
+  if (els.themeSelect)    els.themeSelect.value = document.documentElement.dataset.theme || 'dark';
+  for (const [key] of Object.entries(CONVEYOR_TYPES)) {
+    const bgEl = document.getElementById(`color-${key}-bg`);
+    const boEl = document.getElementById(`color-${key}-border`);
+    const txEl = document.getElementById(`color-${key}-text`);
+    if (bgEl) bgEl.value = CONVEYOR_TYPES[key].bg;
+    if (boEl) boEl.value = CONVEYOR_TYPES[key].border;
+    if (txEl) txEl.value = CONVEYOR_TYPES[key].text;
+  }
+}
+
+function buildColorSettings() {
+  if (!els.colorSettings) return;
+  els.colorSettings.innerHTML = '';
+  for (const [key, tc] of Object.entries(CONVEYOR_TYPES)) {
+    const row = document.createElement('div');
+    row.className = 'colorRow';
+    row.innerHTML =
+      `<span class="colorRowLabel">${escapeHtml(tc.label)}</span>` +
+      `<div class="colorPickers">` +
+        `<label class="colorPickerLabel">Fill` +
+          `<input type="color" id="color-${key}-bg" value="${tc.bg}" data-type="${key}" data-prop="bg">` +
+        `</label>` +
+        `<label class="colorPickerLabel">Border` +
+          `<input type="color" id="color-${key}-border" value="${tc.border}" data-type="${key}" data-prop="border">` +
+        `</label>` +
+        `<label class="colorPickerLabel">Text` +
+          `<input type="color" id="color-${key}-text" value="${tc.text}" data-type="${key}" data-prop="text">` +
+        `</label>` +
+      `</div>`;
+    els.colorSettings.appendChild(row);
+  }
+
+  els.colorSettings.addEventListener('input', (e) => {
+    const input = e.target;
+    if (input.type !== 'color') return;
+    const type = input.dataset.type, prop = input.dataset.prop;
+    if (CONVEYOR_TYPES[type]) {
+      CONVEYOR_TYPES[type][prop] = input.value;
+      render(); buildLegend(); drawMinimap(); saveUserSettings();
+    }
+  });
+}
+
+if (els.themeSelect) {
+  els.themeSelect.addEventListener('change', () => {
+    applyTheme(els.themeSelect.value);
+    saveUserSettings();
+  });
+}
+
+if (els.showLegendChk) {
+  els.showLegendChk.addEventListener('change', () => {
+    if (els.legend) els.legend.hidden = !els.showLegendChk.checked;
+    saveUserSettings();
+  });
+}
+
+if (els.showMinimapChk) {
+  els.showMinimapChk.addEventListener('change', () => {
+    if (els.minimap) {
+      els.minimap.hidden = !els.showMinimapChk.checked;
+      if (!els.minimap.hidden) drawMinimap();
+    }
+    saveUserSettings();
+  });
+}
+
+if (els.resetSettingsBtn) {
+  els.resetSettingsBtn.addEventListener('click', () => {
+    for (const [key, defaults] of Object.entries(DEFAULT_TYPE_COLORS))
+      Object.assign(CONVEYOR_TYPES[key], defaults);
+    applyTheme('dark');
+    if (els.legend)  els.legend.hidden  = false;
+    if (els.minimap) { els.minimap.hidden = false; drawMinimap(); }
+    render(); buildLegend(); syncSettingsUI(); saveUserSettings();
+  });
+}
+
 // ── Load ──────────────────────────────────────────────────────────────────────
 
-// Panel init runs immediately — separate from data load so errors don't kill the UI
 buildLegend();
+buildColorSettings();
 wireFloatPanels();
 initPanelPositions();
+applyUserSettings(loadUserSettings());
+syncSettingsUI();
 
-async function load(){
+async function load() {
   const res = await fetch('./data/conveyors-map.json', { cache: 'no-store' });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   rows = await res.json();
@@ -670,7 +906,7 @@ async function load(){
 
   const saved = loadSavedState();
   setZoom(saved?.zoom ?? 1, false);
-  if (saved){
+  if (saved) {
     els.viewport.scrollLeft = saved.scrollLeft ?? 0;
     els.viewport.scrollTop  = saved.scrollTop  ?? 0;
   }

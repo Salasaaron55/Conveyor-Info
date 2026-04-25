@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,16 +9,22 @@
 
   <body>
     <div class="app">
-      <!-- LEFT: EXCEL-LIKE INFO PANEL -->
+      <!-- LEFT: SIDEBAR -->
       <aside class="sidebar" aria-label="Conveyor information">
-        <div class="sidebarTop">
-          <div class="brand">
-            <div class="brandTitle">Conveyor Information Map</div>
-            <div class="brandSub">
-              Click a conveyor on the map (or select one) to view details.
-            </div>
-          </div>
+        <div class="brand">
+          <div class="brandTitle">Conveyor Information Map</div>
+          <div class="brandSub">Click a conveyor on the map to view details.</div>
+        </div>
 
+        <div class="tabNav" role="tablist">
+          <button class="tabBtn active" data-tab="info" role="tab" aria-selected="true">Info</button>
+          <button class="tabBtn" data-tab="notes" role="tab" aria-selected="false">Notes</button>
+          <button class="tabBtn" data-tab="settings" role="tab" aria-selected="false">Settings</button>
+          <button class="tabBtn" data-tab="help" role="tab" aria-selected="false">Help</button>
+        </div>
+
+        <!-- Info Tab -->
+        <div id="tab-info" class="tabPanel" role="tabpanel">
           <div class="picker">
             <label class="pickerLabel" for="search">Search (type)</label>
             <input
@@ -33,165 +39,196 @@
           </div>
 
           <div class="copyRow">
-            <button
-              id="copyAllBtn"
-              class="btn"
-              type="button"
-              title="Copy all shown fields"
-            >
-              Copy all
-            </button>
-            <button
-              id="centerBtn"
-              class="btn"
-              type="button"
-              title="Center map on selected conveyor"
-            >
-              Center on map
-            </button>
+            <button id="copyAllBtn" class="btn" type="button" title="Copy all shown fields">Copy all</button>
+            <button id="centerBtn" class="btn" type="button" title="Center map on selected conveyor">Center on map</button>
           </div>
+
+          <section class="panel" aria-label="Quick Reference">
+            <div class="panelTitle">Quick Reference</div>
+            <table class="infoTable" role="table">
+              <tbody>
+                <tr>
+                  <th scope="row">Shortened Alias</th>
+                  <td data-field="shortened_alias" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Control Panel</th>
+                  <td data-field="control_panel" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Incident Energy</th>
+                  <td data-field="incident_energy" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">CP Location</th>
+                  <td data-field="cp_location" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">MCP</th>
+                  <td data-field="mcp" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Conveyance Group</th>
+                  <td data-field="conveyance_group" class="copyCell" title="Click to copy"></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="panel" aria-label="APM Reference">
+            <div class="panelTitle">APM Reference</div>
+            <table class="infoTable" role="table">
+              <tbody>
+                <tr>
+                  <th scope="row">Equipment ID</th>
+                  <td data-field="position" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Description</th>
+                  <td data-field="description" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Manufacturer</th>
+                  <td data-field="manufacturer" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Model</th>
+                  <td data-field="model" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Class</th>
+                  <td data-field="class" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Amazon Alias</th>
+                  <td data-field="amazon_alias" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Amazon Alias Description</th>
+                  <td data-field="amazon_alias_description" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Equipment Configuration</th>
+                  <td data-field="equipment_configuration" class="copyCell" title="Click to copy"></td>
+                </tr>
+                <tr>
+                  <th scope="row">NA EAM Object Code</th>
+                  <td data-field="na_eam_object_code" class="copyCell" title="Click to copy"></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
         </div>
 
-        <section class="panel" aria-label="Quick Reference">
-          <div class="panelTitle">Quick Reference</div>
-          <table class="infoTable" role="table">
-            <tbody>
-              <tr>
-                <th scope="row">Shortened Alias</th>
-                <td
-                  data-field="shortened_alias"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Control Panel</th>
-                <td
-                  data-field="control_panel"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Incident Energy</th>
-                <td
-                  data-field="incident_energy"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">CP Location</th>
-                <td
-                  data-field="cp_location"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">MCP</th>
-                <td
-                  data-field="mcp"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Conveyance Group</th>
-                <td
-                  data-field="conveyance_group"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+        <!-- Notes Tab -->
+        <div id="tab-notes" class="tabPanel" role="tabpanel" hidden>
+          <div class="notesHeader">
+            <span class="notesLabel" id="notesConveyorLabel">No conveyor selected</span>
+          </div>
+          <textarea
+            id="noteTextarea"
+            class="noteTextarea"
+            placeholder="Add notes for this conveyor section..."
+            disabled
+          ></textarea>
+          <div class="notesActions">
+            <button id="saveNoteBtn" class="btn" type="button">Save Note</button>
+            <button id="exportNotesBtn" class="btn" type="button">Export All</button>
+            <label class="btn importLabel" title="Import notes from JSON file">
+              Import
+              <input id="importNotesInput" type="file" accept=".json" style="display:none" />
+            </label>
+          </div>
+          <div id="notesSavedHint" class="notesSavedHint"></div>
+        </div>
 
-        <section class="panel" aria-label="APM Reference">
-          <div class="panelTitle">APM Reference</div>
-          <table class="infoTable" role="table">
-            <tbody>
-              <tr>
-                <th scope="row">Equipment ID</th>
-                <td
-                  data-field="position"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Description</th>
-                <td
-                  data-field="description"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Manufacturer</th>
-                <td
-                  data-field="manufacturer"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Model</th>
-                <td
-                  data-field="model"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Class</th>
-                <td
-                  data-field="class"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Amazon Alias</th>
-                <td
-                  data-field="amazon_alias"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Amazon Alias Description</th>
-                <td
-                  data-field="amazon_alias_description"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">Equipment Configuration</th>
-                <td
-                  data-field="equipment_configuration"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-              <tr>
-                <th scope="row">NA EAM Object Code</th>
-                <td
-                  data-field="na_eam_object_code"
-                  class="copyCell"
-                  title="Click to copy"
-                ></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+        <!-- Settings Tab -->
+        <div id="tab-settings" class="tabPanel" role="tabpanel" hidden>
+          <div class="settingsSection">
+            <div class="settingsSectionTitle">Theme</div>
+            <select id="themeSelect" class="settingsSelect">
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+          </div>
 
-        <div class="footerNote">
-          Tip: Click a value cell to copy it &middot; Drag the map to pan &middot;
-          <span class="kbd">Ctrl</span>+scroll to zoom &middot;
-          <span class="kbd">Ctrl</span>+click a conveyor to copy its alias
+          <div class="settingsSection">
+            <div class="settingsSectionTitle">Conveyor Type Colors</div>
+            <div id="colorSettings"></div>
+          </div>
+
+          <div class="settingsSection">
+            <div class="settingsSectionTitle">Display</div>
+            <label class="settingsToggle">
+              <input type="checkbox" id="showLegendChk" checked />
+              <span>Show Legend</span>
+            </label>
+            <label class="settingsToggle">
+              <input type="checkbox" id="showMinimapChk" checked />
+              <span>Show Minimap</span>
+            </label>
+          </div>
+
+          <button id="resetSettingsBtn" class="btn resetBtn" type="button">Reset to Defaults</button>
+        </div>
+
+        <!-- Help Tab -->
+        <div id="tab-help" class="tabPanel" role="tabpanel" hidden>
+          <div class="helpContent">
+            <div class="helpSection">
+              <div class="helpSectionTitle">Navigation</div>
+              <ul class="helpList">
+                <li><strong>Drag</strong> the map background to pan</li>
+                <li><strong>Ctrl + scroll</strong> to zoom in/out</li>
+                <li><strong>Click</strong> the minimap to jump to that area</li>
+                <li><strong>Drag</strong> on the minimap to scroll the view live</li>
+                <li>Use zoom buttons or <kbd>+</kbd> / <kbd>−</kbd> controls in the toolbar</li>
+              </ul>
+            </div>
+            <div class="helpSection">
+              <div class="helpSectionTitle">Selecting Conveyors</div>
+              <ul class="helpList">
+                <li><strong>Click</strong> a conveyor to view its details in the Info tab</li>
+                <li><strong>Ctrl + click</strong> a conveyor to instantly copy its alias</li>
+                <li>Click <strong>Center on map</strong> to scroll to the selected conveyor</li>
+              </ul>
+            </div>
+            <div class="helpSection">
+              <div class="helpSectionTitle">Info Tab</div>
+              <ul class="helpList">
+                <li>Click any value cell to copy it to your clipboard</li>
+                <li>Use <strong>Copy all</strong> to copy all fields at once</li>
+              </ul>
+            </div>
+            <div class="helpSection">
+              <div class="helpSectionTitle">Search</div>
+              <ul class="helpList">
+                <li>Type in the search box to highlight matching conveyors</li>
+                <li>Press <kbd>Enter</kbd> to select the first match</li>
+                <li>Use <kbd>↑</kbd> / <kbd>↓</kbd> to cycle through matches</li>
+                <li>Press <kbd>Escape</kbd> to clear the search</li>
+              </ul>
+            </div>
+            <div class="helpSection">
+              <div class="helpSectionTitle">Notes Tab</div>
+              <ul class="helpList">
+                <li>Select a conveyor, then switch to Notes to add notes</li>
+                <li>Click <strong>Save Note</strong> to persist your note locally</li>
+                <li>Use <strong>Export All</strong> to download all notes as a JSON file</li>
+                <li>Use <strong>Import</strong> to load a previously exported JSON file</li>
+                <li>Notes are stored in your browser's local storage</li>
+              </ul>
+            </div>
+            <div class="helpSection">
+              <div class="helpSectionTitle">Settings Tab</div>
+              <ul class="helpList">
+                <li>Switch between <strong>Dark</strong> and <strong>Light</strong> themes</li>
+                <li>Customize fill, border, and text colors for each conveyor type</li>
+                <li>Toggle the <strong>Legend</strong> and <strong>Minimap</strong> on or off</li>
+                <li>Use <strong>Reset to Defaults</strong> to restore original colors and theme</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </aside>
 
@@ -230,13 +267,7 @@
       <canvas id="minimapCanvas" class="minimapCanvas" width="260" height="80"></canvas>
     </div>
 
-    <div
-      id="toast"
-      class="toast"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    ></div>
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
     <script src="./static/conveyor-map.js" defer></script>
   </body>
 </html>
