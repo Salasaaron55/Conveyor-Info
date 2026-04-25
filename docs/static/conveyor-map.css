@@ -366,6 +366,8 @@ body {
   pointer-events: none;
 }
 
+.map.no-grid::before { display: none; }
+
 .map {
   width: 8600px;
   height: 1200px;

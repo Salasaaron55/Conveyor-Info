@@ -59,6 +59,7 @@ const els = {
   colorSettings:      document.getElementById('colorSettings'),
   showLegendChk:      document.getElementById('showLegendChk'),
   showMinimapChk:     document.getElementById('showMinimapChk'),
+  showGridChk:        document.getElementById('showGridChk'),
   resetSettingsBtn:   document.getElementById('resetSettingsBtn'),
 };
 
@@ -779,10 +780,11 @@ function loadUserSettings() {
 function saveUserSettings() {
   try {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify({
-      theme:      document.documentElement.dataset.theme || 'dark',
-      colors:     Object.fromEntries(Object.entries(CONVEYOR_TYPES).map(([k, v]) => [k, { bg: v.bg, border: v.border, text: v.text }])),
-      showLegend: !els.legend?.hidden,
+      theme:       document.documentElement.dataset.theme || 'dark',
+      colors:      Object.fromEntries(Object.entries(CONVEYOR_TYPES).map(([k, v]) => [k, { bg: v.bg, border: v.border, text: v.text }])),
+      showLegend:  !els.legend?.hidden,
       showMinimap: !els.minimap?.hidden,
+      showGrid:    !els.map.classList.contains('no-grid'),
     }));
   } catch {}
 }
@@ -802,11 +804,13 @@ function applyUserSettings(s) {
   }
   if (s.showLegend  === false && els.legend)  els.legend.hidden  = true;
   if (s.showMinimap === false && els.minimap) els.minimap.hidden = true;
+  if (s.showGrid    === false) els.map.classList.add('no-grid');
 }
 
 function syncSettingsUI() {
   if (els.showLegendChk)  els.showLegendChk.checked  = !els.legend?.hidden;
   if (els.showMinimapChk) els.showMinimapChk.checked = !els.minimap?.hidden;
+  if (els.showGridChk)    els.showGridChk.checked    = !els.map.classList.contains('no-grid');
   if (els.themeSelect)    els.themeSelect.value = document.documentElement.dataset.theme || 'dark';
   for (const [key] of Object.entries(CONVEYOR_TYPES)) {
     const bgEl = document.getElementById(`color-${key}-bg`);
@@ -875,6 +879,13 @@ if (els.showMinimapChk) {
   });
 }
 
+if (els.showGridChk) {
+  els.showGridChk.addEventListener('change', () => {
+    els.map.classList.toggle('no-grid', !els.showGridChk.checked);
+    saveUserSettings();
+  });
+}
+
 if (els.resetSettingsBtn) {
   els.resetSettingsBtn.addEventListener('click', () => {
     for (const [key, defaults] of Object.entries(DEFAULT_TYPE_COLORS))
@@ -882,6 +893,7 @@ if (els.resetSettingsBtn) {
     applyTheme('dark');
     if (els.legend)  els.legend.hidden  = false;
     if (els.minimap) { els.minimap.hidden = false; drawMinimap(); }
+    els.map.classList.remove('no-grid');
     render(); buildLegend(); syncSettingsUI(); saveUserSettings();
   });
 }
