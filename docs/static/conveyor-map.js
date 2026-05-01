@@ -5,10 +5,10 @@ let rows = [];
 let selectedId = null;
 let zoom = 1;
 
-const MAP_W = 8600;
-const MAP_H = 1200;
-const MINI_W = 260;
-const MINI_H = 80;
+const MAP_W = 8580;
+const MAP_H = 1525;
+const MINI_W = 259;
+const MINI_H = 102;
 
 const CONVEYOR_TYPES = {
   ground_level: { bg: '#374151', border: '#9ca3af', text: '#f9fafb', label: 'Ground Level' },

@@ -340,7 +340,9 @@ body {
   background: var(--map-bg);
   position: relative;
   cursor: grab;
+  scrollbar-width: none;
 }
+.viewport::-webkit-scrollbar { display: none; }
 .viewport.dragging { cursor: grabbing; }
 
 /* Faint gridlines */
@@ -369,8 +371,8 @@ body {
 .map.no-grid::before { display: none; }
 
 .map {
-  width: 8600px;
-  height: 1200px;
+  width: 8580px;
+  height: 1525px;
   position: relative;
   transform-origin: top left;
 }
