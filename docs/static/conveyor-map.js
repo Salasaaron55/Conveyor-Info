@@ -505,11 +505,17 @@ function initPanelPositions() {
   }
 
   if (saved?.minimapPos?.left) {
-    Object.assign(els.minimap.style, { left: saved.minimapPos.left, top: saved.minimapPos.top, right: 'auto', bottom: 'auto' });
+    const l = parseFloat(saved.minimapPos.left), t = parseFloat(saved.minimapPos.top);
+    const maxL = window.innerWidth  - MINI_W, maxT = window.innerHeight - MINI_H - 32;
+    Object.assign(els.minimap.style, {
+      left: Math.max(0, Math.min(maxL, l)) + 'px',
+      top:  Math.max(0, Math.min(maxT, t)) + 'px',
+      right: 'auto', bottom: 'auto',
+    });
   } else {
     Object.assign(els.minimap.style, {
-      left:  (window.innerWidth  - MINI_W - gap - 1100) + 'px',
-      top:   (window.innerHeight - MINI_H - 32  - gap)  + 'px',
+      left:  Math.max(sidebarW + gap, window.innerWidth  - MINI_W - gap) + 'px',
+      top:   Math.max(0,              window.innerHeight - MINI_H - 32 - gap) + 'px',
       right: 'auto', bottom: 'auto',
     });
   }
