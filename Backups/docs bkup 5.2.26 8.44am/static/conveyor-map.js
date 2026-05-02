@@ -271,7 +271,6 @@ function render() {
           node.dataset.segment = String(i);
           if (i === 0) node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
           node.addEventListener('click', () => select(id, { center: false }));
-          node.addEventListener('dblclick', () => { select(id, { center: false }); if (!partsOpen) togglePartsPanel(); });
         } else {
           node.setAttribute('aria-hidden', 'true');
         }
@@ -285,7 +284,6 @@ function render() {
     if (!isBlank) {
       node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
       node.addEventListener('click', () => select(id, { center: false }));
-      node.addEventListener('dblclick', () => { select(id, { center: false }); if (!partsOpen) togglePartsPanel(); });
     } else {
       node.setAttribute('aria-hidden', 'true');
     }
