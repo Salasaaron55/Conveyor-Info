@@ -486,20 +486,33 @@ function makeDraggable(el, handle) {
   });
 }
 
+function getSidebarWidth() {
+  return document.querySelector('.sidebar')?.offsetWidth ?? 340;
+}
+
 function clampPanel(el, left, top) {
+  const minLeft = getSidebarWidth();
   const maxLeft = window.innerWidth  - el.offsetWidth;
   const maxTop  = window.innerHeight - el.offsetHeight;
-  el.style.left = Math.max(0, Math.min(maxLeft, left)) + 'px';
+  el.style.left = Math.max(minLeft, Math.min(maxLeft, left)) + 'px';
   el.style.top  = Math.max(0, Math.min(maxTop,  top))  + 'px';
 }
 
 function initPanelPositions() {
   if (!els.legend || !els.minimap) return;
   const saved = loadSavedState();
-  const gap = 16, sidebarW = 350, topBarH = 720;
+  const gap = 16, topBarH = 720;
+  const sidebarW = getSidebarWidth();
 
   if (saved?.legendPos?.left) {
-    Object.assign(els.legend.style, { left: saved.legendPos.left, top: saved.legendPos.top, right: 'auto', bottom: 'auto' });
+    const l = parseFloat(saved.legendPos.left), t = parseFloat(saved.legendPos.top);
+    const maxL = window.innerWidth  - els.legend.offsetWidth;
+    const maxT = window.innerHeight - els.legend.offsetHeight;
+    Object.assign(els.legend.style, {
+      left: Math.max(sidebarW, Math.min(maxL, l)) + 'px',
+      top:  Math.max(0, Math.min(maxT, t)) + 'px',
+      right: 'auto', bottom: 'auto',
+    });
   } else {
     Object.assign(els.legend.style, { left: (sidebarW + gap) + 'px', top: (topBarH + gap) + 'px', right: 'auto', bottom: 'auto' });
   }
@@ -508,7 +521,7 @@ function initPanelPositions() {
     const l = parseFloat(saved.minimapPos.left), t = parseFloat(saved.minimapPos.top);
     const maxL = window.innerWidth  - MINI_W, maxT = window.innerHeight - MINI_H - 32;
     Object.assign(els.minimap.style, {
-      left: Math.max(0, Math.min(maxL, l)) + 'px',
+      left: Math.max(sidebarW, Math.min(maxL, l)) + 'px',
       top:  Math.max(0, Math.min(maxT, t)) + 'px',
       right: 'auto', bottom: 'auto',
     });
