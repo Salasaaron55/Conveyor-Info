@@ -4,7 +4,8 @@
 let rows = [];
 let selectedId = null;
 let zoom = 1;
-let partsData = {};
+let partsCatalog = {};
+let conveyorParts = {};
 let partsOpen = false;
 
 const MAP_W = 8580;
@@ -325,14 +326,14 @@ function updatePartsPanel() {
   }
   const r = getRow(selectedId);
   els.partsDrawerTitle.textContent = `Parts — ${r ? shortOf(r) : selectedId}`;
-  const parts = partsData[selectedId] || [];
-  if (!parts.length) {
+  const EAM_BASE = 'https://us1.eam.hxgnsmartcloud.com/web/base/logindisp?tenant=AMAZONRMENA_PRD&SYSTEM_FUNCTION_NAME=SSPART&USER_FUNCTION_NAME=SSPART&DRILLBACK=YES&partcode=';
+  const apns = conveyorParts[selectedId] || [];
+  if (!apns.length) {
     els.partsTableBody.innerHTML = '<tr><td colspan="6" class="partsEmpty">No parts listed for this conveyor.</td></tr>';
     return;
   }
-  const EAM_BASE = 'https://us1.eam.hxgnsmartcloud.com/web/base/logindisp?tenant=AMAZONRMENA_PRD&SYSTEM_FUNCTION_NAME=SSPART&USER_FUNCTION_NAME=SSPART&DRILLBACK=YES&partcode=';
-  els.partsTableBody.innerHTML = parts.map(p => {
-    const apn = p.apn ?? '';
+  els.partsTableBody.innerHTML = apns.map(apn => {
+    const p = partsCatalog[apn] || {};
     const apnLink = apn
       ? `<a class="partsApnLink" href="${EAM_BASE}${encodeURIComponent(apn)}" target="_blank" rel="noopener" title="Open in EAM">↗</a>`
       : '';
@@ -956,13 +957,15 @@ applyUserSettings(loadUserSettings());
 syncSettingsUI();
 
 async function load() {
-  const [res, partsRes] = await Promise.all([
+  const [res, catalogRes, conveyorPartsRes] = await Promise.all([
     fetch('./data/conveyors-map.json', { cache: 'no-store' }),
-    fetch('./data/parts.json', { cache: 'no-store' }).catch(() => null),
+    fetch('./data/parts-catalog.json', { cache: 'no-store' }).catch(() => null),
+    fetch('./data/conveyor-parts.json', { cache: 'no-store' }).catch(() => null),
   ]);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   rows = await res.json();
-  if (partsRes?.ok) partsData = await partsRes.json();
+  if (catalogRes?.ok) partsCatalog = await catalogRes.json();
+  if (conveyorPartsRes?.ok) conveyorParts = await conveyorPartsRes.json();
   rows.sort((a, b) => sortIds(idOf(a), idOf(b)));
 
   render();
