@@ -1,0 +1,23 @@
+{
+  "name": "SAT4 Conveyor Map",
+  "short_name": "Conveyor Map",
+  "description": "SAT4 conveyor information and parts lookup",
+  "start_url": "./conveyor-map.html",
+  "display": "standalone",
+  "background_color": "#0a0f1e",
+  "theme_color": "#0a0f1e",
+  "icons": [
+    {
+      "src": "./static/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./static/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
