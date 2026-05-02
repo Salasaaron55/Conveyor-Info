@@ -7,6 +7,8 @@ let zoom = 1;
 let partsCatalog = {};
 let conveyorParts = {};
 let partsOpen = false;
+let partsSortCol = null;
+let partsSortDir = 1;
 
 const MAP_W = 8580;
 const MAP_H = 1525;
@@ -41,6 +43,7 @@ const els = {
   zoomResetBtn:       document.getElementById('zoomResetBtn'),
   zoomInBtn:          document.getElementById('zoomInBtn'),
   viewport:           document.getElementById('viewport'),
+  mapSizer:           document.getElementById('mapSizer'),
   map:                document.getElementById('map'),
   count:              document.getElementById('count'),
   toast:              document.getElementById('toast'),
@@ -151,6 +154,8 @@ function setZoom(newZoom, keepCenter = true) {
 
   zoom = z;
   els.map.style.transform = `scale(${zoom})`;
+  els.mapSizer.style.width  = (MAP_W * zoom) + 'px';
+  els.mapSizer.style.height = (MAP_H * zoom) + 'px';
   els.zoomResetBtn.textContent = `${Math.round(zoom * 100)}%`;
 
   if (keepCenter) {
@@ -321,31 +326,76 @@ function updatePartsPanel() {
   if (!els.partsDrawerTitle || !els.partsTableBody) return;
   if (!selectedId) {
     els.partsDrawerTitle.textContent = 'Parts — select a conveyor';
-    els.partsTableBody.innerHTML = '<tr><td colspan="6" class="partsEmpty">Select a conveyor on the map to view its parts.</td></tr>';
+    els.partsTableBody.innerHTML = '<tr><td colspan="7" class="partsEmpty">Select a conveyor on the map to view its parts.</td></tr>';
     return;
   }
   const r = getRow(selectedId);
   els.partsDrawerTitle.textContent = `Parts — ${r ? shortOf(r) : selectedId}`;
   const EAM_BASE = 'https://us1.eam.hxgnsmartcloud.com/web/base/logindisp?tenant=AMAZONRMENA_PRD&SYSTEM_FUNCTION_NAME=SSPART&USER_FUNCTION_NAME=SSPART&DRILLBACK=YES&partcode=';
-  const apns = conveyorParts[selectedId] || [];
-  if (!apns.length) {
-    els.partsTableBody.innerHTML = '<tr><td colspan="6" class="partsEmpty">No parts listed for this conveyor.</td></tr>';
+  const entries = conveyorParts[selectedId] || [];
+  if (!entries.length) {
+    els.partsTableBody.innerHTML = '<tr><td colspan="7" class="partsEmpty">No parts listed for this conveyor.</td></tr>';
     return;
   }
-  els.partsTableBody.innerHTML = apns.map(apn => {
+
+  // Update header sort indicators
+  const ths = els.partsTableBody.closest('table').querySelectorAll('thead th[data-sort]');
+  ths.forEach(th => {
+    th.classList.toggle('sort-asc', th.dataset.sort === partsSortCol && partsSortDir === 1);
+    th.classList.toggle('sort-desc', th.dataset.sort === partsSortCol && partsSortDir === -1);
+  });
+
+  // Build row objects for sorting
+  let rows = entries.map(entry => {
+    const apn = typeof entry === 'object' ? entry.part : entry;
+    const qty = typeof entry === 'object' ? entry.qty : '';
     const p = partsCatalog[apn] || {};
+    return { apn, qty, bin: p.bin ?? '', description: p.description ?? '', part_class: p.part_class ?? '', supplier: p.supplier ?? '', supplier_part_number: p.supplier_part_number ?? '' };
+  });
+
+  if (partsSortCol) {
+    rows.sort((a, b) => {
+      const av = a[partsSortCol];
+      const bv = b[partsSortCol];
+      const an = parseFloat(av), bn = parseFloat(bv);
+      const cmp = (!isNaN(an) && !isNaN(bn))
+        ? an - bn
+        : String(av).localeCompare(String(bv), undefined, { numeric: true, sensitivity: 'base' });
+      return cmp * partsSortDir;
+    });
+  }
+
+  els.partsTableBody.innerHTML = rows.map(({ apn, qty, bin, description, part_class, supplier, supplier_part_number }) => {
     const apnLink = apn
       ? `<a class="partsApnLink" href="${EAM_BASE}${encodeURIComponent(apn)}" target="_blank" rel="noopener" title="Open in EAM">↗</a>`
       : '';
     return `<tr>
       <td class="partsApnCell">${escapeHtml(apn)}${apnLink}</td>
-      <td>${escapeHtml(p.bin ?? '')}</td>
-      <td>${escapeHtml(p.description ?? '')}</td>
-      <td>${escapeHtml(p.part_class ?? '')}</td>
-      <td>${escapeHtml(p.supplier ?? '')}</td>
-      <td>${escapeHtml(p.supplier_part_number ?? '')}</td>
+      <td class="partsQtyCell">${escapeHtml(String(qty ?? ''))}</td>
+      <td>${escapeHtml(bin)}</td>
+      <td>${escapeHtml(description)}</td>
+      <td>${escapeHtml(part_class)}</td>
+      <td>${escapeHtml(supplier)}</td>
+      <td>${escapeHtml(supplier_part_number)}</td>
     </tr>`;
   }).join('');
+}
+
+function initPartsSorting() {
+  const thead = document.querySelector('.partsTable thead');
+  if (!thead) return;
+  thead.addEventListener('click', e => {
+    const th = e.target.closest('th[data-sort]');
+    if (!th) return;
+    const col = th.dataset.sort;
+    if (partsSortCol === col) {
+      partsSortDir *= -1;
+    } else {
+      partsSortCol = col;
+      partsSortDir = 1;
+    }
+    updatePartsPanel();
+  });
 }
 
 function togglePartsPanel() {
@@ -1002,6 +1052,8 @@ async function load() {
 
   drawMinimap();
 }
+
+initPartsSorting();
 
 load().catch(err => {
   console.error(err);

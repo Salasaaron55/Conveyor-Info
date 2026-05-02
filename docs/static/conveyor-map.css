@@ -370,6 +370,13 @@ body {
 
 .map.no-grid::before { display: none; }
 
+.mapSizer {
+  width: 8580px;
+  height: 1525px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
 .map {
   width: 8580px;
   height: 1525px;
@@ -1005,4 +1012,33 @@ kbd {
 [data-theme="light"] .partsApnLink:hover {
   background: #dbeafe;
   border-color: #3b82f6;
+}
+
+.partsQtyCell {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--text-label);
+}
+
+.partsTable thead th[data-sort] {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.partsTable thead th[data-sort]:hover {
+  color: var(--focus);
+}
+.partsTable thead th[data-sort]::after {
+  content: ' ⇅';
+  opacity: 0.35;
+  font-size: 0.8em;
+}
+.partsTable thead th[data-sort].sort-asc::after {
+  content: ' ↑';
+  opacity: 1;
+}
+.partsTable thead th[data-sort].sort-desc::after {
+  content: ' ↓';
+  opacity: 1;
 }

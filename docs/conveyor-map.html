@@ -253,8 +253,10 @@
         </div>
 
         <div id="viewport" class="viewport" tabindex="0">
-          <div id="map" class="map" aria-label="Map canvas">
-            <!-- nodes injected by JS -->
+          <div id="mapSizer" class="mapSizer">
+            <div id="map" class="map" aria-label="Map canvas">
+              <!-- nodes injected by JS -->
+            </div>
           </div>
         </div>
       </main>
@@ -293,16 +295,17 @@
         <table class="partsTable">
           <thead>
             <tr>
-              <th>APN</th>
-              <th>BIN</th>
-              <th>Description</th>
-              <th>Part Class</th>
-              <th>Supplier</th>
-              <th>Supplier Part Number</th>
+              <th data-sort="apn">APN</th>
+              <th data-sort="qty">QTY</th>
+              <th data-sort="bin">BIN</th>
+              <th data-sort="description">Description</th>
+              <th data-sort="part_class">Part Class</th>
+              <th data-sort="supplier">Supplier</th>
+              <th data-sort="supplier_part_number">Supplier Part Number</th>
             </tr>
           </thead>
           <tbody id="partsTableBody">
-            <tr><td colspan="6" class="partsEmpty">Select a conveyor on the map to view its parts.</td></tr>
+            <tr><td colspan="7" class="partsEmpty">Select a conveyor on the map to view its parts.</td></tr>
           </tbody>
         </table>
       </div>
