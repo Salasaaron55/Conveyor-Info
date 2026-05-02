@@ -272,6 +272,37 @@
     </div>
 
     <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Parts pull tab -->
+    <button id="partsTab" class="partsPullTab" type="button" title="Toggle Parts Panel">
+      <span id="partsTabArrow" class="partsTabArrow">►</span>
+      <span class="partsTabLabel">PARTS</span>
+    </button>
+
+    <!-- Parts slide-out drawer -->
+    <div id="partsDrawer" class="partsDrawer" aria-label="Parts panel">
+      <div class="partsDrawerHeader">
+        <span id="partsDrawerTitle" class="partsDrawerTitle">Parts — select a conveyor</span>
+      </div>
+      <div class="partsTableWrap">
+        <table class="partsTable">
+          <thead>
+            <tr>
+              <th>APN</th>
+              <th>BIN</th>
+              <th>Description</th>
+              <th>Part Class</th>
+              <th>Supplier</th>
+              <th>Supplier Part Number</th>
+            </tr>
+          </thead>
+          <tbody id="partsTableBody">
+            <tr><td colspan="6" class="partsEmpty">Select a conveyor on the map to view its parts.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <script src="./static/conveyor-map.js" defer></script>
   </body>
 </html>

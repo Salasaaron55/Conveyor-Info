@@ -804,3 +804,205 @@ kbd {
     border-bottom: 1px solid var(--panel-border);
   }
 }
+
+/* ── Parts pull tab ── */
+.partsPullTab {
+  position: fixed;
+  left: 340px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 28px;
+  padding: 16px 0;
+  background: #162032;
+  border: 1px solid #2d5a8e;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  color: #93c5fd;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: background 0.15s, border-color 0.15s;
+}
+.partsPullTab:hover {
+  background: #1e3a5f;
+  border-color: var(--focus);
+}
+.partsPullTab:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.partsTabLabel {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 0.15em;
+}
+
+.partsTabArrow {
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.partsPullTab.open .partsTabArrow {
+  transform: scaleX(-1);
+}
+
+[data-theme="light"] .partsPullTab {
+  background: #e2e8f0;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}
+[data-theme="light"] .partsPullTab:hover {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
+
+/* ── Parts drawer ── */
+.partsDrawer {
+  position: fixed;
+  left: 340px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 150;
+  background: var(--sidebar-bg);
+  border-left: 1px solid var(--panel-border);
+  display: flex;
+  flex-direction: column;
+  transform: scaleX(0);
+  transform-origin: left center;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.25s ease, visibility 0.25s;
+  overflow: hidden;
+}
+.partsDrawer.open {
+  transform: scaleX(1);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.partsDrawerHeader {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--panel-border);
+  background: #111e30;
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .partsDrawerHeader { background: #f1f5f9; }
+
+.partsDrawerTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+[data-theme="light"] .partsDrawerTitle { color: #1d4ed8; }
+
+/* ── Parts table ── */
+.partsTableWrap {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.partsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.partsTable thead th {
+  position: sticky;
+  top: 0;
+  background: #0f172a;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--panel-border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .partsTable thead th {
+  background: #f1f5f9;
+  color: #64748b;
+  border-color: #cbd5e1;
+}
+
+.partsTable tbody td {
+  padding: 9px 14px;
+  color: var(--text);
+  border-bottom: 1px solid rgba(42, 63, 90, 0.4);
+  vertical-align: top;
+}
+
+[data-theme="light"] .partsTable tbody td {
+  color: #1e293b;
+  border-color: rgba(226, 232, 240, 0.8);
+}
+
+.partsTable tbody tr:last-child td { border-bottom: none; }
+.partsTable tbody tr:hover td { background: rgba(59, 130, 246, 0.07); }
+
+[data-theme="light"] .partsTable tbody tr:hover td { background: rgba(59, 130, 246, 0.05); }
+
+.partsEmpty {
+  text-align: center;
+  color: var(--text-label);
+  padding: 48px 20px;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.partsApnCell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.partsApnLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #162032;
+  color: #93c5fd;
+  border: 1px solid #2d5a8e;
+  border-radius: 4px;
+  font-size: 11px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+.partsApnLink:hover {
+  background: #1e3a5f;
+  border-color: var(--focus);
+  color: #bfdbfe;
+}
+
+[data-theme="light"] .partsApnLink {
+  background: #e2e8f0;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}
+[data-theme="light"] .partsApnLink:hover {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
