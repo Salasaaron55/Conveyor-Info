@@ -481,6 +481,7 @@
         <table class="partsTable">
           <thead>
             <tr>
+              <th class="partsImgHeader">IMG</th>
               <th data-sort="apn">APN</th>
               <th data-sort="qty">QTY</th>
               <th data-sort="bin">BIN</th>
@@ -492,12 +493,22 @@
           </thead>
           <tbody id="partsTableBody">
             <tr>
-              <td colspan="7" class="partsEmpty">
+              <td colspan="8" class="partsEmpty">
                 Select a conveyor on the map to view its parts.
               </td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- Part image lightbox -->
+    <div id="partsLightbox" class="partsLightbox" aria-modal="true" role="dialog" hidden>
+      <div class="partsLightboxBackdrop"></div>
+      <div class="partsLightboxContent">
+        <button id="partsLightboxClose" class="partsLightboxClose" type="button" title="Close">✕</button>
+        <img id="partsLightboxImg" class="partsLightboxImg" src="" alt="" />
+        <div id="partsLightboxCaption" class="partsLightboxCaption"></div>
       </div>
     </div>
 

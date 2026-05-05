@@ -328,7 +328,7 @@ function updatePartsPanel() {
   if (!els.partsDrawerTitle || !els.partsTableBody) return;
   if (!selectedId) {
     els.partsDrawerTitle.textContent = 'Parts — select a conveyor';
-    els.partsTableBody.innerHTML = '<tr><td colspan="7" class="partsEmpty">Select a conveyor on the map to view its parts.</td></tr>';
+    els.partsTableBody.innerHTML = '<tr><td colspan="8" class="partsEmpty">Select a conveyor on the map to view its parts.</td></tr>';
     return;
   }
   const r = getRow(selectedId);
@@ -336,7 +336,7 @@ function updatePartsPanel() {
   const EAM_BASE = 'https://us1.eam.hxgnsmartcloud.com/web/base/logindisp?tenant=AMAZONRMENA_PRD&SYSTEM_FUNCTION_NAME=SSPART&USER_FUNCTION_NAME=SSPART&DRILLBACK=YES&partcode=';
   const entries = conveyorParts[selectedId] || [];
   if (!entries.length) {
-    els.partsTableBody.innerHTML = '<tr><td colspan="7" class="partsEmpty">No parts listed for this conveyor.</td></tr>';
+    els.partsTableBody.innerHTML = '<tr><td colspan="8" class="partsEmpty">No parts listed for this conveyor.</td></tr>';
     return;
   }
 
@@ -352,7 +352,7 @@ function updatePartsPanel() {
     const apn = typeof entry === 'object' ? entry.part : entry;
     const qty = typeof entry === 'object' ? entry.qty : '';
     const p = partsCatalog[apn] || {};
-    return { apn, qty, bin: p.bin ?? '', description: p.description ?? '', part_class: p.part_class ?? '', supplier: p.supplier ?? '', supplier_part_number: p.supplier_part_number ?? '' };
+    return { apn, qty, bin: p.bin ?? '', description: p.description ?? '', part_class: p.part_class ?? '', supplier: p.supplier ?? '', supplier_part_number: p.supplier_part_number ?? '', image: p.image ?? '' };
   });
 
   if (partsSortCol) {
@@ -367,12 +367,16 @@ function updatePartsPanel() {
     });
   }
 
-  els.partsTableBody.innerHTML = rows.map(({ apn, qty, bin, description, part_class, supplier, supplier_part_number }) => {
+  const PARTS_IMG_BASE = './static/parts-thumbnails/';
+  els.partsTableBody.innerHTML = rows.map(({ apn, qty, bin, description, part_class, supplier, supplier_part_number, image }) => {
     const apnLink = apn
       ? `<a class="partsApnLink" href="${EAM_BASE}${encodeURIComponent(apn)}" target="_blank" rel="noopener" title="Open in EAM">↗</a>`
       : '';
+    const imgSrc = image ? PARTS_IMG_BASE + escapeHtml(image) : PARTS_IMG_BASE + 'placeholder.svg';
+    const imgCell = `<td class="partsImgCell"><img class="partsThumb${image ? '' : ' partsThumbPlaceholder'}" src="${imgSrc}" alt="" data-apn="${escapeHtml(apn)}" data-desc="${escapeHtml(description)}" data-img="${escapeHtml(image)}" /></td>`;
     return `<tr>
-      <td class="partsApnCell">${escapeHtml(apn)}${apnLink}</td>
+      ${imgCell}
+      <td class="partsApnCell"><span>${escapeHtml(apn)}${apnLink}</span></td>
       <td class="partsQtyCell">${escapeHtml(String(qty ?? ''))}</td>
       <td>${escapeHtml(bin)}</td>
       <td>${escapeHtml(description)}</td>
@@ -381,6 +385,39 @@ function updatePartsPanel() {
       <td>${escapeHtml(supplier_part_number)}</td>
     </tr>`;
   }).join('');
+}
+
+function initPartsLightbox() {
+  const lb = document.getElementById('partsLightbox');
+  const lbImg = document.getElementById('partsLightboxImg');
+  const lbCaption = document.getElementById('partsLightboxCaption');
+  const lbClose = document.getElementById('partsLightboxClose');
+  if (!lb) return;
+
+  function openLightbox(src, alt, caption) {
+    lbImg.src = src;
+    lbImg.alt = alt;
+    lbCaption.textContent = caption;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  lb.addEventListener('click', e => {
+    if (e.target === lb || e.target.classList.contains('partsLightboxBackdrop')) closeLightbox();
+  });
+  lbClose.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) closeLightbox(); });
+
+  document.addEventListener('click', e => {
+    const thumb = e.target.closest('.partsThumb');
+    if (!thumb || thumb.classList.contains('partsThumbPlaceholder')) return;
+    openLightbox(thumb.src, thumb.alt, `${thumb.dataset.apn} — ${thumb.dataset.desc}`);
+  });
 }
 
 function initPartsSorting() {
@@ -1056,6 +1093,7 @@ async function load() {
 }
 
 initPartsSorting();
+initPartsLightbox();
 
 load().catch(err => {
   console.error(err);

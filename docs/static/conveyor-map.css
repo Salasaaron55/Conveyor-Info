@@ -977,10 +977,13 @@ kbd {
 }
 
 .partsApnCell {
-  display: flex;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.partsApnCell > span {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap;
 }
 
 .partsApnLink {
@@ -1042,3 +1045,83 @@ kbd {
   content: ' ↓';
   opacity: 1;
 }
+
+/* ── Part image thumbnail ── */
+.partsImgHeader {
+  width: 52px;
+  padding: 0 !important;
+}
+.partsImgCell {
+  padding: 6px 8px !important;
+  vertical-align: middle;
+}
+.partsThumb {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid var(--panel-border);
+  background: #0f172a;
+  cursor: zoom-in;
+  transition: opacity 0.15s;
+}
+.partsThumb:hover { opacity: 0.8; }
+.partsThumbPlaceholder {
+  cursor: default;
+  opacity: 0.35;
+}
+.partsThumbPlaceholder:hover { opacity: 0.35; }
+
+/* ── Lightbox ── */
+.partsLightbox[hidden] { display: none !important; }
+.partsLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.partsLightboxBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+.partsLightboxContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.partsLightboxImg {
+  max-width: 80vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--panel-border);
+  background: #0f172a;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+.partsLightboxCaption {
+  color: #cbd5e1;
+  font-size: 13px;
+  text-align: center;
+}
+.partsLightboxClose {
+  position: absolute;
+  top: -36px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+}
+.partsLightboxClose:hover { color: #f1f5f9; }
