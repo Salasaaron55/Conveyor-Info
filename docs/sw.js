@@ -1,4 +1,4 @@
-const CACHE = 'conveyor-map-v3';
+const CACHE = 'conveyor-map-v1.01';
 
 const STATIC = [
   './conveyor-map.html',
