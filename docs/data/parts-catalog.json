@@ -458,7 +458,8 @@
     "description": "QD HUB PULLEY, 10\" DIAMETER, 40-1/2\" FACE, WITH 2-1/2\" x 55-1/2\" SHAFT, LAGGED,",
     "part_class": "PULLEY",
     "supplier": "WYNRIGHT CORPORATION",
-    "supplier_part_number": "W-120357-06"
+    "supplier_part_number": "W-120357-06",
+    "image": "N35158.png"
   },
   "N35156": {
     "bin": "A04-A-06",
