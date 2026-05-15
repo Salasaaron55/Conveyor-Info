@@ -277,6 +277,8 @@ body {
   background: #ff6a6a;
   color: #1a0000;
 }
+.highlightRow th { border-radius: 4px 0 0 4px; }
+.highlightRow td { border-radius: 0 4px 4px 0; }
 .highlightRow .copyCell:hover { background: #ff4444; }
 
 .copyCell {
