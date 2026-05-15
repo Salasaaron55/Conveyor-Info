@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyance-Project\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(powershell -Command \"Get-ChildItem -Recurse -File | Select-Object -ExpandProperty FullName | head -100\")",
+      "Read(//c/c/Users/asalron/Desktop/Conveyance-Project/docs/**)"
+    ]
+  }
+}

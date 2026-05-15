@@ -25,6 +25,12 @@ body {
 header {
   padding: 2.5rem 1.25rem 1rem;
 }
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
 .container {
   max-width: min(1600px, 95vw);
   margin: 0 auto;

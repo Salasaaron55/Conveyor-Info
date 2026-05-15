@@ -178,7 +178,9 @@ function render() {
     const tr = document.createElement("tr");
     for (const key of keys) {
       const td = document.createElement("td");
-      td.textContent = (r?.[key] ?? "").toString();
+      let val = (r?.[key] ?? "").toString();
+      if (key === "shortened_alias" && !val.trim()) val = (r?.section_alias ?? "").toString();
+      td.textContent = val;
       tr.appendChild(td);
     }
     tbody.appendChild(tr);

@@ -72,6 +72,14 @@ body {
   margin-top: 3px;
 }
 
+.brandLink {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
 /* ── Tab Nav ── */
 .tabNav {
   display: flex;
@@ -263,6 +271,13 @@ body {
 [data-theme="light"] .infoTable td { color: #1e293b; }
 [data-theme="light"] .infoTable th,
 [data-theme="light"] .infoTable td { border-color: rgba(226,232,240,0.8); }
+
+.highlightRow th,
+.highlightRow td {
+  background: #ff6a6a;
+  color: #1a0000;
+}
+.highlightRow .copyCell:hover { background: #ff4444; }
 
 .copyCell {
   cursor: copy;

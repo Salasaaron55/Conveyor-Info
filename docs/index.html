@@ -8,9 +8,12 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="title">Conveyance</div>
-        <div class="subtitle">Conveyor information (static from JSON)</div>
+      <div class="container header-row">
+        <div>
+          <div class="title">Conveyance</div>
+          <div class="subtitle">Conveyor information (static from JSON)</div>
+        </div>
+        <a class="btn" href="./conveyor-map.html">View Conveyor Map →</a>
       </div>
     </header>
 
@@ -91,6 +94,16 @@
                       return false;
                     "
                     >Section Alias</a
+                  >
+                </th>
+                <th data-key="shortened_alias" draggable="true">
+                  <a
+                    href="#"
+                    onclick="
+                      sortBy('shortened_alias');
+                      return false;
+                    "
+                    >Shortened Alias</a
                   >
                 </th>
                 <th data-key="conveyance_group" draggable="true">
