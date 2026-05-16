@@ -1,4 +1,4 @@
-// SAT4 Conveyor Map
+﻿// SAT4 Conveyor Map
 // Renders conveyors from conveyors-map.json using x/y/w/h pixel coords.
 
 let rows = [];
@@ -1269,7 +1269,7 @@ function renderInfoPanels() {
 
 function buildInfoRow(row, panel) {
   const tr = document.createElement('tr');
-  tr.dataset.rowId  = row.id;
+  tr.dataset.rowId   = row.id;
   tr.dataset.panelId = panel.id;
 
   if (row.color) {
@@ -1278,13 +1278,82 @@ function buildInfoRow(row, panel) {
     tr.style.setProperty('--row-text',  contrastColor(row.color));
   }
 
+  // Label cell — drag grip lives here so no extra column is added
+  const th = document.createElement('th');
+  th.scope = 'row';
+
   if (editMode) {
-    // Drag handle
-    const dragTd = document.createElement('td');
-    dragTd.className = 'rowDragHandle';
-    dragTd.textContent = '⠿';
-    dragTd.title = 'Drag to reorder';
-    tr.appendChild(dragTd);
+    const grip = document.createElement('span');
+    grip.className = 'rowDragHandle';
+    grip.textContent = '⠇';
+    grip.title = 'Drag to reorder';
+    th.appendChild(grip);
+  }
+
+  const labelSpan = document.createElement('span');
+  labelSpan.textContent = row.label;
+  th.appendChild(labelSpan);
+  tr.appendChild(th);
+
+  // Value cell — controls overlay lives here so no extra column is added
+  const td = document.createElement('td');
+  if (row.field) td.dataset.field = row.field;
+  td.className = 'copyCell';
+  td.title = 'Click to copy';
+
+  if (editMode) {
+    td.classList.add('hasRowControls');
+
+    const overlay = document.createElement('span');
+    overlay.className = 'rowControlsOverlay';
+
+    const colorPick = document.createElement('input');
+    colorPick.type  = 'color';
+    colorPick.className = 'rowColorPicker';
+    colorPick.value = row.color || '#ff6a6a';
+    colorPick.title = 'Set row color';
+    colorPick.style.opacity = row.color ? '1' : '0.4';
+    colorPick.addEventListener('click', e => e.stopPropagation());
+    colorPick.addEventListener('input', e => {
+      row.color = e.target.value;
+      colorPick.style.opacity = '1';
+      saveLayout();
+      tr.classList.add('highlightRow');
+      tr.style.setProperty('--row-color', row.color);
+      tr.style.setProperty('--row-text',  contrastColor(row.color));
+    });
+
+    const clearBtn = document.createElement('button');
+    clearBtn.type = 'button';
+    clearBtn.className = 'rowColorClearBtn';
+    clearBtn.textContent = '×';
+    clearBtn.title = 'Remove color';
+    clearBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      row.color = null;
+      colorPick.style.opacity = '0.4';
+      tr.classList.remove('highlightRow');
+      tr.style.removeProperty('--row-color');
+      tr.style.removeProperty('--row-text');
+      saveLayout();
+    });
+
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'rowDeleteBtn';
+    delBtn.textContent = '×';
+    delBtn.title = 'Remove row';
+    delBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      panel.rows = panel.rows.filter(r => r.id !== row.id);
+      saveLayout();
+      renderInfoPanels();
+      wireCopyCells();
+      if (selectedId) fillCells(getRow(selectedId));
+    });
+
+    overlay.append(colorPick, clearBtn, delBtn);
+    td.appendChild(overlay);
 
     tr.draggable = true;
     tr.addEventListener('dragstart', e => {
@@ -1321,80 +1390,9 @@ function buildInfoRow(row, panel) {
     });
   }
 
-  // Label cell
-  const th = document.createElement('th');
-  th.scope = 'row';
-  th.textContent = row.label;
-  tr.appendChild(th);
-
-  // Value cell
-  const td = document.createElement('td');
-  if (row.field) td.dataset.field = row.field;
-  td.className = 'copyCell';
-  td.title = 'Click to copy';
   tr.appendChild(td);
-
-  if (editMode) {
-    // Color picker + clear
-    const colorTd = document.createElement('td');
-    colorTd.className = 'rowColorCell';
-
-    const colorPick = document.createElement('input');
-    colorPick.type  = 'color';
-    colorPick.className = 'rowColorPicker';
-    colorPick.value = row.color || '#ff6a6a';
-    colorPick.title = 'Set row color';
-    colorPick.style.opacity = row.color ? '1' : '0.35';
-    colorPick.addEventListener('input', e => {
-      row.color = e.target.value;
-      colorPick.style.opacity = '1';
-      saveLayout();
-      // Update tr live without full re-render
-      tr.classList.add('highlightRow');
-      tr.style.setProperty('--row-color', row.color);
-      tr.style.setProperty('--row-text',  contrastColor(row.color));
-    });
-
-    const clearBtn = document.createElement('button');
-    clearBtn.type = 'button';
-    clearBtn.className = 'rowColorClearBtn';
-    clearBtn.textContent = '✕';
-    clearBtn.title = 'Remove color';
-    clearBtn.addEventListener('click', () => {
-      row.color = null;
-      colorPick.style.opacity = '0.35';
-      tr.classList.remove('highlightRow');
-      tr.style.removeProperty('--row-color');
-      tr.style.removeProperty('--row-text');
-      saveLayout();
-    });
-
-    colorTd.appendChild(colorPick);
-    colorTd.appendChild(clearBtn);
-    tr.appendChild(colorTd);
-
-    // Delete button
-    const delTd = document.createElement('td');
-    delTd.className = 'rowDeleteCell';
-    const delBtn = document.createElement('button');
-    delBtn.type = 'button';
-    delBtn.className = 'rowDeleteBtn';
-    delBtn.textContent = '✕';
-    delBtn.title = 'Remove row';
-    delBtn.addEventListener('click', () => {
-      panel.rows = panel.rows.filter(r => r.id !== row.id);
-      saveLayout();
-      renderInfoPanels();
-      wireCopyCells();
-      if (selectedId) fillCells(getRow(selectedId));
-    });
-    delTd.appendChild(delBtn);
-    tr.appendChild(delTd);
-  }
-
   return tr;
 }
-
 function showAddRowForm(panel, tbody) {
   // Remove any existing form
   tbody.querySelectorAll('.addRowForm').forEach(el => el.remove());
@@ -1405,7 +1403,7 @@ function showAddRowForm(panel, tbody) {
   tr.className = 'addRowForm';
 
   const td = document.createElement('td');
-  td.colSpan = 5;
+  td.colSpan = 2;
 
   const inner = document.createElement('div');
   inner.className = 'addRowFormInner';

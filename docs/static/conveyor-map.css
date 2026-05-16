@@ -1274,78 +1274,79 @@ kbd {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
 /* ── Edit mode — row-level controls ── */
-.infoTable.editMode tr { cursor: default; }
-.infoTable.editMode tr.dragging { opacity: 0.4; }
+.infoTable.editMode tr { cursor: grab; }
+.infoTable.editMode tr.dragging { opacity: 0.4; cursor: grabbing; }
 .infoTable.editMode tr.dragOver td,
 .infoTable.editMode tr.dragOver th { box-shadow: inset 0 -2px 0 var(--accent); }
 
-/* Remove border-radius from highlight rows in edit mode (extra cells break the shape) */
-.infoTable.editMode .highlightRow th { border-radius: 0; }
-.infoTable.editMode .highlightRow td { border-radius: 0; }
-
+/* Drag grip icon inside the th */
 .rowDragHandle {
-  width: 18px;
-  padding: 7px 4px !important;
+  display: inline-block;
+  margin-right: 4px;
   color: var(--text-label);
-  font-size: 14px;
-  cursor: grab;
-  text-align: center;
-  opacity: 0.5;
+  font-size: 12px;
+  opacity: 0.45;
   user-select: none;
-}
-.rowDragHandle:hover { opacity: 1; }
-.rowDragHandle:active { cursor: grabbing; }
-
-.rowColorCell {
-  width: 46px;
-  padding: 4px 4px !important;
   vertical-align: middle;
-  text-align: center;
-  white-space: nowrap;
+  cursor: grab;
+  line-height: 1;
+}
+.infoTable.editMode tr:hover .rowDragHandle { opacity: 0.9; }
+
+/* Controls overlay floated inside the value td — no extra columns */
+.copyCell.hasRowControls {
+  position: relative;
+  padding-right: 58px !important;
+  overflow: visible;
+}
+.rowControlsOverlay {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  pointer-events: auto;
 }
 .rowColorPicker {
-  width: 22px;
-  height: 20px;
+  width: 18px;
+  height: 16px;
   padding: 1px;
   border: 1px solid var(--panel-border);
-  border-radius: 4px;
+  border-radius: 3px;
   background: transparent;
   cursor: pointer;
-  vertical-align: middle;
+  display: inline-block;
+  flex-shrink: 0;
 }
 .rowColorClearBtn {
   appearance: none;
   background: none;
   border: none;
   color: var(--text-label);
-  font-size: 13px;
+  font-size: 10px;
   cursor: pointer;
   padding: 0 1px;
-  vertical-align: middle;
   line-height: 1;
   transition: color 0.1s;
+  flex-shrink: 0;
 }
 .rowColorClearBtn:hover { color: #f87171; }
-
-.rowDeleteCell {
-  width: 24px;
-  padding: 4px 2px !important;
-  vertical-align: middle;
-  text-align: center;
-}
 .rowDeleteBtn {
   appearance: none;
   background: none;
   border: none;
   color: var(--text-label);
-  font-size: 13px;
+  font-size: 11px;
   cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 4px;
+  padding: 1px 3px;
+  border-radius: 3px;
   line-height: 1;
   transition: background 0.1s, color 0.1s;
+  flex-shrink: 0;
 }
-.rowDeleteBtn:hover { background: rgba(248,113,113,0.2); color: #f87171; }
+.rowDeleteBtn:hover { background: rgba(248,113,113,0.18); color: #f87171; }
 
 /* Panel title edit mode controls */
 .panelTitleInput {
