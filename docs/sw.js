@@ -27,10 +27,18 @@ self.addEventListener('activate', e => {
   );
 });
 
-// Network first — always fetches fresh content, falls back to cache if offline
+// Network first — always fetches fresh content, falls back to cache if offline.
+// For HTML/CSS/JS assets, bypass the browser HTTP cache entirely so updates
+// are visible immediately without a hard refresh.
 self.addEventListener('fetch', e => {
+  const url = new URL(e.request.url);
+  const isAsset = ['.html', '.css', '.js'].some(ext => url.pathname.endsWith(ext));
+  const req = isAsset
+    ? new Request(e.request, { cache: 'no-cache' })
+    : e.request;
+
   e.respondWith(
-    fetch(e.request)
+    fetch(req)
       .then(res => {
         const clone = res.clone();
         caches.open(CACHE).then(c => c.put(e.request, clone));
