@@ -490,10 +490,14 @@ function applyDim(hits) {
 function wireCopyCells() {
   for (const td of document.querySelectorAll('.copyCell')) {
     td.addEventListener('click', async () => {
-      const value = td.textContent.trim();
+      // In edit mode the value lives in a child [data-field] span; fall back to td itself
+      const valueEl = td.querySelector('[data-field]') || td;
+      const value = valueEl.textContent.trim();
       if (!value) { showToast('Nothing to copy'); return; }
       if (await copyText(value)) {
-        const label = td.parentElement?.querySelector('th')?.textContent?.trim() || 'Copied';
+        const thEl = td.parentElement?.querySelector('th');
+        // Use .rowLabel span (edit mode) or full th text (normal mode)
+        const label = (thEl?.querySelector('.rowLabel') ?? thEl)?.textContent?.trim() || 'Copied';
         showToast(`Copied ${label}`);
       }
     });
@@ -1291,18 +1295,24 @@ function buildInfoRow(row, panel) {
   }
 
   const labelSpan = document.createElement('span');
+  labelSpan.className = 'rowLabel';
   labelSpan.textContent = row.label;
   th.appendChild(labelSpan);
   tr.appendChild(th);
 
   // Value cell — controls overlay lives here so no extra column is added
   const td = document.createElement('td');
-  if (row.field) td.dataset.field = row.field;
   td.className = 'copyCell';
   td.title = 'Click to copy';
 
   if (editMode) {
     td.classList.add('hasRowControls');
+
+    // Value span — data-field goes here, NOT on td, so fillCells doesn't wipe the overlay
+    const valueSpan = document.createElement('span');
+    valueSpan.className = 'cellValue';
+    if (row.field) valueSpan.dataset.field = row.field;
+    td.appendChild(valueSpan);
 
     const overlay = document.createElement('span');
     overlay.className = 'rowControlsOverlay';
@@ -1388,6 +1398,11 @@ function buildInfoRow(row, panel) {
       wireCopyCells();
       if (selectedId) fillCells(getRow(selectedId));
     });
+  }
+
+  } else {
+    // Non-edit mode: data-field goes directly on the td
+    if (row.field) td.dataset.field = row.field;
   }
 
   tr.appendChild(td);

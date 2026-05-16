@@ -1266,6 +1266,8 @@ kbd {
   flex-shrink: 0;
   animation: fadeIn 0.15s ease;
 }
+/* display:flex above must not win over the hidden attribute */
+.editToolbar[hidden] { display: none !important; }
 [data-theme="light"] .editToolbar,
 [data-theme="ash"] .editToolbar { background: rgba(0,0,0,0.03); }
 
@@ -1293,21 +1295,26 @@ kbd {
 }
 .infoTable.editMode tr:hover .rowDragHandle { opacity: 0.9; }
 
-/* Controls overlay floated inside the value td — no extra columns */
+/* Controls overlay — td becomes a flex row; value span takes remaining space */
 .copyCell.hasRowControls {
-  position: relative;
-  padding-right: 58px !important;
-  overflow: visible;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-right: 6px !important;
+}
+.cellValue {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .rowControlsOverlay {
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  pointer-events: auto;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 .rowColorPicker {
   width: 18px;
