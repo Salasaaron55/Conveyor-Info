@@ -1398,8 +1398,6 @@ function buildInfoRow(row, panel) {
       wireCopyCells();
       if (selectedId) fillCells(getRow(selectedId));
     });
-  }
-
   } else {
     // Non-edit mode: data-field goes directly on the td
     if (row.field) td.dataset.field = row.field;
