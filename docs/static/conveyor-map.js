@@ -506,7 +506,8 @@ function wireCopyCells() {
 function buildCopyAllText() {
   return [...document.querySelectorAll('.infoTable tr')]
     .map(tr => {
-      const th = tr.querySelector('th'), td = tr.querySelector('td');
+      const th = tr.querySelector('th');
+      const td = tr.querySelector('[data-field]');
       return (th && td) ? `${th.textContent.trim()}:\t${td.textContent.trim()}` : null;
     })
     .filter(Boolean).join('\n');
@@ -1099,3 +1100,428 @@ load().catch(err => {
   console.error(err);
   showToast('Failed to load map data — check console');
 });
+
+// ── Info Panel Layout System ──────────────────────────────────────────────────
+
+const LAYOUT_KEY = 'conveyor-map-layout';
+
+const ALL_FIELDS = [
+  { field: 'shortened_alias',          label: 'Shortened Alias' },
+  { field: 'control_panel',            label: 'Control Panel' },
+  { field: 'incident_energy',          label: 'Incident Energy' },
+  { field: 'cp_location',              label: 'CP Location' },
+  { field: 'mcp',                      label: 'MCP' },
+  { field: 'conveyance_group',         label: 'Conveyance Group' },
+  { field: 'position',                 label: 'Equipment ID' },
+  { field: 'description',              label: 'Description' },
+  { field: 'manufacturer',             label: 'Manufacturer' },
+  { field: 'model',                    label: 'Model' },
+  { field: 'class',                    label: 'Class' },
+  { field: 'amazon_alias',             label: 'Amazon Alias' },
+  { field: 'amazon_alias_description', label: 'Amazon Alias Description' },
+  { field: 'equipment_configuration',  label: 'Equipment Configuration' },
+  { field: 'na_eam_object_code',       label: 'NA EAM Object Code' },
+];
+
+const DEFAULT_LAYOUT = {
+  panels: [
+    {
+      id: 'panel-quick-ref', title: 'Quick Reference',
+      rows: [
+        { id: 'r-shortened_alias',  field: 'shortened_alias',  label: 'Shortened Alias',  color: null },
+        { id: 'r-control_panel',    field: 'control_panel',    label: 'Control Panel',    color: '#ff6a6a' },
+        { id: 'r-incident_energy',  field: 'incident_energy',  label: 'Incident Energy',  color: '#ff6a6a' },
+        { id: 'r-cp_location',      field: 'cp_location',      label: 'CP Location',      color: null },
+        { id: 'r-mcp',              field: 'mcp',              label: 'MCP',              color: null },
+        { id: 'r-conveyance_group', field: 'conveyance_group', label: 'Conveyance Group', color: null },
+      ],
+    },
+    {
+      id: 'panel-apm-ref', title: 'APM Reference',
+      rows: [
+        { id: 'r-position',                 field: 'position',                 label: 'Equipment ID',               color: null },
+        { id: 'r-description',              field: 'description',              label: 'Description',                color: null },
+        { id: 'r-manufacturer',             field: 'manufacturer',             label: 'Manufacturer',               color: null },
+        { id: 'r-model',                    field: 'model',                    label: 'Model',                      color: null },
+        { id: 'r-class',                    field: 'class',                    label: 'Class',                      color: null },
+        { id: 'r-amazon_alias',             field: 'amazon_alias',             label: 'Amazon Alias',               color: null },
+        { id: 'r-amazon_alias_description', field: 'amazon_alias_description', label: 'Amazon Alias Description',   color: null },
+        { id: 'r-equipment_configuration',  field: 'equipment_configuration',  label: 'Equipment Configuration',    color: null },
+        { id: 'r-na_eam_object_code',       field: 'na_eam_object_code',       label: 'NA EAM Object Code',         color: null },
+      ],
+    },
+  ],
+};
+
+let layout = loadLayout();
+let editMode = false;
+let dragSrc  = null;
+
+function loadLayout() {
+  try {
+    const s = JSON.parse(localStorage.getItem(LAYOUT_KEY));
+    if (s && Array.isArray(s.panels)) return s;
+  } catch {}
+  return JSON.parse(JSON.stringify(DEFAULT_LAYOUT));
+}
+
+function saveLayout() {
+  try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch {}
+}
+
+function uid() { return 'id-' + Math.random().toString(36).slice(2, 9); }
+
+function contrastColor(hex) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.55 ? '#1a0000' : '#ffffff';
+}
+
+// ── Render info panels ────────────────────────────────────────────────────────
+
+function renderInfoPanels() {
+  const container = document.getElementById('infoPanels');
+  if (!container) return;
+  container.innerHTML = '';
+
+  for (const panel of layout.panels) {
+    const section = document.createElement('section');
+    section.className = 'panel';
+    section.dataset.panelId = panel.id;
+    section.setAttribute('aria-label', panel.title);
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'panelTitle';
+
+    if (editMode) {
+      const inp = document.createElement('input');
+      inp.type = 'text';
+      inp.value = panel.title;
+      inp.className = 'panelTitleInput';
+      inp.addEventListener('change', e => {
+        panel.title = e.target.value.trim() || panel.title;
+        section.setAttribute('aria-label', panel.title);
+        saveLayout();
+      });
+      header.appendChild(inp);
+
+      const delBtn = document.createElement('button');
+      delBtn.className = 'delPanelBtn';
+      delBtn.type = 'button';
+      delBtn.title = 'Delete section';
+      delBtn.textContent = '✕';
+      delBtn.addEventListener('click', () => {
+        if (layout.panels.length <= 1) { showToast('Cannot remove last section'); return; }
+        layout.panels = layout.panels.filter(p => p.id !== panel.id);
+        saveLayout();
+        renderInfoPanels();
+        wireCopyCells();
+        if (selectedId) fillCells(getRow(selectedId));
+      });
+      header.appendChild(delBtn);
+    } else {
+      header.textContent = panel.title;
+    }
+    section.appendChild(header);
+
+    // Table
+    const table = document.createElement('table');
+    table.className = editMode ? 'infoTable editMode' : 'infoTable';
+    table.setAttribute('role', 'table');
+    const tbody = document.createElement('tbody');
+
+    for (const row of panel.rows) {
+      tbody.appendChild(buildInfoRow(row, panel));
+    }
+    table.appendChild(tbody);
+    section.appendChild(table);
+
+    // Add row button (edit mode only)
+    if (editMode) {
+      const addBtn = document.createElement('button');
+      addBtn.className = 'btn addRowBtn';
+      addBtn.type = 'button';
+      addBtn.textContent = '+ Add Row';
+      addBtn.addEventListener('click', () => showAddRowForm(panel, tbody));
+      section.appendChild(addBtn);
+    }
+
+    container.appendChild(section);
+  }
+
+  // Add section button (edit mode only)
+  if (editMode) {
+    const addSecBtn = document.createElement('button');
+    addSecBtn.className = 'btn addSectionBtn';
+    addSecBtn.type = 'button';
+    addSecBtn.textContent = '+ Add Section';
+    addSecBtn.addEventListener('click', () => {
+      layout.panels.push({ id: uid(), title: 'New Section', rows: [] });
+      saveLayout();
+      renderInfoPanels();
+      wireCopyCells();
+    });
+    container.appendChild(addSecBtn);
+  }
+}
+
+function buildInfoRow(row, panel) {
+  const tr = document.createElement('tr');
+  tr.dataset.rowId  = row.id;
+  tr.dataset.panelId = panel.id;
+
+  if (row.color) {
+    tr.classList.add('highlightRow');
+    tr.style.setProperty('--row-color', row.color);
+    tr.style.setProperty('--row-text',  contrastColor(row.color));
+  }
+
+  if (editMode) {
+    // Drag handle
+    const dragTd = document.createElement('td');
+    dragTd.className = 'rowDragHandle';
+    dragTd.textContent = '⠿';
+    dragTd.title = 'Drag to reorder';
+    tr.appendChild(dragTd);
+
+    tr.draggable = true;
+    tr.addEventListener('dragstart', e => {
+      dragSrc = { panelId: panel.id, rowId: row.id };
+      tr.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    tr.addEventListener('dragend', () => {
+      tr.classList.remove('dragging');
+      document.querySelectorAll('.dragOver').forEach(el => el.classList.remove('dragOver'));
+    });
+    tr.addEventListener('dragover', e => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      tr.classList.add('dragOver');
+    });
+    tr.addEventListener('dragleave', () => tr.classList.remove('dragOver'));
+    tr.addEventListener('drop', e => {
+      e.preventDefault();
+      tr.classList.remove('dragOver');
+      if (!dragSrc || dragSrc.rowId === row.id) return;
+      const srcPanel = layout.panels.find(p => p.id === dragSrc.panelId);
+      const tgtPanel = layout.panels.find(p => p.id === panel.id);
+      if (!srcPanel || !tgtPanel) return;
+      const si = srcPanel.rows.findIndex(r => r.id === dragSrc.rowId);
+      const ti = tgtPanel.rows.findIndex(r => r.id === row.id);
+      if (si === -1 || ti === -1) return;
+      const [moved] = srcPanel.rows.splice(si, 1);
+      tgtPanel.rows.splice(ti, 0, moved);
+      saveLayout();
+      renderInfoPanels();
+      wireCopyCells();
+      if (selectedId) fillCells(getRow(selectedId));
+    });
+  }
+
+  // Label cell
+  const th = document.createElement('th');
+  th.scope = 'row';
+  th.textContent = row.label;
+  tr.appendChild(th);
+
+  // Value cell
+  const td = document.createElement('td');
+  if (row.field) td.dataset.field = row.field;
+  td.className = 'copyCell';
+  td.title = 'Click to copy';
+  tr.appendChild(td);
+
+  if (editMode) {
+    // Color picker + clear
+    const colorTd = document.createElement('td');
+    colorTd.className = 'rowColorCell';
+
+    const colorPick = document.createElement('input');
+    colorPick.type  = 'color';
+    colorPick.className = 'rowColorPicker';
+    colorPick.value = row.color || '#ff6a6a';
+    colorPick.title = 'Set row color';
+    colorPick.style.opacity = row.color ? '1' : '0.35';
+    colorPick.addEventListener('input', e => {
+      row.color = e.target.value;
+      colorPick.style.opacity = '1';
+      saveLayout();
+      // Update tr live without full re-render
+      tr.classList.add('highlightRow');
+      tr.style.setProperty('--row-color', row.color);
+      tr.style.setProperty('--row-text',  contrastColor(row.color));
+    });
+
+    const clearBtn = document.createElement('button');
+    clearBtn.type = 'button';
+    clearBtn.className = 'rowColorClearBtn';
+    clearBtn.textContent = '✕';
+    clearBtn.title = 'Remove color';
+    clearBtn.addEventListener('click', () => {
+      row.color = null;
+      colorPick.style.opacity = '0.35';
+      tr.classList.remove('highlightRow');
+      tr.style.removeProperty('--row-color');
+      tr.style.removeProperty('--row-text');
+      saveLayout();
+    });
+
+    colorTd.appendChild(colorPick);
+    colorTd.appendChild(clearBtn);
+    tr.appendChild(colorTd);
+
+    // Delete button
+    const delTd = document.createElement('td');
+    delTd.className = 'rowDeleteCell';
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'rowDeleteBtn';
+    delBtn.textContent = '✕';
+    delBtn.title = 'Remove row';
+    delBtn.addEventListener('click', () => {
+      panel.rows = panel.rows.filter(r => r.id !== row.id);
+      saveLayout();
+      renderInfoPanels();
+      wireCopyCells();
+      if (selectedId) fillCells(getRow(selectedId));
+    });
+    delTd.appendChild(delBtn);
+    tr.appendChild(delTd);
+  }
+
+  return tr;
+}
+
+function showAddRowForm(panel, tbody) {
+  // Remove any existing form
+  tbody.querySelectorAll('.addRowForm').forEach(el => el.remove());
+
+  const usedFields = new Set(layout.panels.flatMap(p => p.rows.map(r => r.field)).filter(Boolean));
+
+  const tr = document.createElement('tr');
+  tr.className = 'addRowForm';
+
+  const td = document.createElement('td');
+  td.colSpan = 5;
+
+  const inner = document.createElement('div');
+  inner.className = 'addRowFormInner';
+
+  const fieldSel = document.createElement('select');
+  fieldSel.className = 'addRowFieldSelect';
+  fieldSel.innerHTML = '<option value="">— pick field —</option>';
+  for (const { field, label } of ALL_FIELDS) {
+    const opt = document.createElement('option');
+    opt.value = field;
+    opt.textContent = label + (usedFields.has(field) ? ' ✓' : '');
+    fieldSel.appendChild(opt);
+  }
+  const customOpt = document.createElement('option');
+  customOpt.value = '__custom__';
+  customOpt.textContent = 'Custom (no data)';
+  fieldSel.appendChild(customOpt);
+
+  const labelInp = document.createElement('input');
+  labelInp.type = 'text';
+  labelInp.className = 'addRowLabelInput';
+  labelInp.placeholder = 'Label';
+
+  fieldSel.addEventListener('change', () => {
+    const f = ALL_FIELDS.find(x => x.field === fieldSel.value);
+    if (f) labelInp.value = f.label;
+  });
+
+  const confirmBtn = document.createElement('button');
+  confirmBtn.type = 'button';
+  confirmBtn.className = 'btn';
+  confirmBtn.textContent = 'Add';
+  confirmBtn.addEventListener('click', () => {
+    const field = fieldSel.value === '__custom__' || !fieldSel.value ? '' : fieldSel.value;
+    const label = labelInp.value.trim() || ALL_FIELDS.find(x => x.field === field)?.label || 'Custom';
+    if (!field && !labelInp.value.trim()) { showToast('Enter a label'); return; }
+    panel.rows.push({ id: uid(), field, label, color: null });
+    saveLayout();
+    renderInfoPanels();
+    wireCopyCells();
+    if (selectedId) fillCells(getRow(selectedId));
+  });
+
+  const cancelBtn = document.createElement('button');
+  cancelBtn.type = 'button';
+  cancelBtn.className = 'btn';
+  cancelBtn.textContent = 'Cancel';
+  cancelBtn.addEventListener('click', () => tr.remove());
+
+  inner.append(fieldSel, labelInp, confirmBtn, cancelBtn);
+  td.appendChild(inner);
+  tr.appendChild(td);
+  tbody.appendChild(tr);
+  labelInp.focus();
+}
+
+// ── Edit mode toggle ──────────────────────────────────────────────────────────
+
+function initEditMode() {
+  const btn = document.getElementById('editLayoutBtn');
+  if (!btn) return;
+
+  // Pencil only makes sense on the info tab — hide it on other tabs
+  const setEditBtnVisible = (tabName) => {
+    btn.style.display = tabName === 'info' ? '' : 'none';
+    if (tabName !== 'info' && editMode) {
+      editMode = false;
+      btn.classList.remove('active');
+      btn.title = 'Edit info layout';
+      toolbar.hidden = true;
+      renderInfoPanels();
+      wireCopyCells();
+      if (selectedId) fillCells(getRow(selectedId));
+    }
+  };
+  document.querySelectorAll('.tabBtn').forEach(b => {
+    b.addEventListener('click', () => setEditBtnVisible(b.dataset.tab));
+  });
+
+  // Inject toolbar at the top of #tab-info, before #infoPanels
+  const tabInfo = document.getElementById('tab-info');
+  const infoPanels = document.getElementById('infoPanels');
+
+  const toolbar = document.createElement('div');
+  toolbar.id = 'editToolbar';
+  toolbar.className = 'editToolbar';
+  toolbar.hidden = true;
+
+  const resetBtn = document.createElement('button');
+  resetBtn.className = 'btn';
+  resetBtn.type = 'button';
+  resetBtn.textContent = 'Reset Layout';
+  resetBtn.addEventListener('click', () => {
+    if (!confirm('Reset info panel layout to defaults?')) return;
+    layout = JSON.parse(JSON.stringify(DEFAULT_LAYOUT));
+    saveLayout();
+    renderInfoPanels();
+    wireCopyCells();
+    if (selectedId) fillCells(getRow(selectedId));
+    showToast('Layout reset');
+  });
+  toolbar.appendChild(resetBtn);
+  tabInfo.insertBefore(toolbar, infoPanels);
+
+  btn.addEventListener('click', () => {
+    editMode = !editMode;
+    btn.classList.toggle('active', editMode);
+    btn.title = editMode ? 'Done editing' : 'Edit info layout';
+    toolbar.hidden = !editMode;
+    renderInfoPanels();
+    wireCopyCells();
+    if (selectedId) fillCells(getRow(selectedId));
+  });
+}
+
+// ── Boot layout ───────────────────────────────────────────────────────────────
+layout = loadLayout();
+renderInfoPanels();
+initEditMode();

@@ -57,6 +57,7 @@
           >
             Help
           </button>
+          <button id="editLayoutBtn" class="editLayoutBtn" type="button" title="Edit info layout">✏</button>
         </div>
 
         <!-- Info Tab -->
@@ -93,141 +94,7 @@
             </button>
           </div>
 
-          <section class="panel" aria-label="Quick Reference">
-            <div class="panelTitle">Quick Reference</div>
-            <table class="infoTable" role="table">
-              <tbody>
-                <tr>
-                  <th scope="row">Shortened Alias</th>
-                  <td
-                    data-field="shortened_alias"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr class="highlightRow">
-                  <th scope="row">Control Panel</th>
-                  <td
-                    data-field="control_panel"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr class="highlightRow">
-                  <th scope="row">Incident Energy</th>
-                  <td
-                    data-field="incident_energy"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">CP Location</th>
-                  <td
-                    data-field="cp_location"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">MCP</th>
-                  <td
-                    data-field="mcp"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Conveyance Group</th>
-                  <td
-                    data-field="conveyance_group"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-
-          <section class="panel" aria-label="APM Reference">
-            <div class="panelTitle">APM Reference</div>
-            <table class="infoTable" role="table">
-              <tbody>
-                <tr>
-                  <th scope="row">Equipment ID</th>
-                  <td
-                    data-field="position"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Description</th>
-                  <td
-                    data-field="description"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Manufacturer</th>
-                  <td
-                    data-field="manufacturer"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Model</th>
-                  <td
-                    data-field="model"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Class</th>
-                  <td
-                    data-field="class"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Amazon Alias</th>
-                  <td
-                    data-field="amazon_alias"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Amazon Alias Description</th>
-                  <td
-                    data-field="amazon_alias_description"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">Equipment Configuration</th>
-                  <td
-                    data-field="equipment_configuration"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-                <tr>
-                  <th scope="row">NA EAM Object Code</th>
-                  <td
-                    data-field="na_eam_object_code"
-                    class="copyCell"
-                    title="Click to copy"
-                  ></td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+          <div id="infoPanels"></div>
         </div>
 
         <!-- Notes Tab -->
@@ -270,6 +137,12 @@
             <select id="themeSelect" class="settingsSelect">
               <option value="dark">Dark</option>
               <option value="light">Light</option>
+              <option value="forest">Forest</option>
+              <option value="sunset">Sunset</option>
+              <option value="ocean">Ocean</option>
+              <option value="nord">Nord</option>
+              <option value="rose">Rose</option>
+              <option value="ash">Ash</option>
             </select>
           </div>
 
