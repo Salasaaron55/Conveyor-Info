@@ -326,6 +326,7 @@ function select(id, { center = true } = {}) {
   drawMinimap();
   updateNotesPanel();
   if (partsOpen) updatePartsPanel();
+  if (mapEditMode) { updateResizeOverlay(); renderMapEditPanel(); }
 }
 
 function updatePartsPanel() {
@@ -698,8 +699,46 @@ function wireFloatPanels() {
 
 let dragState = null;
 
+els.map.addEventListener('mousedown', (e) => {
+  if (!mapEditMode) return;
+
+  // Resize handle drag
+  const handle = e.target.closest('.resizeHandle');
+  if (handle) {
+    const id = selectedId;
+    const r  = id ? getRow(id) : null;
+    if (!r) return;
+    const b = getBounds(r);
+    if (!b) return;
+    const mp = getViewportMapCoords(e.clientX, e.clientY);
+    conveyorResizeDrag = { id, r, pos: handle.dataset.pos, startMapX: mp.x, startMapY: mp.y, origBounds: { ...b }, currentBounds: { ...b } };
+    e.preventDefault(); e.stopPropagation(); return;
+  }
+
+  // Conveyor node drag
+  const node = e.target.closest('.node:not(.blank)');
+  if (node && node.dataset.id) {
+    const id = node.dataset.id;
+    const r  = getRow(id);
+    if (!r) return;
+    select(id, { center: false });
+    const b  = getBounds(r);
+    const mp = getViewportMapCoords(e.clientX, e.clientY);
+    const origSegs = buildSegments(r);
+    conveyorNodeDrag = {
+      id, r,
+      startMapX: mp.x, startMapY: mp.y,
+      origX: b?.x ?? 0, origY: b?.y ?? 0,
+      hasPath: getPathPoints(r) !== null,
+      origSegments: origSegs ? origSegs.map(s => ({ ...s })) : null,
+    };
+    e.preventDefault(); e.stopPropagation(); return;
+  }
+}, { capture: true });
+
 els.viewport.addEventListener('mousedown', (e) => {
   if (e.target.closest('.node')) return;
+  if (e.target.closest('.resizeHandle')) return;
   dragState = {
     startX: e.clientX, startY: e.clientY,
     scrollLeft: els.viewport.scrollLeft, scrollTop: els.viewport.scrollTop,
@@ -718,6 +757,55 @@ window.addEventListener('mousemove', (e) => {
     clampPanel(el, origLeft + (e.clientX - startX), origTop + (e.clientY - startY));
     return;
   }
+
+  // ── Conveyor resize drag ──
+  if (conveyorResizeDrag) {
+    const mp = getViewportMapCoords(e.clientX, e.clientY);
+    const dx = mp.x - conveyorResizeDrag.startMapX;
+    const dy = mp.y - conveyorResizeDrag.startMapY;
+    let { x, y, w, h } = conveyorResizeDrag.origBounds;
+    const pos = conveyorResizeDrag.pos;
+    const MIN = 10;
+
+    if (pos.includes('n')) { const ny = y + dy; const nh = h - dy; if (nh >= MIN) { y = ny; h = nh; } }
+    if (pos.includes('s')) { h = Math.max(MIN, h + dy); }
+    if (pos.includes('w')) { const nx = x + dx; const nw = w - dx; if (nw >= MIN) { x = nx; w = nw; } }
+    if (pos.includes('e')) { w = Math.max(MIN, w + dx); }
+
+    x = Math.round(x); y = Math.round(y); w = Math.round(w); h = Math.round(h);
+    conveyorResizeDrag.currentBounds = { x, y, w, h };
+
+    // Move the node visually
+    const node = els.map.querySelector(`.node[data-id="${CSS.escape(conveyorResizeDrag.id)}"]`);
+    if (node) { node.style.left = x+'px'; node.style.top = y+'px'; node.style.width = w+'px'; node.style.height = h+'px'; }
+    // Move the overlay visually
+    const ov = document.getElementById('resizeOverlay');
+    if (ov) { ov.style.left = x+'px'; ov.style.top = y+'px'; ov.style.width = w+'px'; ov.style.height = h+'px'; }
+    return;
+  }
+
+  // ── Conveyor node drag ──
+  if (conveyorNodeDrag) {
+    const mp = getViewportMapCoords(e.clientX, e.clientY);
+    const dx = Math.round(mp.x - conveyorNodeDrag.startMapX);
+    const dy = Math.round(mp.y - conveyorNodeDrag.startMapY);
+
+    if (conveyorNodeDrag.hasPath && conveyorNodeDrag.origSegments) {
+      const nodes = els.map.querySelectorAll(`.node[data-id="${CSS.escape(conveyorNodeDrag.id)}"]`);
+      nodes.forEach((n, i) => {
+        const s = conveyorNodeDrag.origSegments[i];
+        if (s) { n.style.left = (s.x + dx)+'px'; n.style.top = (s.y + dy)+'px'; }
+      });
+    } else {
+      const node = els.map.querySelector(`.node[data-id="${CSS.escape(conveyorNodeDrag.id)}"]`);
+      if (node) { node.style.left = (conveyorNodeDrag.origX + dx)+'px'; node.style.top = (conveyorNodeDrag.origY + dy)+'px'; }
+    }
+    // Move the overlay visually
+    const ov = document.getElementById('resizeOverlay');
+    if (ov && !ov.hidden) { ov.style.left = (conveyorNodeDrag.origX + dx)+'px'; ov.style.top = (conveyorNodeDrag.origY + dy)+'px'; }
+    return;
+  }
+
   if (!dragState) return;
   const dx = e.clientX - dragState.startX, dy = e.clientY - dragState.startY;
   if (!dragState.moved && Math.hypot(dx, dy) > 4) {
@@ -730,10 +818,41 @@ window.addEventListener('mousemove', (e) => {
   }
 });
 
-window.addEventListener('mouseup', () => {
+window.addEventListener('mouseup', (e) => {
   if (minimapDragActive) { minimapDragActive = false; saveState(); }
   if (panelDragState) { panelDragState = null; saveState(); }
   if (dragState) { els.viewport.classList.remove('dragging'); dragState = null; }
+
+  // ── Commit resize drag ──
+  if (conveyorResizeDrag) {
+    const { r, currentBounds } = conveyorResizeDrag;
+    if (currentBounds) { r.x = currentBounds.x; r.y = currentBounds.y; r.w = currentBounds.w; r.h = currentBounds.h; }
+    conveyorResizeDrag = null;
+    render(); updateResizeOverlay(); renderMapEditPanel();
+    return;
+  }
+
+  // ── Commit node drag ──
+  if (conveyorNodeDrag) {
+    const mp = getViewportMapCoords(e.clientX, e.clientY);
+    const dx = Math.round(mp.x - conveyorNodeDrag.startMapX);
+    const dy = Math.round(mp.y - conveyorNodeDrag.startMapY);
+    const r  = conveyorNodeDrag.r;
+
+    if (conveyorNodeDrag.hasPath) {
+      if (Array.isArray(r.points)) {
+        r.points = r.points.map(p => [p[0] + dx, p[1] + dy]);
+      } else if (Array.isArray(r.path)) {
+        r.path = r.path.map(p => ({ ...p, x: p.x + dx, y: p.y + dy }));
+      }
+    } else {
+      r.x = conveyorNodeDrag.origX + dx;
+      r.y = conveyorNodeDrag.origY + dy;
+    }
+    conveyorNodeDrag = null;
+    render(); updateResizeOverlay(); renderMapEditPanel();
+    return;
+  }
 });
 
 // ── Ctrl+scroll zoom ──────────────────────────────────────────────────────────
@@ -852,7 +971,7 @@ els.viewport.addEventListener('scroll', () => { drawMinimap(); saveState(); });
 
 // ── Tab system ────────────────────────────────────────────────────────────────
 
-const TABS = ['info', 'notes', 'settings', 'help'];
+const TABS = ['info', 'notes', 'settings', 'help', 'mapEdit'];
 
 function switchTab(name) {
   for (const t of TABS) {
@@ -863,6 +982,14 @@ function switchTab(name) {
     if (panel) panel.hidden = !active;
   }
   if (name === 'notes') updateNotesPanel();
+  // Activate/deactivate map edit mode based on tab
+  const entering = name === 'mapEdit';
+  if (entering !== mapEditMode) {
+    mapEditMode = entering;
+    document.body.classList.toggle('mapEditMode', mapEditMode);
+    updateResizeOverlay();
+    if (mapEditMode) renderMapEditPanel();
+  }
 }
 
 document.querySelectorAll('.tabBtn').forEach(btn => {
@@ -1074,15 +1201,20 @@ applyUserSettings(loadUserSettings());
 syncSettingsUI();
 
 async function load() {
-  const [res, catalogRes, conveyorPartsRes] = await Promise.all([
+  const [res, catalogRes, conveyorPartsRes, allConveyorsRes] = await Promise.all([
     fetch('./data/conveyors-map.json', { cache: 'no-store' }),
     fetch('./data/parts-catalog.json', { cache: 'no-store' }).catch(() => null),
     fetch('./data/conveyor-parts.json', { cache: 'no-store' }).catch(() => null),
+    fetch('./data/conveyors.json',     { cache: 'no-store' }).catch(() => null),
   ]);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   rows = await res.json();
   if (catalogRes?.ok) partsCatalog = await catalogRes.json();
   if (conveyorPartsRes?.ok) conveyorParts = await conveyorPartsRes.json();
+  if (allConveyorsRes?.ok) {
+    const all = await allConveyorsRes.json();
+    unmappedConveyors = Array.isArray(all) ? all : [];
+  }
   rows.sort((a, b) => sortIds(idOf(a), idOf(b)));
 
   render();
@@ -1540,3 +1672,233 @@ function initEditMode() {
 layout = loadLayout();
 renderInfoPanels();
 initEditMode();
+
+// ── Conveyor Map Edit Mode ────────────────────────────────────────────────────
+
+function getViewportMapCoords(clientX, clientY) {
+  const rect = els.viewport.getBoundingClientRect();
+  return {
+    x: (clientX - rect.left + els.viewport.scrollLeft) / zoom,
+    y: (clientY - rect.top  + els.viewport.scrollTop)  / zoom,
+  };
+}
+
+function getUnmappedConveyors() {
+  const mappedIds = new Set(rows.filter(r => !r.blank).map(r => idOf(r)));
+  return unmappedConveyors.filter(r => !mappedIds.has(idOf(r)));
+}
+
+function addConveyorToMap(conveyor) {
+  const vp  = els.viewport;
+  const cx  = Math.round((vp.scrollLeft + vp.clientWidth  / 2) / zoom - 60);
+  const cy  = Math.round((vp.scrollTop  + vp.clientHeight / 2) / zoom - 12);
+  const newRow = { ...conveyor, x: cx, y: cy, w: 120, h: 25, conveyor_type: conveyor.conveyor_type || 'ground_level' };
+  rows.push(newRow);
+  rows.sort((a, b) => sortIds(idOf(a), idOf(b)));
+  render();
+  select(idOf(newRow), { center: false });
+  renderMapEditPanel();
+  showToast(`Added ${idOf(newRow)} to map`);
+}
+
+function removeConveyorFromMap(id) {
+  rows = rows.filter(r => idOf(r) !== id || r.blank);
+  selectedId = null;
+  render();
+  updateResizeOverlay();
+  renderMapEditPanel();
+  showToast(`Removed ${id} from map`);
+}
+
+function exportMapJson() {
+  const data = rows.filter(r => !r.blank);
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'conveyors-map.json'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('Exported conveyors-map.json');
+}
+
+// ── Resize overlay ────────────────────────────────────────────────────────────
+
+function updateResizeOverlay() {
+  const ov = document.getElementById('resizeOverlay');
+  if (!ov) return;
+  if (!mapEditMode || !selectedId) { ov.hidden = true; ov.innerHTML = ''; return; }
+  const r = getRow(selectedId);
+  if (!r) { ov.hidden = true; return; }
+  const b = getBounds(r);
+  if (!b) { ov.hidden = true; return; }
+
+  ov.hidden = false;
+  ov.style.left   = b.x + 'px';
+  ov.style.top    = b.y + 'px';
+  ov.style.width  = b.w + 'px';
+  ov.style.height = b.h + 'px';
+
+  ov.innerHTML = '';
+  // Only show resize handles for simple x/y/w/h conveyors
+  if (!getPathPoints(r)) {
+    for (const pos of ['nw','n','ne','e','se','s','sw','w']) {
+      const h = document.createElement('div');
+      h.className = `resizeHandle rh-${pos}`;
+      h.dataset.pos = pos;
+      ov.appendChild(h);
+    }
+  }
+}
+
+// ── Map Edit sidebar panel ────────────────────────────────────────────────────
+
+function renderMapEditPanel() {
+  const panel = document.getElementById('tab-mapEdit');
+  if (!panel) return;
+  panel.innerHTML = '';
+
+  const r       = selectedId ? getRow(selectedId) : null;
+  const b       = r ? getBounds(r) : null;
+  const hasPath = r ? getPathPoints(r) !== null : false;
+  const unmapped = getUnmappedConveyors();
+
+  // ── Selected conveyor ──
+  const selSec = mkSection('Selected Conveyor');
+
+  if (!r) {
+    selSec.appendChild(mkNote('Click a conveyor on the map to select it.'));
+  } else {
+    const idLabel = document.createElement('div');
+    idLabel.className = 'mapEditSelectedId';
+    idLabel.textContent = idOf(r);
+    selSec.appendChild(idLabel);
+
+    if (b && !hasPath) {
+      // x / y / w / h fields
+      const grid = document.createElement('div');
+      grid.className = 'mapEditPosGrid';
+      for (const key of ['x','y','w','h']) {
+        const lbl = document.createElement('label');
+        lbl.className = 'mapEditFieldLbl';
+        lbl.textContent = key.toUpperCase();
+        const inp = document.createElement('input');
+        inp.type  = 'number';
+        inp.value = String(Math.round(r[key] ?? 0));
+        inp.className = 'mapEditNumInput';
+        inp.addEventListener('change', () => {
+          const v = parseInt(inp.value, 10);
+          if (Number.isFinite(v)) { r[key] = v; render(); updateResizeOverlay(); }
+        });
+        lbl.appendChild(inp);
+        grid.appendChild(lbl);
+      }
+      selSec.appendChild(grid);
+    } else if (hasPath) {
+      selSec.appendChild(mkNote('Path-based conveyor — drag to move.'));
+    }
+
+    // Conveyor type selector
+    const typeLbl = document.createElement('label');
+    typeLbl.className = 'mapEditTypeLbl';
+    typeLbl.textContent = 'Type ';
+    const typeSel = document.createElement('select');
+    typeSel.className = 'settingsSelect mapEditTypeSel';
+    for (const [k, tc] of Object.entries(CONVEYOR_TYPES)) {
+      const opt = document.createElement('option');
+      opt.value = k; opt.textContent = tc.label;
+      if ((r.conveyor_type || '') === k) opt.selected = true;
+      typeSel.appendChild(opt);
+    }
+    typeSel.addEventListener('change', () => { r.conveyor_type = typeSel.value; render(); });
+    typeLbl.appendChild(typeSel);
+    selSec.appendChild(typeLbl);
+
+    // Remove button
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'btn mapEditRemoveBtn';
+    removeBtn.type = 'button';
+    removeBtn.textContent = '✕ Remove from Map';
+    removeBtn.addEventListener('click', () => {
+      if (!confirm(`Remove "${idOf(r)}" from the map?`)) return;
+      removeConveyorFromMap(idOf(r));
+    });
+    selSec.appendChild(removeBtn);
+  }
+  panel.appendChild(selSec);
+
+  // ── Export ──
+  const expSec = mkSection('Export');
+  const expBtn = document.createElement('button');
+  expBtn.className = 'btn';
+  expBtn.type = 'button';
+  expBtn.textContent = '⬇ Export conveyors-map.json';
+  expBtn.addEventListener('click', exportMapJson);
+  expSec.appendChild(expBtn);
+  panel.appendChild(expSec);
+
+  // ── Add to map ──
+  const addSec = mkSection(`Add to Map  (${unmapped.length} off-map)`);
+
+  const searchInp = document.createElement('input');
+  searchInp.type  = 'search';
+  searchInp.className = 'pickerInput';
+  searchInp.placeholder = 'Filter by ID, alias…';
+  searchInp.autocomplete = 'off';
+
+  const list = document.createElement('div');
+  list.className = 'mapEditAddList';
+
+  function fillList(q) {
+    const needle = normalize(q);
+    list.innerHTML = '';
+    const filtered = unmapped.filter(c => {
+      const hay = `${normalize(idOf(c))} ${normalize(c.amazon_alias ?? '')} ${normalize(c.shortened_alias ?? '')} ${normalize(c.description ?? '')}`;
+      return !needle || hay.includes(needle);
+    });
+    if (!filtered.length) {
+      const msg = document.createElement('div');
+      msg.className = 'mapEditAddEmpty';
+      msg.textContent = needle ? 'No matches' : 'All conveyors are already on the map ✓';
+      list.appendChild(msg);
+      return;
+    }
+    const show = filtered.slice(0, 80);
+    for (const c of show) {
+      const btn = document.createElement('button');
+      btn.className = 'mapEditAddItem';
+      btn.type = 'button';
+      const desc = c.description || c.shortened_alias || '';
+      btn.innerHTML = `<span class="mapEditAddId">${escapeHtml(idOf(c))}</span>${desc ? `<span class="mapEditAddDesc">${escapeHtml(desc)}</span>` : ''}`;
+      btn.addEventListener('click', () => addConveyorToMap(c));
+      list.appendChild(btn);
+    }
+    if (filtered.length > 80) {
+      const more = document.createElement('div');
+      more.className = 'mapEditAddEmpty';
+      more.textContent = `…${filtered.length - 80} more — refine search`;
+      list.appendChild(more);
+    }
+  }
+
+  searchInp.addEventListener('input', () => fillList(searchInp.value));
+  fillList('');
+  addSec.append(searchInp, list);
+  panel.appendChild(addSec);
+}
+
+function mkSection(title) {
+  const sec = document.createElement('div');
+  sec.className = 'mapEditSection';
+  const h = document.createElement('div');
+  h.className = 'mapEditSectionTitle';
+  h.textContent = title;
+  sec.appendChild(h);
+  return sec;
+}
+
+function mkNote(text) {
+  const n = document.createElement('div');
+  n.className = 'mapEditNote';
+  n.textContent = text;
+  return n;
+}

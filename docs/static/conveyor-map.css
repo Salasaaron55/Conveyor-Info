@@ -1413,4 +1413,151 @@ kbd {
 .addRowLabelInput { flex: 1; min-width: 80px; }
 .addRowFieldSelect:focus,
 .addRowLabelInput:focus { border-color: var(--focus); }
+
+/* ── Map Edit Mode ─────────────────────────────────────────────────────────── */
+
+/* Make nodes show a move cursor when map-edit is active */
+body.mapEditMode .node:not(.blank) {
+  cursor: grab;
+  outline: 1px dashed rgba(255,255,255,0.25);
+}
+body.mapEditMode .node:not(.blank):hover {
+  outline: 1px solid rgba(255,255,255,0.6);
+  z-index: 10;
+}
+
+/* Resize overlay — sits inside #map so it scales with zoom */
+#resizeOverlay {
+  position: absolute;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 2px solid #facc15;
+  border-radius: 2px;
+  z-index: 100;
+}
+
+/* Resize handles */
+.resizeHandle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #facc15;
+  border: 1px solid #000;
+  border-radius: 2px;
+  pointer-events: all;
+  z-index: 101;
+  box-sizing: border-box;
+}
+.rh-nw { top: -5px;  left: -5px;  cursor: nw-resize; }
+.rh-n  { top: -5px;  left: calc(50% - 5px); cursor: n-resize; }
+.rh-ne { top: -5px;  right: -5px; cursor: ne-resize; }
+.rh-e  { top: calc(50% - 5px); right: -5px; cursor: e-resize; }
+.rh-se { bottom: -5px; right: -5px; cursor: se-resize; }
+.rh-s  { bottom: -5px; left: calc(50% - 5px); cursor: s-resize; }
+.rh-sw { bottom: -5px; left: -5px; cursor: sw-resize; }
+.rh-w  { top: calc(50% - 5px); left: -5px; cursor: w-resize; }
+
+/* Map Edit sidebar panel */
+.mapEditSection {
+  padding: 10px 12px 12px;
+  border-bottom: 1px solid var(--panel-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mapEditSectionTitle {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-label);
+}
+.mapEditSelectedId {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.mapEditNote {
+  font-size: 11px;
+  color: var(--text-label);
+  font-style: italic;
+}
+.mapEditPosGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.mapEditFieldLbl {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-label);
+  text-transform: uppercase;
+}
+.mapEditNumInput {
+  width: 72px;
+  background: var(--input-bg, #1a2035);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 11px;
+  padding: 3px 6px;
+  outline: none;
+}
+.mapEditNumInput:focus { border-color: var(--focus); }
+.mapEditTypeLbl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-label);
+  text-transform: uppercase;
+}
+.mapEditTypeSel { flex: 1; font-size: 11px; }
+.mapEditRemoveBtn {
+  background: #7f1d1d !important;
+  border-color: #f87171 !important;
+  color: #fee2e2 !important;
+  font-size: 11px;
+  padding: 5px 10px;
+  align-self: flex-start;
+}
+.mapEditRemoveBtn:hover { background: #991b1b !important; }
+
+/* Add-to-map list */
+.mapEditAddList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 340px;
+  overflow-y: auto;
+  margin-top: 2px;
+}
+.mapEditAddItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 5px 8px;
+  background: var(--node-bg, #1a2035);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 11px;
+  cursor: pointer;
+  text-align: left;
+  transition: background .12s;
+}
+.mapEditAddItem:hover { background: var(--hover, #243050); border-color: var(--focus); }
+.mapEditAddId   { font-weight: 700; }
+.mapEditAddDesc { color: var(--text-label); font-size: 10px; }
+.mapEditAddEmpty {
+  font-size: 11px;
+  color: var(--text-label);
+  padding: 6px 4px;
+  font-style: italic;
+}
 .addRowForm .btn { font-size: 11px; padding: 4px 8px; }

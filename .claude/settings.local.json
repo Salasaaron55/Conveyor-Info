@@ -4,7 +4,11 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyance-Project\" -Recurse -File)",
       "Bash(Select-Object FullName)",
       "Bash(powershell -Command \"Get-ChildItem -Recurse -File | Select-Object -ExpandProperty FullName | head -100\")",
-      "Read(//c/c/Users/asalron/Desktop/Conveyance-Project/docs/**)"
+      "Read(//c/c/Users/asalron/Desktop/Conveyance-Project/docs/**)",
+      "Bash(node --check \"/c/Users/asalron/Desktop/Conveyor-Info/docs/static/conveyor-map.js\")",
+      "Bash(node --check \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyor-Info\\\\docs\\\\static\\\\conveyor-map.js\")",
+      "Bash(node.exe --check \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyor-Info\\\\docs\\\\static\\\\conveyor-map.js\")",
+      "PowerShell(node --check \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyor-Info\\\\docs\\\\static\\\\conveyor-map.js\" 2>&1)"
     ]
   }
 }
