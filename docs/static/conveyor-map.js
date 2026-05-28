@@ -13,6 +13,8 @@ let mapEditMode = false;
 let unmappedConveyors = [];
 let conveyorNodeDrag = null;
 let conveyorResizeDrag = null;
+let snapX = 5;
+let snapY = 5;
 
 const MAP_W = 8580;
 const MAP_H = 1525;
@@ -767,10 +769,10 @@ window.addEventListener('mousemove', (e) => {
     const pos = conveyorResizeDrag.pos;
     const MIN = 10;
 
-    if (pos.includes('n')) { const ny = y + dy; const nh = h - dy; if (nh >= MIN) { y = ny; h = nh; } }
-    if (pos.includes('s')) { h = Math.max(MIN, h + dy); }
-    if (pos.includes('w')) { const nx = x + dx; const nw = w - dx; if (nw >= MIN) { x = nx; w = nw; } }
-    if (pos.includes('e')) { w = Math.max(MIN, w + dx); }
+    if (pos.includes('n')) { const ny = snapV(y + dy, snapY); const nh = h - (ny - y); if (nh >= MIN) { y = ny; h = nh; } }
+    if (pos.includes('s')) { h = Math.max(MIN, snapV(h + dy, snapY)); }
+    if (pos.includes('w')) { const nx = snapV(x + dx, snapX); const nw = w - (nx - x); if (nw >= MIN) { x = nx; w = nw; } }
+    if (pos.includes('e')) { w = Math.max(MIN, snapV(w + dx, snapX)); }
 
     x = Math.round(x); y = Math.round(y); w = Math.round(w); h = Math.round(h);
     conveyorResizeDrag.currentBounds = { x, y, w, h };
@@ -786,9 +788,13 @@ window.addEventListener('mousemove', (e) => {
 
   // ── Conveyor node drag ──
   if (conveyorNodeDrag) {
-    const mp = getViewportMapCoords(e.clientX, e.clientY);
-    const dx = Math.round(mp.x - conveyorNodeDrag.startMapX);
-    const dy = Math.round(mp.y - conveyorNodeDrag.startMapY);
+    const mp  = getViewportMapCoords(e.clientX, e.clientY);
+    const rawDx = mp.x - conveyorNodeDrag.startMapX;
+    const rawDy = mp.y - conveyorNodeDrag.startMapY;
+    const newX = snapV(conveyorNodeDrag.origX + rawDx, snapX);
+    const newY = snapV(conveyorNodeDrag.origY + rawDy, snapY);
+    const dx = newX - conveyorNodeDrag.origX;
+    const dy = newY - conveyorNodeDrag.origY;
 
     if (conveyorNodeDrag.hasPath && conveyorNodeDrag.origSegments) {
       const nodes = els.map.querySelectorAll(`.node[data-id="${CSS.escape(conveyorNodeDrag.id)}"]`);
@@ -798,11 +804,11 @@ window.addEventListener('mousemove', (e) => {
       });
     } else {
       const node = els.map.querySelector(`.node[data-id="${CSS.escape(conveyorNodeDrag.id)}"]`);
-      if (node) { node.style.left = (conveyorNodeDrag.origX + dx)+'px'; node.style.top = (conveyorNodeDrag.origY + dy)+'px'; }
+      if (node) { node.style.left = newX+'px'; node.style.top = newY+'px'; }
     }
     // Move the overlay visually
     const ov = document.getElementById('resizeOverlay');
-    if (ov && !ov.hidden) { ov.style.left = (conveyorNodeDrag.origX + dx)+'px'; ov.style.top = (conveyorNodeDrag.origY + dy)+'px'; }
+    if (ov && !ov.hidden) { ov.style.left = newX+'px'; ov.style.top = newY+'px'; }
     return;
   }
 
@@ -834,10 +840,12 @@ window.addEventListener('mouseup', (e) => {
 
   // ── Commit node drag ──
   if (conveyorNodeDrag) {
-    const mp = getViewportMapCoords(e.clientX, e.clientY);
-    const dx = Math.round(mp.x - conveyorNodeDrag.startMapX);
-    const dy = Math.round(mp.y - conveyorNodeDrag.startMapY);
-    const r  = conveyorNodeDrag.r;
+    const mp   = getViewportMapCoords(e.clientX, e.clientY);
+    const newX = snapV(conveyorNodeDrag.origX + (mp.x - conveyorNodeDrag.startMapX), snapX);
+    const newY = snapV(conveyorNodeDrag.origY + (mp.y - conveyorNodeDrag.startMapY), snapY);
+    const dx   = newX - conveyorNodeDrag.origX;
+    const dy   = newY - conveyorNodeDrag.origY;
+    const r    = conveyorNodeDrag.r;
 
     if (conveyorNodeDrag.hasPath) {
       if (Array.isArray(r.points)) {
@@ -846,8 +854,8 @@ window.addEventListener('mouseup', (e) => {
         r.path = r.path.map(p => ({ ...p, x: p.x + dx, y: p.y + dy }));
       }
     } else {
-      r.x = conveyorNodeDrag.origX + dx;
-      r.y = conveyorNodeDrag.origY + dy;
+      r.x = newX;
+      r.y = newY;
     }
     conveyorNodeDrag = null;
     render(); updateResizeOverlay(); renderMapEditPanel();
@@ -1683,6 +1691,8 @@ function getViewportMapCoords(clientX, clientY) {
   };
 }
 
+function snapV(v, snap) { return snap > 0 ? Math.round(v / snap) * snap : Math.round(v); }
+
 function getUnmappedConveyors() {
   const mappedIds = new Set(rows.filter(r => !r.blank).map(r => idOf(r)));
   return unmappedConveyors.filter(r => !mappedIds.has(idOf(r)));
@@ -1761,6 +1771,42 @@ function renderMapEditPanel() {
   const b       = r ? getBounds(r) : null;
   const hasPath = r ? getPathPoints(r) !== null : false;
   const unmapped = getUnmappedConveyors();
+
+  // ── Snap controls ──
+  const snapSec = mkSection('Snap Grid');
+  const snapGrid = document.createElement('div');
+  snapGrid.className = 'mapEditPosGrid';
+
+  for (const { label, get, set } of [
+    { label: 'X', get: () => snapX, set: v => { snapX = v; } },
+    { label: 'Y', get: () => snapY, set: v => { snapY = v; } },
+  ]) {
+    const lbl = document.createElement('label');
+    lbl.className = 'mapEditFieldLbl';
+    lbl.textContent = label;
+    const inp = document.createElement('input');
+    inp.type  = 'number';
+    inp.min   = '0';
+    inp.step  = '1';
+    inp.value = String(get());
+    inp.className = 'mapEditNumInput';
+    inp.title = `Snap ${label} — set to 0 to disable`;
+    inp.addEventListener('change', () => {
+      const v = parseInt(inp.value, 10);
+      set(Number.isFinite(v) && v >= 0 ? v : 0);
+      inp.value = String(get());
+    });
+    lbl.appendChild(inp);
+    snapGrid.appendChild(lbl);
+  }
+
+  const snapHint = document.createElement('div');
+  snapHint.className = 'mapEditNote';
+  snapHint.style.gridColumn = '1 / -1';
+  snapHint.textContent = 'Pixels per grid step (0 = off)';
+  snapGrid.appendChild(snapHint);
+  snapSec.appendChild(snapGrid);
+  panel.appendChild(snapSec);
 
   // ── Selected conveyor ──
   const selSec = mkSection('Selected Conveyor');

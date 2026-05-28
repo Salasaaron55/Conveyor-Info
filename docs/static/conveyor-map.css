@@ -1486,6 +1486,10 @@ body.mapEditMode .node:not(.blank):hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
+  align-items: center;
+}
+.mapEditPosGrid .mapEditNote {
+  grid-column: 1 / -1;
 }
 .mapEditFieldLbl {
   display: flex;
