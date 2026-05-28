@@ -57,6 +57,14 @@
           >
             Help
           </button>
+          <button
+            class="tabBtn"
+            data-tab="mapEdit"
+            role="tab"
+            aria-selected="false"
+          >
+            Map Edit
+          </button>
           <button id="editLayoutBtn" class="editLayoutBtn" type="button" title="Edit info layout">✏</button>
         </div>
 
@@ -267,6 +275,8 @@
             </div>
           </div>
         </div>
+        <!-- Map Edit Tab -->
+        <div id="tab-mapEdit" class="tabPanel" role="tabpanel" hidden></div>
       </aside>
 
       <!-- RIGHT: MAP -->
@@ -284,6 +294,7 @@
           <div id="mapSizer" class="mapSizer">
             <div id="map" class="map" aria-label="Map canvas">
               <!-- nodes injected by JS -->
+              <div id="resizeOverlay" hidden></div>
             </div>
           </div>
         </div>

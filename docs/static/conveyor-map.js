@@ -9,6 +9,10 @@ let conveyorParts = {};
 let partsOpen = false;
 let partsSortCol = null;
 let partsSortDir = 1;
+let mapEditMode = false;
+let unmappedConveyors = [];
+let conveyorNodeDrag = null;
+let conveyorResizeDrag = null;
 
 const MAP_W = 8580;
 const MAP_H = 1525;
