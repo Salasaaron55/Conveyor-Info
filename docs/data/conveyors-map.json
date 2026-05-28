@@ -11187,10 +11187,10 @@
     "category": "CONV.FB",
     "na_eam_object_code": "751000002110",
     "serial_number": "FX14A3040-03",
-    "x": 8400,
-    "y": 1200,
+    "x": 6660,
+    "y": 25,
     "w": 60,
-    "h": 25,
+    "h": 75,
     "conveyor_type": "flex"
   },
   {
@@ -11274,10 +11274,10 @@
     "category": "CONV.FB",
     "na_eam_object_code": "751000002113",
     "serial_number": "FX14A3040-06",
-    "x": 8460,
-    "y": 1200,
+    "x": 6660,
+    "y": 100,
     "w": 60,
-    "h": 25,
+    "h": 75,
     "conveyor_type": "flex"
   },
   {
