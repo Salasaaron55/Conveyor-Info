@@ -73,9 +73,8 @@ const els = {
   showMinimapChk:     document.getElementById('showMinimapChk'),
   showGridChk:        document.getElementById('showGridChk'),
   resetSettingsBtn:   document.getElementById('resetSettingsBtn'),
-  partsTab:           document.getElementById('partsTab'),
-  partsTabArrow:      document.getElementById('partsTabArrow'),
-  partsDrawer:        document.getElementById('partsDrawer'),
+  partsModal:         document.getElementById('partsModal'),
+  partsModalClose:    document.getElementById('partsModalClose'),
   partsDrawerTitle:   document.getElementById('partsDrawerTitle'),
   partsTableBody:     document.getElementById('partsTableBody'),
 };
@@ -277,7 +276,7 @@ function render() {
           node.dataset.segment = String(i);
           if (i === 0) node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
           node.addEventListener('click', () => select(id, { center: false }));
-          node.addEventListener('dblclick', () => { select(id, { center: false }); if (!partsOpen) togglePartsPanel(); });
+          node.addEventListener('dblclick', () => { select(id, { center: false }); openPartsModal(); });
         } else {
           node.setAttribute('aria-hidden', 'true');
         }
@@ -291,7 +290,7 @@ function render() {
     if (!isBlank) {
       node.innerHTML = `<span class="label">${escapeHtml(id)}</span>`;
       node.addEventListener('click', () => select(id, { center: false }));
-      node.addEventListener('dblclick', () => { select(id, { center: false }); if (!partsOpen) togglePartsPanel(); });
+      node.addEventListener('dblclick', () => { select(id, { center: false }); openPartsModal(); });
     } else {
       node.setAttribute('aria-hidden', 'true');
     }
@@ -444,14 +443,29 @@ function initPartsSorting() {
   });
 }
 
-function togglePartsPanel() {
-  partsOpen = !partsOpen;
-  els.partsDrawer.classList.toggle('open', partsOpen);
-  els.partsTab.classList.toggle('open', partsOpen);
-  if (partsOpen) updatePartsPanel();
+function openPartsModal() {
+  partsOpen = true;
+  els.partsModal.hidden = false;
+  updatePartsPanel();
 }
 
-if (els.partsTab) els.partsTab.addEventListener('click', togglePartsPanel);
+function closePartsModal() {
+  partsOpen = false;
+  els.partsModal.hidden = true;
+}
+
+function togglePartsPanel() {
+  if (partsOpen) closePartsModal();
+  else openPartsModal();
+}
+
+if (els.partsModalClose) els.partsModalClose.addEventListener('click', closePartsModal);
+if (els.partsModal) {
+  els.partsModal.addEventListener('click', e => {
+    if (e.target.classList.contains('partsModalBackdrop')) closePartsModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && partsOpen) closePartsModal(); });
+}
 
 function centerOnSelected() {
   const r = getRow(selectedId);

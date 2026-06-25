@@ -890,101 +890,59 @@ kbd {
   }
 }
 
-/* ── Parts pull tab ── */
-.partsPullTab {
+/* ── Parts popup modal ── */
+.partsModal[hidden] { display: none !important; }
+.partsModal {
   position: fixed;
-  left: 340px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 200;
+  inset: 0;
+  z-index: 500;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 28px;
-  padding: 16px 0;
-  background: #162032;
-  border: 1px solid #2d5a8e;
-  border-left: none;
-  border-radius: 0 8px 8px 0;
-  cursor: pointer;
-  user-select: none;
-  appearance: none;
-  color: #93c5fd;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  transition: background 0.15s, border-color 0.15s;
 }
-.partsPullTab:hover {
-  background: #1e3a5f;
-  border-color: var(--focus);
+.partsModalBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
-.partsPullTab:focus {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-.partsTabLabel {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  letter-spacing: 0.15em;
-}
-
-.partsTabArrow {
-  font-size: 10px;
-  display: inline-block;
-  transition: transform 0.25s ease;
-}
-
-.partsPullTab.open .partsTabArrow {
-  transform: scaleX(-1);
-}
-
-[data-theme="light"] .partsPullTab,
-[data-theme="ash"] .partsPullTab {
-  background: #e2e8f0;
-  color: #1d4ed8;
-  border-color: #93c5fd;
-}
-[data-theme="light"] .partsPullTab:hover,
-[data-theme="ash"] .partsPullTab:hover {
-  background: #dbeafe;
-  border-color: #3b82f6;
-}
-
-/* ── Parts drawer ── */
-.partsDrawer {
-  position: fixed;
-  left: 340px;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 150;
+.partsModalContent {
+  position: relative;
   background: var(--sidebar-bg);
-  border-left: 1px solid var(--panel-border);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  transform: scaleX(0);
-  transform-origin: left center;
-  visibility: hidden;
-  pointer-events: none;
-  transition: transform 0.25s ease, visibility 0.25s;
+  width: 90vw;
+  max-width: 1100px;
+  max-height: 60vh;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
-.partsDrawer.open {
-  transform: scaleX(1);
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.partsDrawerHeader {
+.partsModalHeader {
   padding: 12px 16px;
   border-bottom: 1px solid var(--panel-border);
   background: var(--header-bg);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.partsModalClose {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1;
+}
+.partsModalClose:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+[data-theme="light"] .partsModalClose:hover,
+[data-theme="ash"] .partsModalClose:hover {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .partsDrawerTitle {

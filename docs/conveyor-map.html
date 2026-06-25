@@ -344,46 +344,37 @@
       aria-atomic="true"
     ></div>
 
-    <!-- Parts pull tab -->
-    <button
-      id="partsTab"
-      class="partsPullTab"
-      type="button"
-      title="Toggle Parts Panel"
-    >
-      <span id="partsTabArrow" class="partsTabArrow">►</span>
-      <span class="partsTabLabel">PARTS</span>
-    </button>
-
-    <!-- Parts slide-out drawer -->
-    <div id="partsDrawer" class="partsDrawer" aria-label="Parts panel">
-      <div class="partsDrawerHeader">
-        <span id="partsDrawerTitle" class="partsDrawerTitle"
-          >Parts — select a conveyor</span
-        >
-      </div>
-      <div class="partsTableWrap">
-        <table class="partsTable">
-          <thead>
-            <tr>
-              <th class="partsImgHeader">IMG</th>
-              <th data-sort="apn">APN</th>
-              <th data-sort="qty">QTY</th>
-              <th data-sort="bin">BIN</th>
-              <th data-sort="description">Description</th>
-              <th data-sort="part_class">Part Class</th>
-              <th data-sort="supplier">Supplier</th>
-              <th data-sort="supplier_part_number">Supplier Part Number</th>
-            </tr>
-          </thead>
-          <tbody id="partsTableBody">
-            <tr>
-              <td colspan="8" class="partsEmpty">
-                Select a conveyor on the map to view its parts.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Parts popup modal -->
+    <div id="partsModal" class="partsModal" hidden>
+      <div class="partsModalBackdrop"></div>
+      <div class="partsModalContent">
+        <div class="partsModalHeader">
+          <span id="partsDrawerTitle" class="partsDrawerTitle">Parts</span>
+          <button id="partsModalClose" class="partsModalClose" type="button" title="Close">✕</button>
+        </div>
+        <div class="partsTableWrap">
+          <table class="partsTable">
+            <thead>
+              <tr>
+                <th class="partsImgHeader">IMG</th>
+                <th data-sort="apn">APN</th>
+                <th data-sort="qty">QTY</th>
+                <th data-sort="bin">BIN</th>
+                <th data-sort="description">Description</th>
+                <th data-sort="part_class">Part Class</th>
+                <th data-sort="supplier">Supplier</th>
+                <th data-sort="supplier_part_number">Supplier Part Number</th>
+              </tr>
+            </thead>
+            <tbody id="partsTableBody">
+              <tr>
+                <td colspan="8" class="partsEmpty">
+                  Select a conveyor on the map to view its parts.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
