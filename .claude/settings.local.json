@@ -8,7 +8,13 @@
       "Bash(node --check \"/c/Users/asalron/Desktop/Conveyor-Info/docs/static/conveyor-map.js\")",
       "Bash(node --check \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyor-Info\\\\docs\\\\static\\\\conveyor-map.js\")",
       "Bash(node.exe --check \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyor-Info\\\\docs\\\\static\\\\conveyor-map.js\")",
-      "PowerShell(node --check \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyor-Info\\\\docs\\\\static\\\\conveyor-map.js\" 2>&1)"
+      "PowerShell(node --check \"C:\\\\Users\\\\asalron\\\\Desktop\\\\Conveyor-Info\\\\docs\\\\static\\\\conveyor-map.js\" 2>&1)",
+      "Bash(python -c ' *)",
+      "Bash(where python3 *)",
+      "Bash(where py *)",
+      "Bash(where node *)",
+      "Bash(node -e ' *)",
+      "PowerShell(py -c \"import openpyxl; print\\('ok'\\)\")"
     ]
   }
 }
